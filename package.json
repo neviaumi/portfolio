@@ -1,0 +1,28 @@
+{
+  "author": "David Ng <david.ng.dev@gmail.com>",
+  "devDependencies": {
+    "@busybox/commitlint-config": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-code-sorting": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-esm": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-text-document": "2024.11.10-alpha.2150",
+    "@busybox/prettier-config": "2024.11.10-alpha.2150",
+    "eslint": "9.15.0",
+    "globals": "15.12.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.2.10",
+    "prettier": "3.3.3"
+  },
+  "engines": {
+    "node": ">=20",
+    "yarn": "Use npm"
+  },
+  "license": "MIT",
+  "name": "portfolio",
+  "private": true,
+  "repository": "git@github.com:davidNHK/portfolio.git",
+  "scripts": {
+    "prepare": "husky"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}
