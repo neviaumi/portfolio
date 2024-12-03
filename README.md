@@ -11,3 +11,7 @@ This repository is a showcase of my abilities and includes the following content
 - My contact information
 
 The information contained here mostly comes from [resume.json](https://neviaumi.github.io/resume.json/)
+
+## Design mock-up
+
+[Figma](https://www.figma.com/design/opnaMAqRjMXTi9SlCi78yi/Portfolio?node-id=0-1&t=eQXhUV60mTQBuuLD-1)
