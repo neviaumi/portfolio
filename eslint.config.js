@@ -10,6 +10,22 @@ import globals from 'globals';
 
 import pkgjson from './package.json' with { type: 'json' };
 
+function withOverride(overrideConfig) {
+  return function createEslintConfigHOC(originalConfigFunc) {
+    return function (...args) {
+      const originalConfig = originalConfigFunc(...args);
+      return {
+        ...originalConfig,
+        ...overrideConfig,
+        rules: {
+          ...originalConfig.rules,
+          ...overrideConfig.rules,
+        },
+      };
+    };
+  };
+}
+
 export default [
   {
     ignores: ['package-lock.json'],
@@ -26,5 +42,9 @@ export default [
   useYamlEslintConfig(),
   usePackageJsonEslintConfig(),
   useJSONEslintConfig(),
-  useMarkdownEslintConfig(),
+  withOverride({
+    rules: {
+      'markdownlint/md013': 'off',
+    },
+  })(useMarkdownEslintConfig)(),
 ];
