@@ -1,0 +1,31 @@
+services:
+  db:
+    environment:
+      MYSQL_DATABASE: wp-db
+      MYSQL_PASSWORD: qwer1234!@#$
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_USER: ${USER}
+    image: mysql:lts
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+  wordpress:
+    build:
+      context: ./systems/cms
+      dockerfile: Dockerfile
+    develop:
+      watch:
+        - action: sync
+          path: systems/cms/wordpress/wp-content
+          target: /var/www/html/wp-content
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wp-db
+      WORDPRESS_DB_PASSWORD: qwer1234!@#$
+      WORDPRESS_DB_USER: ${USER}
+    ports:
+      - '8080:80'
+    restart: always
+volumes:
+  db_data:
+    name: db-data

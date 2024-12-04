@@ -12,7 +12,7 @@ import pkgjson from './package.json' with { type: 'json' };
 
 export default [
   {
-    ignores: ['package-lock.json'],
+    ignores: ['package-lock.json', 'systems/**/*'],
     name: pkgjson.name,
   },
   {
