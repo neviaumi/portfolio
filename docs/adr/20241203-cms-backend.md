@@ -22,6 +22,7 @@ GitHub.
 - Contentful
 - WordPress
 - PayloadCMS
+- TinaCMS
 
 ## Decision Outcome
 
@@ -70,6 +71,18 @@ That experimental implementation is nearly all I want for this portfolio project
 - Good, because [argument b]
 - Bad, because [argument c]
 - … <!-- numbers of pros and cons can vary -->
+
+### TinaCMS
+
+[Example repo](https://github.com/neviaumi/portfolio/tree/be3f34007ed319d0c0be571fec760c40881360dc/systems/cms)
+
+That implementation contain custom models
+
+- Good, because it is dead simple to implement custom models.
+- Good, because it is tailor-made for SSG CMS. All the content is saved over local files.
+- Good, it provides visual editing features. I could edit on the production site directly.
+- Bad, the visual editing feature requires extra configuration to get it to work, and it would couple the frontend and
+  CMS.
 
 ## Links <!-- optional -->
 
