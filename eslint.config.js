@@ -28,7 +28,7 @@ function withOverride(overrideConfig) {
 
 export default [
   {
-    ignores: ['package-lock.json'],
+    ignores: ['package-lock.json', 'systems/cms/**/*'],
     name: pkgjson.name,
   },
   {
