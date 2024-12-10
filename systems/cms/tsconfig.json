@@ -3,7 +3,7 @@
     "baseUrl": "./",
     "jsx": "preserve"
   },
-  "extends": "@busybox/tsconfig/tsconfig-react.json",
   "exclude": ["node_modules"],
+  "extends": "@busybox/tsconfig/tsconfig-react.json",
   "include": ["**/*.ts", "**/*.tsx"]
 }

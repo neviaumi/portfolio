@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-node@v4.1.0
         with:
           node-version-file: .nvmrc
-      - run: bash ./scripts/ci/setup.sh
+      - run: bash ./scripts/setup.sh
       - run: bash ./scripts/ci/test.sh
 name: Verify PR
 

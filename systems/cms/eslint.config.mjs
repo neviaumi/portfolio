@@ -6,6 +6,7 @@ import {
   usePackageJsonEslintConfig,
   useYamlEslintConfig,
 } from "@busybox/eslint-config-text-document";
+import { useTypescriptEslintConfig } from "@busybox/eslint-config-typescript";
 import globals from "globals";
 
 import pkgjson from "./package.json" with { type: "json" };
@@ -42,6 +43,8 @@ export default [
     name: pkgjson.name,
   },
   useESModuleEslintConfig(),
+  useTypescriptEslintConfig(),
+  // useTypescriptDefinitionEslintConfig(),
   useCodeSortingEslintConfig(),
   useYamlEslintConfig(),
   usePackageJsonEslintConfig(),
