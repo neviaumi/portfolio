@@ -1,4 +1,5 @@
 {
   "backend.maxHeapSizeMb": 2048,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "nodejs.editor.formatOnSave.eslint.glob": "{**/*,*}.{js,ts,jsx,tsx,mjs,cjs}"
 }

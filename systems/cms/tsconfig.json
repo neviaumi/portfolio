@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "jsx": "preserve"
+  },
+  "exclude": ["node_modules"],
+  "extends": "@busybox/tsconfig/tsconfig-react.json",
+  "include": ["**/*.ts", "**/*.tsx"]
+}
