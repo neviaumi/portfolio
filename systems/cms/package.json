@@ -1,25 +1,32 @@
 {
-  "name": "cms",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
-    "build-local": "tinacms build --local --skip-indexing --skip-cloud-checks && next build",
-    "start": "tinacms build && next start",
-    "lint": "next lint"
-  },
   "dependencies": {
-    "next": "^14.2.18",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tinacms": "^2.5.0",
+    "@busybox/eslint-config-code-sorting": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-esm": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-text-document": "2024.11.10-alpha.2150",
+    "@busybox/prettier-config": "2024.11.10-alpha.2150",
+    "@busybox/tsconfig": "2024.11.10-alpha.2150",
+    "globals": "15.13.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tinacms": "2.5.0",
     "typescript": "5.5.2"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.6.12",
-    "@types/node": "^22.10.1",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "^14.2.18"
-  }
+    "@tinacms/cli": "1.6.12",
+    "@types/node": "22.10.1",
+    "eslint": "9.15.0"
+  },
+  "engines": {
+    "node": ">=20",
+    "yarn": "Use npm"
+  },
+  "license": "MIT",
+  "name": "@portfoilo/cms",
+  "private": true,
+  "scripts": {
+    "build": "tinacms build",
+    "build-local": "tinacms build --local --skip-indexing --skip-cloud-check",
+    "start": "tinacms build"
+  },
+  "version": "0.0.1"
 }

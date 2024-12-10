@@ -7,8 +7,8 @@
   "rules": {
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "prev": "import", "next": "*" },
-      { "blankLine": "any", "prev": "import", "next": "import" }
+      { "blankLine": "always", "next": "*", "prev": "import" },
+      { "blankLine": "any", "next": "import", "prev": "import" }
     ]
   }
 }

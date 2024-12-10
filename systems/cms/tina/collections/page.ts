@@ -1,19 +1,18 @@
-/**
- * @type {import('tinacms').Collection}
- */
-export default {
+import type { Collection } from "tinacms";
+
+const Page: Collection = {
+  fields: [
+    {
+      isBody: true,
+      label: "Main Content",
+      name: "body",
+      type: "rich-text",
+    },
+  ],
+  format: "mdx",
   label: "Page Content",
   name: "page",
   path: "content/page",
-  format: "mdx",
-  fields: [
-    {
-      name: "body",
-      label: "Main Content",
-      type: "rich-text",
-      isBody: true,
-    },
-  ],
   ui: {
     router: ({ document }) => {
       if (document._sys.filename === "home") {
@@ -23,3 +22,4 @@ export default {
     },
   },
 };
+export default Page;

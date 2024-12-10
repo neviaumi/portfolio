@@ -9,49 +9,49 @@
     "meta": { "flags": ["experimentalData"] },
     "collections": [
       {
-        "label": "Page Content",
-        "name": "page",
-        "path": "content/page",
-        "format": "mdx",
         "fields": [
           {
-            "name": "body",
-            "label": "Main Content",
-            "type": "rich-text",
             "isBody": true,
+            "label": "Main Content",
+            "name": "body",
+            "type": "rich-text",
             "namespace": ["page", "body"],
             "searchable": true,
             "parser": { "type": "mdx" },
             "uid": false
           }
         ],
+        "format": "mdx",
+        "label": "Page Content",
+        "name": "page",
+        "path": "content/page",
         "ui": {},
         "namespace": ["page"]
       },
       {
-        "label": "Blog Posts",
-        "name": "post",
-        "path": "content/post",
         "fields": [
           {
-            "type": "string",
             "label": "Title",
             "name": "title",
+            "type": "string",
             "namespace": ["post", "title"],
             "searchable": true,
             "uid": false
           },
           {
-            "type": "rich-text",
+            "isBody": true,
             "label": "Blog Post Body",
             "name": "body",
-            "isBody": true,
+            "type": "rich-text",
             "namespace": ["post", "body"],
             "searchable": true,
             "parser": { "type": "markdown" },
             "uid": false
           }
         ],
+        "label": "Blog Posts",
+        "name": "post",
+        "path": "content/post",
         "ui": {},
         "namespace": ["post"]
       }
