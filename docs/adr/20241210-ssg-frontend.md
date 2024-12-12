@@ -2,13 +2,13 @@
 
 ## Context and Problem Statement
 
-I want my portfolio site hosted on GitHub Pages and to be able to fetch content from a CMS into the page.
-I want GitHub Pages to be the only infrastructure needed to deploy my portfolio.
+I want my portfolio site hosted on GitHub Pages and to fetch content from a CMS directly onto the page.  
+GitHub Pages should be the only infrastructure needed to deploy my portfolio.
 
 ## Decision Drivers
 
-- Seamless React component integration, specifically I want MUI.
-- Seamless integration with Google Tag Manager.
+- Seamless React component integration. Specifically, I want to use MUI.
+- Seamless integration with Google Tag Manager (GTM).
 
 ## Considered Options
 
@@ -30,35 +30,42 @@ I want GitHub Pages to be the only infrastructure needed to deploy my portfolio.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### [option 1]
+### Gatsby
 
-[example | description | pointer to more information | …] <!-- optional -->
+[Example implementation](https://github.com/neviaumi/portfolio/tree/8e586e18ec0ddd5998d3a2f2a4509a9d5cb72d4b/systems/web/src)
 
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- … <!-- numbers of pros and cons can vary -->
+The proof of concept (POC) included the following integrations:
 
-### [option 2]
+- TinaCMS GraphQL endpoint
+- MUI
+- GTM
 
-[example | description | pointer to more information | …] <!-- optional -->
+- **Good**: Plenty of plugins ready to use.
+- **Good**: Code uses pure React syntax.
+- **Bad**: Nearly everything requires a plugin to implement (e.g., endpoint fetching, header scripts, etc.).
+- **Bad**: The development experience of GTM was poor because it wasn't available in development mode, and the build mode did not support hot reloading.
+- **Bad**: The resulting build was a client-side rendered website.
 
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- … <!-- numbers of pros and cons can vary -->
+### [Option 2]
 
-### [option 3]
+[Example | Description | Pointer to more information | …] <!-- optional -->
 
-[example | description | pointer to more information | …] <!-- optional -->
+- **Good**: [Argument A]
+- **Good**: [Argument B]
+- **Bad**: [Argument C]
+- … <!-- Numbers of pros and cons can vary -->
 
-- Good, because [argument a]
-- Good, because [argument b]
-- Bad, because [argument c]
-- … <!-- numbers of pros and cons can vary -->
+### [Option 3]
+
+[Example | Description | Pointer to more information | …] <!-- optional -->
+
+- **Good**: [Argument A]
+- **Good**: [Argument B]
+- **Bad**: [Argument C]
+- … <!-- Numbers of pros and cons can vary -->
 
 ## Links <!-- optional -->
 
-<!-- example: Refined by [ADR-0005](0005-example.md) -->
+<!-- Example: Refined by [ADR-0005](0005-example.md) -->
 
-- … <!-- numbers of links can vary -->
+- … <!-- Numbers of links can vary -->
