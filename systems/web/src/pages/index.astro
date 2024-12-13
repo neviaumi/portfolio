@@ -1,0 +1,22 @@
+---
+import Button from '../components/react/Button.tsx';
+import Layout from '../layouts/Layout.astro';
+import cms from "../cms.ts";
+import {gql } from "../graphql.ts"
+
+const responseText = await cms.gqlRequest(gql`query IndexPageQuery($relativePath: String!) {
+  page(relativePath: $relativePath) {
+	id
+	body
+  }
+}`,{relativePath: "home.mdx"}).then(data => JSON.stringify(data, null, 4))
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+
+---
+
+<Layout>
+	<div>{responseText}</div>
+	<Button><div>Hello World</div></Button>
+</Layout>
