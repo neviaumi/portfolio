@@ -3,16 +3,20 @@ import eslintPluginAstro from 'eslint-plugin-astro';
 
 import pkgjson from '../package.json' with { type: 'json' };
 
+const configName = `${pkgjson.name}/astro`;
+
 export function useAstroEslintConfig() {
   return {
     files: ['**/*.astro'],
     languageOptions: { parser: astroEslintParser },
-    name: pkgjson.name,
+    name: configName,
     plugins: {
       astro: eslintPluginAstro,
     },
     rules: {
-      ...eslintPluginAstro.configs.recommended.rules, // Recommended config applied to all files
+      ...eslintPluginAstro.configs['flat/recommended'].find(
+        config => config.name === 'astro/recommended',
+      ).rules, // Recommended config applied to all files
     },
   };
 }

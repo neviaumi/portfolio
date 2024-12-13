@@ -4,10 +4,10 @@ import Layout from '../layouts/Layout.astro';
 import cms from "../cms.ts";
 import {gql } from "../graphql.ts"
 
-const responseText = await cms.gqlRequest(gql`query IndexPageQuery($relativePath: String!) {
+const responseText = await cms.gqlRequest(gql`query IndexPage($relativePath: String!) {
   page(relativePath: $relativePath) {
+  	body
 	id
-	body
   }
 }`,{relativePath: "home.mdx"}).then(data => JSON.stringify(data, null, 4))
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build

@@ -10,6 +10,10 @@ import { useTypescriptEslintConfig } from '@busybox/eslint-config-typescript';
 import globals from 'globals';
 
 import { useAstroEslintConfig } from './eslint-configs/astro.js';
+import {
+  useGraphQLEslintConfig,
+  useTrustCodeFilesAsGraphQLEslintConfig,
+} from './eslint-configs/graphql.js';
 import pkgjson from './package.json' with { type: 'json' };
 
 function withOverride(overrideConfig) {
@@ -46,6 +50,8 @@ export default [
   useESModuleEslintConfig(),
   useTypescriptEslintConfig(),
   useAstroEslintConfig(),
+  useTrustCodeFilesAsGraphQLEslintConfig(),
+  useGraphQLEslintConfig(),
   // useTypescriptDefinitionEslintConfig(),
   useCodeSortingEslintConfig(),
   useYamlEslintConfig(),
