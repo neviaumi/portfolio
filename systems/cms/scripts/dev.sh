@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-tinacms dev
+npx tinacms dev
