@@ -2,13 +2,13 @@
 
 ## Context and Problem Statement
 
-I want my portfolio site hosted on GitHub Pages and to fetch content from a CMS directly onto the page.  
-GitHub Pages should be the only infrastructure needed to deploy my portfolio.
+I want my portfolio site hosted on GitHub Pages and to fetch content from a CMS directly on the page.  
+GitHub Pages should be the only infrastructure required to deploy my portfolio.
 
 ## Decision Drivers
 
-- Seamless React component integration. Specifically, I want to use MUI.
-- Seamless integration with Google Tag Manager (GTM).
+- Seamless React component integration; specifically, I want to use MUI (Material-UI).
+- Smooth integration with Google Tag Manager (GTM).
 
 ## Considered Options
 
@@ -30,38 +30,44 @@ GitHub Pages should be the only infrastructure needed to deploy my portfolio.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-### Gatsby
-
-[Example implementation](https://github.com/neviaumi/portfolio/tree/8e586e18ec0ddd5998d3a2f2a4509a9d5cb72d4b/systems/web/src)
-
-The proof of concept (POC) included the following integrations:
+All the example implementations included the following integrations:
 
 - TinaCMS GraphQL endpoint
 - MUI
 - GTM
 
-- **Good**: Plenty of plugins ready to use.
-- **Good**: Code uses pure React syntax.
-- **Bad**: Nearly everything requires a plugin to implement (e.g., endpoint fetching, header scripts, etc.).
-- **Bad**: The development experience of GTM was poor because it wasn't available in development mode, and the build mode did not support hot reloading.
-- **Bad**: The resulting build was a client-side rendered website.
+### Gatsby
 
-### [Option 2]
+[Example implementation](https://github.com/neviaumi/portfolio/tree/8e586e18ec0ddd5998d3a2f2a4509a9d5cb72d4b/systems/web/src)
 
-[Example | Description | Pointer to more information | …] <!-- optional -->
+- **Pros**:
+  - Plenty of plugins ready to use.
+  - Code uses pure React syntax.
+- **Cons**:
+  - Nearly everything requires a plugin to implement (e.g., endpoint fetching, header scripts, etc.).
+  - Poor development experience with GTM as it wasn't available in development mode, and the build mode lacked hot reloading support.
+  - The final build resulted in a client-side rendered website.
 
-- **Good**: [Argument A]
-- **Good**: [Argument B]
-- **Bad**: [Argument C]
-- … <!-- Numbers of pros and cons can vary -->
+### Astro
+
+[Example implementation](https://github.com/neviaumi/portfolio/tree/01a13b5474975d993d23a6511cadd20fdf0c47cf/systems/web)
+
+- **Pros**:
+  - Easy and straightforward to implement. Data fetching and tracker injection were simple.
+  - By default, no JavaScript was delivered to the client.
+  - Great developer experience during development.
+- **Cons**:
+  - Requires learning some Astro-specific component syntax.
 
 ### [Option 3]
 
 [Example | Description | Pointer to more information | …] <!-- optional -->
 
-- **Good**: [Argument A]
-- **Good**: [Argument B]
-- **Bad**: [Argument C]
+- **Pros**:
+  - [Argument A]
+  - [Argument B]
+- **Cons**:
+  - [Argument C]
 - … <!-- Numbers of pros and cons can vary -->
 
 ## Links <!-- optional -->
