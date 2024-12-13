@@ -33,7 +33,7 @@ export default [
       'package-lock.json',
       'tina/tina-lock.json',
       'tina/__generated__/**/*',
-      'tina/public/admin/**/*',
+      'public/admin/**/*',
     ],
     name: pkgjson.name,
   },
