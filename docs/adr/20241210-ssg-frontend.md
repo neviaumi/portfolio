@@ -2,12 +2,12 @@
 
 ## Context and Problem Statement
 
-I want my portfolio site hosted on GitHub Pages and to fetch content from a CMS directly on the page.  
+I want my portfolio site to be hosted on GitHub Pages and fetch content from a CMS directly on the page.  
 GitHub Pages should be the only infrastructure required to deploy my portfolio.
 
 ## Decision Drivers
 
-- Seamless React component integration; specifically, I want to use MUI (Material-UI).
+- Seamless integration with React components, specifically MUI (Material-UI).
 - Smooth integration with Google Tag Manager (GTM).
 
 ## Considered Options
@@ -18,19 +18,11 @@ GitHub Pages should be the only infrastructure required to deploy my portfolio.
 
 ## Decision Outcome
 
-...
-
-### Positive Consequences
-
-- ...
-
-### Negative Consequences <!-- optional -->
-
-- ...
+Astro was selected due to its excellent developer experience (DX) and ease of implementation while maintaining the required features.
 
 ## Pros and Cons of the Options <!-- optional -->
 
-All the example implementations included the following integrations:
+All example implementations included the following integrations:
 
 - TinaCMS GraphQL endpoint
 - MUI
@@ -41,11 +33,11 @@ All the example implementations included the following integrations:
 [Example implementation](https://github.com/neviaumi/portfolio/tree/8e586e18ec0ddd5998d3a2f2a4509a9d5cb72d4b/systems/web/src)
 
 - **Pros**:
-  - Plenty of plugins ready to use.
-  - Code uses pure React syntax.
+  - Numerous plugins readily available.
+  - The code adheres to pure React syntax.
 - **Cons**:
-  - Nearly everything requires a plugin to implement (e.g., endpoint fetching, header scripts, etc.).
-  - Poor development experience with GTM as it wasn't available in development mode, and the build mode lacked hot reloading support.
+  - Almost everything requires a plugin to implement (e.g., endpoint fetching, header scripts, etc.).
+  - Poor development experience with GTM: It wasn’t available during development mode, and the build mode lacked hot reloading support.
   - The final build resulted in a client-side rendered website.
 
 ### Astro
@@ -53,25 +45,23 @@ All the example implementations included the following integrations:
 [Example implementation](https://github.com/neviaumi/portfolio/tree/01a13b5474975d993d23a6511cadd20fdf0c47cf/systems/web)
 
 - **Pros**:
-  - Easy and straightforward to implement. Data fetching and tracker injection were simple.
-  - By default, no JavaScript was delivered to the client.
-  - Great developer experience during development.
+  - Simple and straightforward to implement, including data fetching and tracker injection.
+  - By default, no JavaScript is delivered to the client.
+  - Excellent developer experience during development.
 - **Cons**:
   - Requires learning some Astro-specific component syntax.
 
-### [Option 3]
-
-[Example | Description | Pointer to more information | …] <!-- optional -->
+### Next.js
 
 - **Pros**:
-  - [Argument A]
-  - [Argument B]
+  - Feature-rich and popular.
+  - Dynamic rendering can be implemented relatively easily if needed.
 - **Cons**:
-  - [Argument C]
-- … <!-- Numbers of pros and cons can vary -->
+  - Complex to set up.
+  - Many features are not relevant for this project.
 
 ## Links <!-- optional -->
 
 <!-- Example: Refined by [ADR-0005](0005-example.md) -->
 
-- … <!-- Numbers of links can vary -->
+- … <!-- Number of links can vary -->
