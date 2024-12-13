@@ -1,15 +1,15 @@
-import { useCodeSortingEslintConfig } from "@busybox/eslint-config-code-sorting";
-import { useESModuleEslintConfig } from "@busybox/eslint-config-esm";
+import { useCodeSortingEslintConfig } from '@busybox/eslint-config-code-sorting';
+import { useESModuleEslintConfig } from '@busybox/eslint-config-esm';
 import {
   useJSONEslintConfig,
   useMarkdownEslintConfig,
   usePackageJsonEslintConfig,
   useYamlEslintConfig,
-} from "@busybox/eslint-config-text-document";
-import { useTypescriptEslintConfig } from "@busybox/eslint-config-typescript";
-import globals from "globals";
+} from '@busybox/eslint-config-text-document';
+import { useTypescriptEslintConfig } from '@busybox/eslint-config-typescript';
+import globals from 'globals';
 
-import pkgjson from "./package.json" with { type: "json" };
+import pkgjson from './package.json' with { type: 'json' };
 
 function withOverride(overrideConfig) {
   return function createEslintConfigHOC(originalConfigFunc) {
@@ -30,9 +30,9 @@ function withOverride(overrideConfig) {
 export default [
   {
     ignores: [
-      "package-lock.json",
-      "tina/tina-lock.json",
-      "tina/__generated__/**/*",
+      'package-lock.json',
+      'tina/tina-lock.json',
+      'tina/__generated__/**/*',
     ],
     name: pkgjson.name,
   },
@@ -51,7 +51,7 @@ export default [
   useJSONEslintConfig(),
   withOverride({
     rules: {
-      "markdownlint/md013": "off",
+      'markdownlint/md013': 'off',
     },
   })(useMarkdownEslintConfig)(),
 ];
