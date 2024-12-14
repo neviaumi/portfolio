@@ -34,11 +34,7 @@ function withOverride(overrideConfig) {
 
 export default [
   {
-    ignores: [
-      'package-lock.json',
-      'tina/tina-lock.json',
-      'tina/__generated__/**/*',
-    ],
+    ignores: ['package-lock.json', '.astro/**/*'],
     name: pkgjson.name,
   },
   {
