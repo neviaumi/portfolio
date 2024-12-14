@@ -5,6 +5,7 @@ import post from './collections/post.ts';
 
 export const config = defineConfig({
   build: {
+    host: '0.0.0.0',
     outputFolder: 'admin', // within the public folder
     publicFolder: 'public', // The public asset folder for your framework
   },

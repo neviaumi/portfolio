@@ -1,0 +1,67 @@
+services:
+  cms:
+    build:
+      context: ./systems/cms
+      dockerfile: Dockerfile
+    command: ./scripts/docker/start.sh
+    develop:
+      watch:
+        - action: sync
+          ignore:
+            - systems/cms/tina/__generated__
+            - systems/cms/tina/tina-lock.json
+          path: systems/cms/tina
+          target: /app/tina
+        - action: rebuild
+          path: systems/cms/package.json
+        - action: rebuild
+          path: systems/cms/package-lock.json
+        - action: rebuild
+          path: systems/cms/tsconfig.json
+    entrypoint: /bin/sh
+    ports:
+      - '4001:4001'
+    volumes:
+      - cms-generated-code:/app/tina/__generated__
+      - source: ./systems/cms/content
+        target: /app/content
+        type: bind
+      - source: ./systems/cms/public/uploads
+        target: /app/public/uploads
+        type: bind
+      - source: ./systems/cms/tina/tina-lock.json
+        target: /app/tina/tina-lock.json
+        type: bind
+  web:
+    build:
+      context: systems/web
+      dockerfile: Dockerfile
+      target: base
+    command: ./scripts/docker/start.sh
+    depends_on:
+      cms:
+        condition: service_started
+    develop:
+      watch:
+        - action: sync
+          path: systems/web/src
+          target: /app/src
+        - action: sync
+          path: systems/web/astro.config.mjs
+          target: /app/astro.config.mjs
+        - action: rebuild
+          path: systems/cms/package.json
+        - action: rebuild
+          path: systems/cms/package-lock.json
+        - action: rebuild
+          path: systems/cms/tsconfig.json
+    entrypoint: /bin/sh
+    environment:
+      - WEB_CMS_ENDPOINT=http://cms:4001/graphql
+    ports:
+      - '4321:4321'
+    volumes:
+      - cms-generated-code:/cms
+volumes:
+  cms-generated-code:
+    name: cms-generated-code
