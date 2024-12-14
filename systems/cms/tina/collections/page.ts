@@ -13,13 +13,5 @@ const Page: Collection = {
   label: 'Page Content',
   name: 'page',
   path: 'content/page',
-  ui: {
-    router: ({ document }) => {
-      if (document._sys.filename === 'home') {
-        return `/`;
-      }
-      return undefined;
-    },
-  },
 };
 export default Page;
