@@ -1,7 +1,9 @@
 import { defineConfig } from 'tinacms';
 
-import page from './collections/page.ts';
-import post from './collections/post.ts';
+import CoreValues from './collections/core-values.ts';
+import Experiences from './collections/experiences.ts';
+import Pages from './collections/pages.ts';
+import Skills from './collections/skills.ts';
 
 export const config = defineConfig({
   build: {
@@ -22,7 +24,7 @@ export const config = defineConfig({
     },
   },
   schema: {
-    collections: [page, post],
+    collections: [CoreValues, Experiences, Skills, Pages],
   },
 });
 

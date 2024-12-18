@@ -61,7 +61,7 @@ services:
     ports:
       - '4321:4321'
     volumes:
-      - cms-generated-code:/cms
+      - cms-generated-code:/cms/tina/__generated__
 volumes:
   cms-generated-code:
     name: cms-generated-code

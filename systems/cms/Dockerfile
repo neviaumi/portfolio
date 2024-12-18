@@ -3,7 +3,7 @@ FROM node:20-alpine AS base
 
 WORKDIR /app
 
-COPY ./package.json ./package-lock.json ./tsconfig.json  ./
+COPY ./package.json ./package-lock.json ./tsconfig.json ./vite.config.js ./
 COPY ./tina/ ./tina/
 COPY ./public ./public/
 COPY ./scripts/docker/ ./scripts/docker/
