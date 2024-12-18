@@ -15,3 +15,9 @@ The information contained here mostly comes from [resume.json](https://neviaumi.
 ## Design mock-up
 
 [Figma](https://www.figma.com/design/opnaMAqRjMXTi9SlCi78yi/Portfolio?node-id=0-1&t=eQXhUV60mTQBuuLD-1)
+
+## Spin-up development
+
+```shell
+bash ./scripts/dev.sh
+```

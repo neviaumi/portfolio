@@ -1,0 +1,24 @@
+{
+  "sections": [
+    {
+      "level": 6,
+      "section": "Automated Testing"
+    },
+    {
+      "level": 6,
+      "section": "Agile Team collaborate"
+    },
+    {
+      "level": 6,
+      "section": "Infrastructure"
+    },
+    {
+      "level": 8,
+      "section": "Backend Development"
+    },
+    {
+      "level": 10,
+      "section": "Web Frontend Development"
+    }
+  ]
+}
