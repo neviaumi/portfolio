@@ -7,29 +7,32 @@ import {gql } from "../graphql.ts"
 const responseText = await cms.gqlRequest(gql`query IndexPage($relativePath: String!) {
   page(relativePath: $relativePath) {
     ... on PageWhoAmI {
-      summary {
-        name
-        position
-        profilePicture
-        careerOverview
-      }
       coreValues {
         heading
         values {
           ... on CoreValue {
+            id
             values {
-              name
               icon
+              name
             }
           }
         }
       }
+      id
       skills {
         ... on Skill {
+          id
           sections {
             section
           }
         }
+      }
+      summary {
+        careerOverview
+        name
+        position
+        profilePicture
       }
     }
   }
