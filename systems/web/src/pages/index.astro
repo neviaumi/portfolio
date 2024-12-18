@@ -6,10 +6,34 @@ import {gql } from "../graphql.ts"
 
 const responseText = await cms.gqlRequest(gql`query IndexPage($relativePath: String!) {
   page(relativePath: $relativePath) {
-  	body
-	id
+    ... on PageWhoAmI {
+      summary {
+        name
+        position
+        profilePicture
+        careerOverview
+      }
+      coreValues {
+        heading
+        values {
+          ... on CoreValue {
+            values {
+              name
+              icon
+            }
+          }
+        }
+      }
+      skills {
+        ... on Skill {
+          sections {
+            section
+          }
+        }
+      }
+    }
   }
-}`,{relativePath: "home.mdx"}).then(data => JSON.stringify(data, null, 4))
+}`,{relativePath: "who-am-i.md"}).then(data => JSON.stringify(data, null, 4))
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
