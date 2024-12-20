@@ -49,7 +49,10 @@ export default function ExperiencesSection({
                 component={'li'}
                 key={work.name}
                 sx={{
-                  width: '100vw',
+                  width: {
+                    lg: '24rem',
+                    xs: '100vw',
+                  },
                 }}
                 title={work.name}
               >

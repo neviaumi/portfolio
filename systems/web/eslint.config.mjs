@@ -1,5 +1,6 @@
 import { useCodeSortingEslintConfig } from '@busybox/eslint-config-code-sorting';
 import { useESModuleEslintConfig } from '@busybox/eslint-config-esm';
+import { useReactEslintConfig } from '@busybox/eslint-config-react';
 import {
   useJSONEslintConfig,
   useMarkdownEslintConfig,
@@ -45,6 +46,7 @@ export default [
   },
   useESModuleEslintConfig(),
   useTypescriptEslintConfig(),
+  useReactEslintConfig(),
   useAstroEslintConfig(),
   useTrustCodeFilesAsGraphQLEslintConfig(),
   useGraphQLEslintConfig(),

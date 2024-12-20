@@ -2,7 +2,8 @@
 import {Page, Main} from "../components/react/PageContainer"
 import NavigationBar from '../components/react/NavigationBar.tsx';
 import SummarySection from "../components/who-am-i/react/SummarySection.tsx"
-import CoreValuesSection from "../components/who-am-i/react/CoreValuesSection.tsx"
+import SkillsSection from "../components/who-am-i/react/SkillsSection.tsx"
+import CoreValuesSection, {prepareCoreValuesProps} from "../components/who-am-i/react/CoreValuesSection.tsx"
 import ExperiencesSection from "../components/who-am-i/react/ExperiencesSection.tsx"
 import ReferencesSection from "../components/who-am-i/react/ReferencesSection.tsx"
 import Query from "../components/who-am-i/query.graphql.ts"
@@ -11,11 +12,11 @@ import cms from "../cms.ts";
 const {page} = await cms.gqlRequest(Query,{relativePath: "who-am-i.md"}).then(data => data.data)
 const title = page.title
 const summary = page.summary;
-const coreValues = page.coreValues;
+const {heading: coreValueSectionHeading, values: {values: _coreValues}} = page.coreValues;
+const coreValues = await prepareCoreValuesProps(_coreValues);
 const experiences = page.experiences;
 const references = page.references;
-const skills = page.skills;
-await Promise.all(coreValues.values.values.map((coreValue: {icon: string}) => cms.copyAssetsToLocalFolder(coreValue.icon)))
+const skills = page.skills.sections;
 
 ---
 
@@ -27,10 +28,10 @@ await Promise.all(coreValues.values.values.map((coreValue: {icon: string}) => cm
 		flexDirection: 'column',
 	}}>
 		<SummarySection summary={summary}/>
-		<CoreValuesSection heading={coreValues.heading} values={coreValues.values.values}/>
+		<CoreValuesSection heading={coreValueSectionHeading} values={coreValues}/>
+		<SkillsSection client:load skills={skills}/>
 		<ExperiencesSection works={experiences.works}/>
 		<ReferencesSection references={references}/>
-		<pre >{JSON.stringify(skills, null, 4)}</pre>
 	</Main>
 	</Page>
 </Layout>
