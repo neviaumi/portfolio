@@ -1,4 +1,3 @@
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -49,7 +48,6 @@ export default function CoreValuesSection({
           }}
         >
           {values.map(async value => {
-            // const iconUrl = cms.locatedFromLocalFolder(value.icon);
             const icon = await getImage({
               height: 40,
               src: import(cms.locatedFromLocalFolder(value.icon)),
