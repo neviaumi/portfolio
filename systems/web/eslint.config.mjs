@@ -35,7 +35,7 @@ function withOverride(overrideConfig) {
 
 export default [
   {
-    ignores: ['package-lock.json', '.astro/**/*'],
+    ignores: ['package-lock.json', '.astro/**/*', 'dist/**/*'],
     name: pkgjson.name,
   },
   {
