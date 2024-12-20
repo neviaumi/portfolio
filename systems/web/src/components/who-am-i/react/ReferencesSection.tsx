@@ -51,7 +51,10 @@ export default function ReferencesSection({
                 component={'li'}
                 key={reference.name}
                 sx={{
-                  width: '100vw',
+                  width: {
+                    lg: '24rem',
+                    xs: '100vw',
+                  },
                 }}
                 title={reference.name}
               >

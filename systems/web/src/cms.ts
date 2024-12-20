@@ -1,3 +1,4 @@
+import { getImage } from 'astro:assets';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -28,8 +29,27 @@ async function copyAssetsToLocalFolder(src: string) {
   );
 }
 
-function locatedFromLocalFolder(src: string) {
+function locatedFilePathFromLocalFolder(src: string) {
   return path.join(currentDir, 'assets', src);
 }
 
-export default { copyAssetsToLocalFolder, gqlRequest, locatedFromLocalFolder };
+function resolveUrlFromLocalImageFilePath(
+  src: string,
+  { height, width }: { height: number; width: number },
+) {
+  return getImage({
+    height,
+    src: import(
+      /* @vite-ignore */
+      src
+    ),
+    width,
+  }).then(image => image.src);
+}
+
+export default {
+  copyAssetsToLocalFolder,
+  gqlRequest,
+  locatedFilePathFromLocalFolder,
+  resolveUrlFromLocalImageFilePath,
+};

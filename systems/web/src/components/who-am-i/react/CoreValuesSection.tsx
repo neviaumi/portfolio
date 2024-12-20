@@ -4,10 +4,25 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { getImage } from 'astro:assets';
 import React from 'react';
 
 import cms from '../../../cms.ts';
+
+export async function prepareCoreValuesProps(
+  values: { brief: string; icon: string; name: string }[],
+) {
+  return Promise.all(
+    values.map(async value => {
+      await cms.copyAssetsToLocalFolder(value.icon);
+      return Object.assign(value, {
+        icon: await cms.resolveUrlFromLocalImageFilePath(
+          cms.locatedFilePathFromLocalFolder(value.icon),
+          { height: 40, width: 40 },
+        ),
+      });
+    }),
+  );
+}
 
 export default function CoreValuesSection({
   heading,
@@ -47,18 +62,17 @@ export default function CoreValuesSection({
             width: 'fit-content',
           }}
         >
-          {values.map(async value => {
-            const icon = await getImage({
-              height: 40,
-              src: import(cms.locatedFromLocalFolder(value.icon)),
-              width: 40,
-            });
+          {values.map(value => {
             return (
               <Card
                 component={'li'}
                 key={value.name}
                 sx={{
-                  width: '100vw',
+                  maxWidth: '100vw',
+                  width: {
+                    lg: '24rem',
+                    xs: '100vw',
+                  },
                 }}
                 title={value.name}
               >
@@ -69,7 +83,7 @@ export default function CoreValuesSection({
                         backgroundColor: 'action.active',
                         height: 40,
                         marginRight: 2,
-                        maskImage: `url(${icon.src})`,
+                        maskImage: `url(${value.icon})`,
                         maskPosition: 'center',
                         maskRepeat: 'no-repeat',
                         maskSize: 'cover',
