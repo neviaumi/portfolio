@@ -14,13 +14,8 @@ export async function prepareCoreValuesProps(
 ) {
   return Promise.all(
     values.map(async value => {
-      await cms.copyAssetsToLocalFolder(value.icon);
-      return Object.assign(value, {
-        icon: await cms.resolveUrlFromLocalImageFilePath(
-          cms.locatedFilePathFromLocalFolder(value.icon),
-          { height: 40, width: 40 },
-        ),
-      });
+      await cms.copyAssetToPublicFolder(value.icon);
+      return value;
     }),
   );
 }
