@@ -186,6 +186,14 @@
           {
             "fields": [
               {
+                "label": "Page title",
+                "name": "title",
+                "type": "string",
+                "namespace": ["page", "whoAmI", "title"],
+                "searchable": true,
+                "uid": false
+              },
+              {
                 "fields": [
                   {
                     "description": "What your name?",
@@ -2528,6 +2536,15 @@
         "fields": [
           {
             "kind": "FieldDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "arguments": [],
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
+          {
+            "kind": "FieldDefinition",
             "name": { "kind": "Name", "value": "summary" },
             "arguments": [],
             "type": {
@@ -2833,6 +2850,14 @@
         "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "PageWhoAmIFilter" },
         "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "StringFilter" }
+            }
+          },
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "summary" },
@@ -3828,6 +3853,14 @@
         "kind": "InputObjectTypeDefinition",
         "name": { "kind": "Name", "value": "PageWhoAmIMutation" },
         "fields": [
+          {
+            "kind": "InputValueDefinition",
+            "name": { "kind": "Name", "value": "title" },
+            "type": {
+              "kind": "NamedType",
+              "name": { "kind": "Name", "value": "String" }
+            }
+          },
           {
             "kind": "InputValueDefinition",
             "name": { "kind": "Name", "value": "summary" },

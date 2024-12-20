@@ -2,6 +2,7 @@ import type { Collection, Template } from 'tinacms';
 
 const WhoAmIPage: Template = {
   fields: [
+    { label: 'Page title', name: 'title', type: 'string' },
     {
       fields: [
         {
