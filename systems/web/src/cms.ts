@@ -18,8 +18,8 @@ function gqlRequest(query: ReturnType<typeof gql>, variables?: any) {
   );
 }
 
-async function copyAssetsToLocalFolder(src: string) {
-  const localDestination = path.join(currentDir, 'assets', src);
+async function copyAssetToPublicFolder(src: string) {
+  const localDestination = path.join(currentDir, '../', 'public', src);
   await mkdir(path.parse(localDestination).dir, { recursive: true });
   await writeFile(
     localDestination,
@@ -29,27 +29,7 @@ async function copyAssetsToLocalFolder(src: string) {
   );
 }
 
-function locatedFilePathFromLocalFolder(src: string) {
-  return path.join(currentDir, 'assets', src);
-}
-
-function resolveUrlFromLocalImageFilePath(
-  src: string,
-  { height, width }: { height: number; width: number },
-) {
-  return getImage({
-    height,
-    src: import(
-      /* @vite-ignore */
-      src
-    ),
-    width,
-  }).then(image => image.src);
-}
-
 export default {
-  copyAssetsToLocalFolder,
+  copyAssetToPublicFolder,
   gqlRequest,
-  locatedFilePathFromLocalFolder,
-  resolveUrlFromLocalImageFilePath,
 };
