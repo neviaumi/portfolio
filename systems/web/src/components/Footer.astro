@@ -1,0 +1,11 @@
+---
+import {dependencies} from "../../package.json" with { type: 'json' };
+
+const astroVersion = dependencies.astro;
+const tinaVersion = dependencies.tinacms;
+const year = new Date().getFullYear();
+---
+<footer style="text-align: center;">
+    <p>Powered by <a href="https://tina.io/" target="_blank">TinaCMS {tinaVersion}</a> and <a href="https://astro.build/" target="_blank">Astro {astroVersion}</a></p>
+    <p>Generated on {year}</p>
+</footer>
