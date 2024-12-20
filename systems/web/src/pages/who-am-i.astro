@@ -1,6 +1,6 @@
 ---
 import {Page, Main} from "../components/react/PageContainer"
-import NavigationBar from '../components/react/NavigationBar.tsx';
+import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
 import SummarySection from "../components/who-am-i/react/SummarySection.tsx"
 import SkillsSection from "../components/who-am-i/react/SkillsSection.tsx"
 import CoreValuesSection, {prepareCoreValuesProps} from "../components/who-am-i/react/CoreValuesSection.tsx"
@@ -22,7 +22,9 @@ const skills = page.skills.sections;
 
 <Layout title={title}>
 	<Page>
-		<NavigationBar title={title}/>
+		<NavigationBar title={title}>
+			<DrawerToggleButton client:load slot="drawer" title={title}/>
+		</NavigationBar>
 	<Main sx={{
 		display: 'flex',
 		flexDirection: 'column',

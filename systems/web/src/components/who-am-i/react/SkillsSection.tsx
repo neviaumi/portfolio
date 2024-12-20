@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import {
   Chart,
@@ -96,6 +97,7 @@ export default function SkillsSection({
       </Typography>
       <Paper
         sx={{
+          alignItems: 'center',
           aspectRatio: 1,
           display: 'flex',
           height: {
@@ -113,14 +115,9 @@ export default function SkillsSection({
         }}
       >
         {isLoading && (
-          <Box
-            sx={{
-              height: `38rem`,
-              width: '100vw',
-            }}
-          >
-            Loading...
-          </Box>
+          <Skeleton
+            sx={{ height: '100%', position: 'absolute', width: '100%' }}
+          />
         )}
         <Box component={'canvas'} ref={canvasRef} />
       </Paper>
