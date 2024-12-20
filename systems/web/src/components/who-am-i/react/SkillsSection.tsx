@@ -85,7 +85,7 @@ export default function SkillsSection({
     return;
   }, [isLoading, skills]);
   return (
-    <section title={'Skills'}>
+    <section title={'Skills Radar'}>
       <Typography
         component={'header'}
         sx={{
@@ -93,7 +93,7 @@ export default function SkillsSection({
         }}
         variant={'h4'}
       >
-        Skills
+        Skills Radar
       </Typography>
       <Paper
         sx={{
