@@ -6,7 +6,7 @@ const configName = `${pkgjson.name}/graphql`;
 
 export function useTrustCodeFilesAsGraphQLEslintConfig() {
   return {
-    files: ['**/*.astro'],
+    files: ['**/*.astro', '**/*.ts', '**/*.tsx'],
     name: configName,
     processor: graphqlPlugin.processor,
   };

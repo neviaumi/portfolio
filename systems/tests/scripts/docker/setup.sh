@@ -3,3 +3,4 @@
 set -e
 
 npm ci --ignore-scripts
+npx playwright install chromium

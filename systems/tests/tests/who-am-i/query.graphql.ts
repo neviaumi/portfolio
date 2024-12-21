@@ -1,6 +1,7 @@
-import { gql } from '../../graphql.ts';
+import cms from '../cms.ts';
+import { gql } from '../graphql.ts';
 
-export default gql`
+const query = gql`
   query IndexPage($relativePath: String!) {
     page(relativePath: $relativePath) {
       ... on PageWhoAmI {
@@ -54,3 +55,11 @@ export default gql`
     }
   }
 `;
+
+export function replicateFrontendCMSQuery() {
+  return cms
+    .gqlRequest(query, {
+      relativePath: 'who-am-i.md',
+    })
+    .then(resp => resp.data);
+}

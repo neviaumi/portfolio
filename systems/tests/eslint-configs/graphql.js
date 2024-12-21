@@ -4,14 +4,6 @@ import pkgjson from '../package.json' with { type: 'json' };
 
 const configName = `${pkgjson.name}/graphql`;
 
-export function useTrustCodeFilesAsGraphQLEslintConfig() {
-  return {
-    files: ['**/*.astro'],
-    name: configName,
-    processor: graphqlPlugin.processor,
-  };
-}
-
 export function useGraphQLEslintConfig() {
   return {
     files: ['**/*.graphql'],
@@ -51,5 +43,13 @@ export function useGraphQLEslintConfig() {
         },
       ],
     },
+  };
+}
+
+export function useTrustCodeFilesAsGraphQLEslintConfig() {
+  return {
+    files: ['**/*.ts'],
+    name: configName,
+    processor: graphqlPlugin.processor,
   };
 }
