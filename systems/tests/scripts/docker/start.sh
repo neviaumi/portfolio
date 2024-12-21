@@ -2,5 +2,4 @@
 
 set -e
 
-cp ./vite.config.js ./node_modules/@tinacms/app
-npx tinacms dev
+npx playwright test

@@ -3,3 +3,4 @@ set -ex
 
 npx tsc
 npx eslint .
+npx playwright test
