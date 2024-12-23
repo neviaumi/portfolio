@@ -70,6 +70,7 @@ export default function CoreValuesSection({
                     xs: '100vw',
                   },
                 }}
+                tabIndex={0}
                 title={value.name}
               >
                 <CardHeader

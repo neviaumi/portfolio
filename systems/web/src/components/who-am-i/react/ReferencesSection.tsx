@@ -56,10 +56,16 @@ export default function ReferencesSection({
                     xs: '100vw',
                   },
                 }}
+                tabIndex={0}
                 title={reference.name}
               >
                 <CardHeader
-                  avatar={<Avatar src={reference.profilePicture} />}
+                  avatar={
+                    <Avatar
+                      alt={reference.name}
+                      src={reference.profilePicture}
+                    />
+                  }
                   component={'header'}
                   subheader={reference.relationship}
                   subheaderTypographyProps={{
