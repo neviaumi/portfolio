@@ -54,6 +54,7 @@ export default function ExperiencesSection({
                     xs: '100vw',
                   },
                 }}
+                tabIndex={0}
                 title={work.name}
               >
                 <CardHeader
