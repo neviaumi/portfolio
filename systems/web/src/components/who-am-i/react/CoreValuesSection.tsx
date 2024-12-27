@@ -79,7 +79,6 @@ export default function CoreValuesSection({
                       sx={{
                         backgroundColor: 'action.active',
                         height: 40,
-                        marginRight: 2,
                         maskImage: `url(${value.icon})`,
                         maskPosition: 'center',
                         maskRepeat: 'no-repeat',
