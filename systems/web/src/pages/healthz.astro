@@ -1,0 +1,17 @@
+---
+import cms from "../cms.ts";
+import { gql } from '../graphql.ts';
+
+const result = await cms.gqlRequest(gql`query HealthCheck{
+  collections {
+    name
+  }
+}`,{}).then(data => data.data)
+
+if (!result?.collections?.length) {
+  throw new Error('No collections found');
+}
+---
+<ul>
+    {result.collections.map((collection: {name: string}) => <li>{collection.name}</li>)}
+</ul>
