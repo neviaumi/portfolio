@@ -1,8 +1,6 @@
 services:
   cms:
     command: ./scripts/docker/start.sh --test
-    environment:
-      - CMS_BASE_URL=http://localhost:4001
   tests:
     build:
       context: systems/tests
@@ -20,5 +18,3 @@ services:
       - TESTS_CMS_ENDPOINT=http://cms:4001/graphql
   web:
     command: ./scripts/docker/start.sh --test
-    environment:
-      - WEB_BASE_URL=http://localhost:4321
