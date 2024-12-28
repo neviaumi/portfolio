@@ -20,18 +20,6 @@ services:
         - action: rebuild
           path: systems/cms/tsconfig.json
     entrypoint: /bin/sh
-    ports:
-      - '4001:4001'
-    volumes:
-      - source: ./systems/cms/content
-        target: /app/content
-        type: bind
-      - source: ./systems/cms/public/uploads
-        target: /app/public/uploads
-        type: bind
-      - source: ./systems/cms/tina/tina-lock.json
-        target: /app/tina/tina-lock.json
-        type: bind
   web:
     build:
       context: systems/web
@@ -41,22 +29,6 @@ services:
     depends_on:
       cms:
         condition: service_started
-    develop:
-      watch:
-        - action: sync
-          path: systems/web/src
-          target: /app/src
-        - action: sync
-          path: systems/web/astro.config.mjs
-          target: /app/astro.config.mjs
-        - action: rebuild
-          path: systems/web/package.json
-        - action: rebuild
-          path: systems/web/package-lock.json
-        - action: rebuild
-          path: systems/web/tsconfig.json
     entrypoint: /bin/sh
     environment:
       - WEB_CMS_BASE_URL=http://cms:4001/graphql
-    ports:
-      - '4321:4321'

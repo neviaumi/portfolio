@@ -1,5 +1,5 @@
-import globals from 'globals';
 import playwright from 'eslint-plugin-playwright';
+import globals from 'globals';
 
 export default [
   {
@@ -15,13 +15,13 @@ export default [
 
 export function usePlaywrightEslintConfig() {
   return {
+    files: ['tests/**/*.spec.ts'],
     languageOptions: {
       globals: globals['shared-node-browser'],
     },
     plugins: {
       playwright,
     },
-    files: ['tests/**/*.spec.ts'],
     rules: {
       ...playwright.configs['flat/recommended'].rules,
     },

@@ -8,13 +8,13 @@ import {
   useYamlEslintConfig,
 } from '@busybox/eslint-config-text-document';
 import { useTypescriptEslintConfig } from '@busybox/eslint-config-typescript';
-import {usePlaywrightEslintConfig} from "./eslint-configs/playwright.js"
 import globals from 'globals';
 
 import {
   useGraphQLEslintConfig,
   useTrustCodeFilesAsGraphQLEslintConfig,
 } from './eslint-configs/graphql.js';
+import { usePlaywrightEslintConfig } from './eslint-configs/playwright.js';
 import pkgjson from './package.json' with { type: 'json' };
 
 function withOverride(overrideConfig) {
