@@ -2,4 +2,4 @@
 
 set -ex
 
-docker compose watch --prune
+docker compose -f docker-compose.yml -f docker-compose.development.yml watch --prune
