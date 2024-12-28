@@ -28,7 +28,7 @@ services:
     command: ./scripts/docker/start.sh
     depends_on:
       cms:
-        condition: service_started
+        condition: service_healthy
     entrypoint: /bin/sh
     environment:
       - WEB_CMS_BASE_URL=http://cms:4001/graphql
