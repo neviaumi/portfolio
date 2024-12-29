@@ -5,23 +5,19 @@ services:
       dockerfile: Dockerfile
       target: base
     command: ./scripts/docker/start.sh
-    develop:
-      watch:
-        - action: sync
-          ignore:
-            - systems/cms/tina/__generated__
-            - systems/cms/tina/tina-lock.json
-          path: systems/cms/tina
-          target: /app/tina
-        - action: rebuild
-          path: systems/cms/package.json
-        - action: rebuild
-          path: systems/cms/package-lock.json
-        - action: rebuild
-          path: systems/cms/tsconfig.json
     entrypoint: /bin/sh
     environment:
       - CMS_BASE_URL=http://localhost:4001/
+    volumes:
+      - source: ./systems/cms/content
+        target: /app/content
+        type: bind
+      - source: ./systems/cms/public/uploads
+        target: /app/public/uploads
+        type: bind
+      - source: ./systems/cms/tina/tina-lock.json
+        target: /app/tina/tina-lock.json
+        type: bind
   web:
     build:
       context: systems/web
