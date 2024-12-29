@@ -20,6 +20,8 @@ services:
         - action: rebuild
           path: systems/cms/tsconfig.json
     entrypoint: /bin/sh
+    environment:
+      - CMS_BASE_URL=http://localhost:4001/
   web:
     build:
       context: systems/web
