@@ -16,16 +16,6 @@ services:
           path: systems/cms/tsconfig.json
     ports:
       - '4001:4001'
-    volumes:
-      - source: ./systems/cms/content
-        target: /app/content
-        type: bind
-      - source: ./systems/cms/public/uploads
-        target: /app/public/uploads
-        type: bind
-      - source: ./systems/cms/tina/tina-lock.json
-        target: /app/tina/tina-lock.json
-        type: bind
   web:
     develop:
       watch:
