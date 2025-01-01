@@ -5,13 +5,33 @@ summary:
   position: Software Engineer
   profilePicture: 'https://avatars.githubusercontent.com/u/2247500'
   careerOverview: >-
-    Accomplished software engineer with over 7 years of experience in full-stack
-    development, web automation, and project management. Proven track record in
-    mentoring junior developers, optimizing team productivity, and delivering
-    robust, high-quality solutions. Seeking a dynamic company with a clear
-    mission and a hybrid work environment.
+    I began my career in 2014 as a Web Developer for a small local business,
+    later expanding my experience across diverse environments, from tech
+    startups to multinational corporations. Over the years, I’ve grown
+    technically and reshaped my perspective on work, striving to create balance
+    and purpose in my professional life.
+
+
+    Initially, I focused on crafting overengineered solutions that anticipated
+    every possible scenario—even those unlikely to occur. Through experience, I
+    learned that simplicity, combined with automated testing, is key to creating
+    scalable, maintainable systems that can evolve over time.
+
+
+    Midway through my journey, I embraced Agile methodology, which introduced an
+    iterative, feedback-driven approach to development. Delivering features
+    incrementally enables faster validation and refinement, avoiding the
+    pitfalls of building a product nobody wants. However, effective Agile relies
+    on transparent communication—teams must uphold the definition of “done,”
+    resist unreasonable timelines, and openly discuss technical concerns with
+    product owners.
+
+
+    Throughout my journey, I’ve remained committed to building meaningful
+    solutions that align with business goals, always seeking to combine
+    technical excellence with practical impact.
 coreValues:
-  heading: There are some factors i am looking for next role.
+  heading: There are some factors I am looking for in my next role.
   values: content/core-values/index.md
 experiences: content/experiences/index.md
 skills: content/skills/index.json
@@ -37,5 +57,21 @@ references:
       them get through hard time and start contributing the team more quickly.
       Without David our team will not be that successful. Highly recommend him
       to any company for a excellent team player.
+  - name: Alex Yeung
+    profilePicture: >-
+      https://media.licdn.com/dms/image/v2/C5603AQEA3StRPKX9vQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1636115228873?e=1741219200&v=beta&t=EbPfh0smErG-ib-tL4fHcuB8p_fBOgsMv0dKL7MoeW8
+    relationship: HK01 Senior Software Engineer
+    comments: >-
+      I worked with David for the past two years, He is an innovative team
+      player and created many automated tools to improve team efficiency and
+      product quality. He is able to apply his innovative mind on spotting quick
+      solutions for complex problems, which is essential for a fast development
+      pace. He is also very willing to speak up when he spotted problems and
+      usually come up with solutions. If the right solution is obscure, he could
+      manage to use data to deduce the right one. He is also willing to share
+      his skills, knowledge and new findings to team members which improve the
+      whole team productivity. I recommend him if you are looking for an
+      engineer who can handle fast development cycles like startup company.
 _template: whoAmI
 ---
+
