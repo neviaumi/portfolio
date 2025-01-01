@@ -28,7 +28,7 @@ test.describe('Who am i / Home page flow', () => {
     await expect(summarySection)
       .toMatchAriaSnapshot(`- img "${summarySectionData.name}"
 - text: ${summarySectionData.name} ${summarySectionData.position}
-- paragraph: ${summarySectionData.careerOverview}`);
+- paragraph: ${summarySectionData.careerOverview.replaceAll('\n', ' ')}`);
   });
   test('Have core-values section in document', async ({ page }) => {
     const cmsData = await replicateFrontendCMSQuery();
