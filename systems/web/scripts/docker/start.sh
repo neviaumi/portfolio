@@ -2,16 +2,16 @@
 
 set -ex
 
-IS_DEV=${1:---dev}
+MODE=${1:---dev}
 
-if [ "$IS_DEV" == "--dev" ]; then
+if [ "$MODE" == "--dev" ]; then
   echo "Start Web frontend in dev mode"
   npx astro dev --host
-elif [ "$IS_DEV" == "--test" ]; then
+elif [ "$MODE" == "--test" ]; then
   echo "Start Web frontend in test mode"
   npx astro build
   npx astro preview --host
 else
-    echo "Invalid argument: $IS_DEV"
+    echo "Invalid argument: $MODE"
     exit 1
 fi

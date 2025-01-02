@@ -1,0 +1,11 @@
+services:
+  cms:
+    command: ./scripts/docker/start.sh --build
+  web:
+    command: ./scripts/docker/build.sh
+    volumes:
+      - bind:
+          create_host_path: true
+        source: ./systems/web/dist
+        target: /app/dist
+        type: bind
