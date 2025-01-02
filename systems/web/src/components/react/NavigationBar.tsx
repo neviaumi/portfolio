@@ -54,7 +54,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
         />
         <List>
           <ListItem>
-            <ListItemButton component={'a'} href={'/who-am-i'}>
+            <ListItemButton component={'a'} href={'/portfolio/who-am-i'}>
               <ListItemIcon>
                 <PersonOutlineOutlinedIcon
                   sx={{
@@ -69,7 +69,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton component={'a'} href={'/core-values'}>
+            <ListItemButton component={'a'} href={'/portfolio/core-values'}>
               <ListItemIcon>
                 <DiamondOutlinedIcon
                   sx={{
@@ -84,7 +84,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton component={'a'} href={'/experiences'}>
+            <ListItemButton component={'a'} href={'/portfolio/experiences'}>
               <ListItemIcon>
                 <ScienceOutlinedIcon
                   sx={{
@@ -99,7 +99,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton component={'a'} href={'/skills'}>
+            <ListItemButton component={'a'} href={'/portfolio/skills'}>
               <ListItemIcon>
                 <HandymanOutlinedIcon
                   sx={{
@@ -114,7 +114,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton component={'a'} href={'/faq'}>
+            <ListItemButton component={'a'} href={'/portfolio/faq'}>
               <ListItemIcon>
                 <QuizOutlinedIcon
                   sx={{

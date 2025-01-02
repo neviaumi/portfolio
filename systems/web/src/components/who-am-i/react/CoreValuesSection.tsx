@@ -15,7 +15,9 @@ export async function prepareCoreValuesProps(
   return Promise.all(
     values.map(async value => {
       await cms.copyAssetToPublicFolder(value.icon);
-      return value;
+      return Object.assign(value, {
+        icon: `/portfolio/${value.icon}`,
+      });
     }),
   );
 }

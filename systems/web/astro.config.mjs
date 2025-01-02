@@ -4,7 +4,9 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+  base: 'portfolio',
   integrations: [react({ include: ['**/react/*'] })],
+  site: 'https://neviaumi.github.io/',
   vite: {
     ssr: {
       noExternal: /@mui\/.*?/,
