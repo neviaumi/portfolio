@@ -1,12 +1,12 @@
 import { formatGqlQuery, gql } from './graphql.ts';
 
-const cmsEndpoint = process.env['TESTS_CMS_ENDPOINT'];
-if (!cmsEndpoint) {
-  throw new Error('TESTS_CMS_ENDPOINT is not defined');
+const cmsBaseUrl = process.env['TESTS_CMS_BASE_URL'];
+if (!cmsBaseUrl) {
+  throw new Error('TESTS_CMS_BASE_URL is not defined');
 }
 
 function gqlRequest(query: ReturnType<typeof gql>, variables?: unknown) {
-  return fetch(cmsEndpoint!, {
+  return fetch(new URL('/graphql', cmsBaseUrl), {
     body: JSON.stringify({
       query: formatGqlQuery(query),
       variables,
