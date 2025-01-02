@@ -2,12 +2,12 @@ import Paper from '@mui/material/Paper';
 import Skeleton from '@mui/material/Skeleton';
 import React, { useEffect, useState } from 'react';
 
-export default function Resume() {
+export default function ResumeLoader() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(
     function loadWebComponents() {
       const resumeBaseUrl = 'https://neviaumi.github.io/resume.json/';
-      if (!isLoading) {
+      if (isLoading) {
         fetch(`${resumeBaseUrl}.vite/manifest.json`)
           .then(response => response.json())
           .then(json => {
