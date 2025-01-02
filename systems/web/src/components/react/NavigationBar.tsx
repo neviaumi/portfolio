@@ -5,6 +5,7 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
 import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
+import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -68,6 +69,25 @@ export function DrawerToggleButton({ title }: { title: string }) {
               />
             </ListItemButton>
           </ListItem>
+          <List component="div">
+            <ListItemButton
+              component={'a'}
+              href={'/portfolio/resume'}
+              sx={{ pl: 8 }}
+            >
+              <ListItemIcon>
+                <WorkHistoryOutlinedIcon
+                  sx={{
+                    color: 'action.active',
+                    transform: 'scale(1.7)',
+                  }}
+                />{' '}
+              </ListItemIcon>
+              <ListItemText
+                primary={<Typography variant={'body1'}>Resume</Typography>}
+              />
+            </ListItemButton>
+          </List>
           <ListItem>
             <ListItemButton component={'a'} href={'/portfolio/core-values'}>
               <ListItemIcon>
