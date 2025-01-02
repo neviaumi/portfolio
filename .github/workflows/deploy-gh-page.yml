@@ -14,7 +14,7 @@ jobs:
         with:
           path: ./systems/web/dist
       - id: deployment
-        name: Deploy doc with PDF to GitHub Pages
+        name: Deploy static site to GitHub Pages
         uses: actions/deploy-pages@v4
 name: deploy-github-page-after-push-main
 
