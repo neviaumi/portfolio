@@ -50,7 +50,6 @@ export default [
   useAstroEslintConfig(),
   useTrustCodeFilesAsGraphQLEslintConfig(),
   useGraphQLEslintConfig(),
-  // useTypescriptDefinitionEslintConfig(),
   useCodeSortingEslintConfig(),
   useYamlEslintConfig(),
   usePackageJsonEslintConfig(),
