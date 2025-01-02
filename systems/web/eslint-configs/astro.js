@@ -8,6 +8,8 @@ const configName = `${pkgjson.name}/astro`;
 export function useAstroEslintConfig() {
   return {
     files: ['**/*.astro'],
+    // https://github.com/ota-meshi/eslint-plugin-astro/issues/459
+    ignores: ['**/*/index.astro'],
     languageOptions: { parser: astroEslintParser },
     name: configName,
     plugins: {
