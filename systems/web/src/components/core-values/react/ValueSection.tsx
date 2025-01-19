@@ -19,25 +19,25 @@ function Star({
 }) {
   return (
     <>
-      <Typography component={'h6'} variant={'h6'}>
+      <Typography component={'h3'} variant={'h6'}>
         Situation
       </Typography>
       <Typography component={'p'} variant={'body1'}>
         {situation}
       </Typography>
-      <Typography component={'h6'} variant={'h6'}>
+      <Typography component={'h3'} variant={'h6'}>
         Task
       </Typography>
       <Typography component={'p'} variant={'body1'}>
         {task}
       </Typography>
-      <Typography component={'h6'} variant={'h6'}>
+      <Typography component={'h3'} variant={'h6'}>
         Action
       </Typography>
       <Typography component={'p'} variant={'body1'}>
         {action}
       </Typography>
-      <Typography component={'h6'} variant={'h6'}>
+      <Typography component={'h3'} variant={'h6'}>
         Result
       </Typography>
       <Typography component={'p'} variant={'body1'}>

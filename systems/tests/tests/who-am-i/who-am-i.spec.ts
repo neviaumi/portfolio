@@ -20,9 +20,9 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
     }) => {
       await page.goto(pageUrl.toString());
 
-      const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); // 4
+      const accessibilityScanResults = await new AxeBuilder({ page }).analyze();
 
-      expect(accessibilityScanResults.violations).toEqual([]); // 5
+      expect(accessibilityScanResults.violations).toEqual([]);
     });
 
     test('Have title configurate in place', async ({ page }) => {
