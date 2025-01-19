@@ -47,8 +47,8 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
       const coreValuesSectionData = cmsData.page.coreValues;
       const cmsValues = coreValuesSectionData.values.values;
       await expect(coreValuesSection)
-        .toMatchAriaSnapshot(`- paragraph: Core Values
-- paragraph: ${coreValuesSectionData.heading}
+        .toMatchAriaSnapshot(`- heading "Core Values" [level=1]
+- heading "${coreValuesSectionData.heading}" [level=2]
 - list:
   - listitem "${coreValuesSectionData.values.values[0].name}":
     - link "${[cmsValues[0].name, cmsValues[0].headline, cmsValues[0].brief.replaceAll('\n', ' ')].join(' ')}":

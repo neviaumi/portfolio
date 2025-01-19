@@ -31,7 +31,7 @@ summary:
     solutions that align with business goals, always seeking to combine
     technical excellence with practical impact.
 coreValues:
-  heading: There are some factors I am looking for in my next role.
+  heading: These Are the Principles Guiding My Professional Journey
   values: content/core-values/index.md
 experiences: content/experiences/index.md
 skills: content/skills/index.json
