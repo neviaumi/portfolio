@@ -3,7 +3,7 @@
 set -ex
 
 MODE=${1:---dev}
-
+export WEB_CMS_BASE_URL=${WEB_CMS_BASE_URL:-"http://localhost:4001"}
 if [ "$MODE" == "--dev" ]; then
   echo "Start Web frontend in dev mode"
   npx astro dev --host
