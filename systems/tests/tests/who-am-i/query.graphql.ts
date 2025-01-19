@@ -2,8 +2,8 @@ import cms from '../cms.ts';
 import { gql } from '../graphql.ts';
 
 const query = gql`
-  query IndexPage($relativePath: String!) {
-    page(relativePath: $relativePath) {
+  query WhoAmIPage {
+    page(relativePath: "who-am-i.md") {
       ... on PageWhoAmI {
         coreValues {
           heading
@@ -12,6 +12,7 @@ const query = gql`
               id
               values {
                 brief
+                headline
                 icon
                 name
               }
@@ -57,9 +58,5 @@ const query = gql`
 `;
 
 export function replicateFrontendCMSQuery() {
-  return cms
-    .gqlRequest(query, {
-      relativePath: 'who-am-i.md',
-    })
-    .then(resp => resp.data);
+  return cms.gqlRequest(query).then(resp => resp.data);
 }
