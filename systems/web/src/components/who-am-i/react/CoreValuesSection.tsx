@@ -33,14 +33,15 @@ export default function CoreValuesSection({
   return (
     <Box component={'section'} title={'Core values'}>
       <Box
+        component={'header'}
         sx={{
           textAlign: 'center',
         }}
       >
-        <Typography component={'p'} variant={'h4'}>
+        <Typography component={'h1'} variant={'h4'}>
           Core Values
         </Typography>
-        <Typography component={'p'} variant={'body1'}>
+        <Typography color={'action.active'} component={'h2'} variant={'body1'}>
           {heading}
         </Typography>
       </Box>
@@ -67,6 +68,12 @@ export default function CoreValuesSection({
                 component={'li'}
                 key={value.name}
                 sx={{
+                  '&:hover': {
+                    borderColor: 'action.active',
+                  },
+                  border: 1,
+                  borderColor: 'transparent',
+                  // boxSizing: 'border-box',
                   maxWidth: '100vw',
                   width: {
                     lg: '24rem',
