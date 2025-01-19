@@ -1,17 +1,26 @@
 ---
-const title = "Core values";
+import Query from "../components/core-values/query.graphql"
+import HeadingSection from "../components/core-values/react/HeadingSection.tsx"
+import ValueSection, {prepareCoreValuesProps} from "../components/core-values/react/ValueSection.tsx"
 
+import cms from "../cms.ts";
 import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
-import WIP from '../components/react/WIP.tsx';
 import Layout from '../layouts/Layout.astro';
-import {Page, Main} from "../components/react/PageContainer"
-
+import {Page, Main} from "../components/react/PageContainer.tsx"
+import OverlayButtons from "../components/react/OverlayButtons.tsx"
+const {page} = await cms.gqlRequest(Query).then(data => data.data)
+const title = page.title
+const values =  await prepareCoreValuesProps(page.values.values);
 ---
 <Layout title={title}>
     <Page>
         <NavigationBar title={title}>
             <DrawerToggleButton client:load slot="drawer" title={title}/>
         </NavigationBar>
-        <Main><WIP/></Main>
+        <Main>
+            <HeadingSection whatIsCoreValues={page.whatAreCoreValues}/>
+            {values.map((value,index) => <ValueSection value={value} variants={index %2 === 0 ? 'right' : 'left'} />)}
+            <OverlayButtons client:load/>
+        </Main>
     </Page>
 </Layout>
