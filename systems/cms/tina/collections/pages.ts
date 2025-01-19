@@ -111,6 +111,29 @@ const WhoAmIPage: Template = {
   name: 'whoAmI',
 };
 
+const CoreValuesPage: Template = {
+  fields: [
+    { label: 'Page title', name: 'title', type: 'string' },
+    {
+      label: 'What Are Core Values and Why?',
+      name: 'whatAreCoreValues',
+      type: 'string',
+      ui: {
+        component: 'textarea',
+      },
+    },
+    {
+      collections: ['coreValue'],
+      label: 'Core values',
+      name: 'values',
+      type: 'reference',
+    },
+  ],
+
+  label: 'Core Values',
+  name: 'coreValues',
+};
+
 const foobar: Template = {
   fields: [
     {
@@ -131,7 +154,7 @@ const Pages: Collection = {
   label: 'Pages',
   name: 'page',
   path: 'content/pages',
-  templates: [WhoAmIPage, foobar],
+  templates: [WhoAmIPage, CoreValuesPage, foobar],
   ui: {
     allowedActions: {
       create: false,

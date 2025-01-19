@@ -24,6 +24,70 @@ const CoreValues: Collection = {
             component: 'textarea',
           },
         },
+        {
+          description: 'description to explain what that value referring to',
+          label: 'Description',
+          name: 'description',
+          type: 'string',
+          ui: {
+            component: 'textarea',
+          },
+        },
+        {
+          description: 'Headline of the value',
+          label: 'Headline',
+          name: 'headline',
+          type: 'string',
+        },
+        {
+          description: 'Example in STAR format',
+          fields: [
+            {
+              label: 'Situation',
+              name: 'situation',
+              type: 'string',
+              ui: {
+                component: 'textarea',
+              },
+            },
+            {
+              label: 'Task',
+              name: 'task',
+              type: 'string',
+              ui: {
+                component: 'textarea',
+              },
+            },
+            {
+              label: 'Action',
+              name: 'action',
+              type: 'string',
+              ui: {
+                component: 'textarea',
+              },
+            },
+            {
+              label: 'Result',
+              name: 'result',
+              type: 'string',
+              ui: {
+                component: 'textarea',
+              },
+            },
+          ],
+          label: 'STAR example',
+          name: 'star',
+          required: false,
+          type: 'object',
+        },
+        {
+          label: 'Footer',
+          name: 'footer',
+          type: 'string',
+          ui: {
+            component: 'textarea',
+          },
+        },
       ],
       label: 'Values',
       list: true,

@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import React from 'react';
@@ -10,7 +11,7 @@ import cms from '../../../cms.ts';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function prepareCoreValuesProps(
-  values: { brief: string; icon: string; name: string }[],
+  values: { brief: string; headline: string; icon: string; name: string }[],
 ) {
   return Promise.all(
     values.map(async value => {
@@ -27,7 +28,7 @@ export default function CoreValuesSection({
   values,
 }: {
   heading: string;
-  values: { brief: string; icon: string; name: string }[];
+  values: { brief: string; headline: string; icon: string; name: string }[];
 }) {
   return (
     <Box component={'section'} title={'Core values'}>
@@ -75,31 +76,46 @@ export default function CoreValuesSection({
                 tabIndex={0}
                 title={value.name}
               >
-                <CardHeader
-                  avatar={
-                    <Box
+                <Link
+                  href={`/portfolio/core-values#${value.name}`}
+                  underline="hover"
+                >
+                  <CardHeader
+                    avatar={
+                      <Box
+                        sx={{
+                          backgroundColor: 'action.active',
+                          height: 40,
+                          maskImage: `url(${value.icon})`,
+                          maskPosition: 'center',
+                          maskRepeat: 'no-repeat',
+                          maskSize: 'cover',
+                          width: 40,
+                        }}
+                      />
+                    }
+                    component={'header'}
+                    subheader={value.headline}
+                    title={value.name}
+                    titleTypographyProps={{
+                      sx: {
+                        color: 'text.primary',
+                      },
+                      variant: 'h5',
+                    }}
+                  />
+                  <CardContent>
+                    <Typography
+                      component={'p'}
                       sx={{
-                        backgroundColor: 'action.active',
-                        height: 40,
-                        maskImage: `url(${value.icon})`,
-                        maskPosition: 'center',
-                        maskRepeat: 'no-repeat',
-                        maskSize: 'cover',
-                        width: 40,
+                        color: 'text.primary',
                       }}
-                    />
-                  }
-                  component={'header'}
-                  title={value.name}
-                  titleTypographyProps={{
-                    variant: 'h5',
-                  }}
-                />
-                <CardContent>
-                  <Typography component={'p'} variant="body1">
-                    {value.brief}
-                  </Typography>
-                </CardContent>
+                      variant="body1"
+                    >
+                      {value.brief}
+                    </Typography>
+                  </CardContent>
+                </Link>
               </Card>
             );
           })}

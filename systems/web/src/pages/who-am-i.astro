@@ -9,7 +9,8 @@ import ReferencesSection from "../components/who-am-i/react/ReferencesSection.ts
 import Query from "../components/who-am-i/query.graphql.ts"
 import Layout from '../layouts/Layout.astro';
 import cms from "../cms.ts";
-const {page} = await cms.gqlRequest(Query,{relativePath: "who-am-i.md"}).then(data => data.data)
+import OverlayButtons from "../components/react/OverlayButtons";
+const {page} = await cms.gqlRequest(Query).then(data => data.data)
 const title = page.title
 const summary = page.summary;
 const {heading: coreValueSectionHeading, values: {values: _coreValues}} = page.coreValues;
@@ -34,6 +35,7 @@ const skills = page.skills.sections;
 		<SkillsSection client:load skills={skills}/>
 		<ExperiencesSection works={experiences.works}/>
 		<ReferencesSection references={references}/>
+		<OverlayButtons client:load/>
 	</Main>
 	</Page>
 </Layout>

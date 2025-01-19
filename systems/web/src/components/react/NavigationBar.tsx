@@ -4,8 +4,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import QuizOutlinedIcon from '@mui/icons-material/QuizOutlined';
-import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
+import WorkOutlinedIcon from '@mui/icons-material/WorkOutlined';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -98,7 +98,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
               sx={{ pl: 8 }}
             >
               <ListItemIcon>
-                <WorkHistoryOutlinedIcon
+                <WorkOutlinedIcon
                   sx={{
                     color: 'action.active',
                     transform: 'scale(1.7)',
@@ -128,7 +128,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
           <ListItem>
             <ListItemButton component={'a'} href={'/portfolio/experiences'}>
               <ListItemIcon>
-                <ScienceOutlinedIcon
+                <WorkHistoryOutlinedIcon
                   sx={{
                     color: 'action.active',
                     transform: 'scale(1.7)',

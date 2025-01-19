@@ -1,8 +1,8 @@
 import { gql } from '../../graphql.ts';
 
 export default gql`
-  query IndexPage($relativePath: String!) {
-    page(relativePath: $relativePath) {
+  query WhoAmIPage {
+    page(relativePath: "who-am-i.md") {
       ... on PageWhoAmI {
         coreValues {
           heading
@@ -11,6 +11,7 @@ export default gql`
               id
               values {
                 brief
+                headline
                 icon
                 name
               }
