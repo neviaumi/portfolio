@@ -1,14 +1,16 @@
 env:
   CI: true
+  WEB_STRIPE_PUBLISHABLE_KEY: ${{secrets.WEB_STRIPE_PUBLISHABLE_KEY}}
+  WEB_STRIPE_SECRET_KEY: ${{secrets.WEB_STRIPE_SECRET_KEY}}
 jobs:
   deploy:
-    environment:
-      name: main
+    environment: main
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: bash ./scripts/ci/build.sh
+      - name: Build website to static assets
+        run: bash ./scripts/ci/build.sh
       - name: Upload doc folder
         uses: actions/upload-pages-artifact@v3
         with:

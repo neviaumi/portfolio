@@ -1,8 +1,11 @@
 env:
   CI: true
   HUSKY: 0
+  WEB_STRIPE_PUBLISHABLE_KEY: ${{secrets.WEB_STRIPE_PUBLISHABLE_KEY}}
+  WEB_STRIPE_SECRET_KEY: ${{secrets.WEB_STRIPE_SECRET_KEY}}
 jobs:
   test:
+    environment: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
