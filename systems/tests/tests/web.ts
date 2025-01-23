@@ -9,3 +9,4 @@ export const coreValuesPage = new URL(
   '/portfolio/core-values',
   TESTS_WEB_BASE_URL,
 );
+export const servicesPage = new URL('/portfolio/services', TESTS_WEB_BASE_URL);
