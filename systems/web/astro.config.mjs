@@ -11,6 +11,9 @@ export default defineConfig({
     preview: {
       allowedHosts: true,
     },
+    server: {
+      allowedHosts: true,
+    },
     ssr: {
       noExternal: /@mui\/.*?/,
     },
