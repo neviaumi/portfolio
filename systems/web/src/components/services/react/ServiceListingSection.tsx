@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 
 import { STRIPE_PUBLISHABLE_KEY } from '../../../stripe.ts';
-import consulateIcon from './consulate.webp?url';
+import consulateIcon from './consulate.webp';
 
 function CheckoutButton({ buyButtonId }: { buyButtonId: string }) {
   return (
@@ -67,7 +67,7 @@ export default function ServiceListingSection({
           <Box
             alt={'calendly'}
             component={'img'}
-            src={consulateIcon}
+            src={consulateIcon.src}
             sx={{
               height: 320,
               objectFit: 'cover',
