@@ -1,5 +1,6 @@
 import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 import HandymanOutlinedIcon from '@mui/icons-material/HandymanOutlined';
+import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairServiceOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -126,6 +127,21 @@ export function DrawerToggleButton({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
           <ListItem>
+            <ListItemButton component={'a'} href={'/portfolio/services'}>
+              <ListItemIcon>
+                <HandymanOutlinedIcon
+                  sx={{
+                    color: 'action.active',
+                    transform: 'scale(1.7)',
+                  }}
+                />
+              </ListItemIcon>
+              <ListItemText
+                primary={<Typography variant={'body1'}>Services</Typography>}
+              />
+            </ListItemButton>
+          </ListItem>
+          <ListItem>
             <ListItemButton component={'a'} href={'/portfolio/experiences'}>
               <ListItemIcon>
                 <WorkHistoryOutlinedIcon
@@ -143,7 +159,7 @@ export function DrawerToggleButton({ title }: { title: string }) {
           <ListItem>
             <ListItemButton component={'a'} href={'/portfolio/skills'}>
               <ListItemIcon>
-                <HandymanOutlinedIcon
+                <HomeRepairServiceIcon
                   sx={{
                     color: 'action.active',
                     transform: 'scale(1.7)',

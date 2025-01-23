@@ -1,20 +1,21 @@
 {
   "dependencies": {
-    "@astrojs/react": "4.1.0",
+    "@astrojs/react": "4.1.6",
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.0",
     "@fontsource/roboto": "5.1.0",
     "@mui/icons-material": "6.4.0",
     "@mui/material": "6.4.0",
+    "@stripe/stripe-js": "5.5.0",
     "@types/react": "18.3.17",
     "@types/react-dom": "18.3.5",
-    "astro": "5.0.5",
+    "astro": "5.1.9",
     "chart.js": "4.4.7",
     "graphql": "16.9.0",
     "graphql-tag": "2.12.6",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "tinacms": "2.5.2"
+    "stripe": "17.5.0"
   },
   "devDependencies": {
     "@busybox/eslint-config-code-sorting": "2024.11.10-alpha.2150",
