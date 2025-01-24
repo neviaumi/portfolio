@@ -1,7 +1,6 @@
 env:
   CI: true
-  WEB_STRIPE_PUBLISHABLE_KEY: ${{secrets.WEB_STRIPE_PUBLISHABLE_KEY}}
-  WEB_STRIPE_SECRET_KEY: ${{secrets.WEB_STRIPE_SECRET_KEY}}
+
 jobs:
   deploy:
     environment: main
@@ -9,7 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build website to static assets
+      - env:
+          WEB_STRIPE_PUBLISHABLE_KEY: ${{secrets.WEB_STRIPE_PUBLISHABLE_KEY}}
+          WEB_STRIPE_SECRET_KEY: ${{secrets.WEB_STRIPE_SECRET_KEY}}
+        name: Build website to static assets
         run: bash ./scripts/ci/build.sh
       - name: Upload doc folder
         uses: actions/upload-pages-artifact@v3
@@ -24,6 +26,9 @@ on:
   push:
     branches:
       - main
+
+
+  workflow_dispatch: true
 permissions:
   contents: write
   id-token: write
