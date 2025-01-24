@@ -9,10 +9,7 @@ export default defineConfig({
   site: 'https://neviaumi.github.io/',
   vite: {
     preview: {
-      allowedHosts: true,
-    },
-    server: {
-      allowedHosts: true,
+      allowedHosts: ['web'],
     },
     ssr: {
       noExternal: /@mui\/.*?/,
