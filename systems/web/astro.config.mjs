@@ -8,9 +8,6 @@ export default defineConfig({
   integrations: [react({ include: ['**/react/*'] })],
   site: 'https://neviaumi.github.io/',
   vite: {
-    preview: {
-      allowedHosts: ['web'],
-    },
     ssr: {
       noExternal: /@mui\/.*?/,
     },
