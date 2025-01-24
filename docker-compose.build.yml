@@ -3,6 +3,9 @@ services:
     command: ./scripts/docker/start.sh --build
   web:
     command: ./scripts/docker/build.sh
+    environment:
+      WEB_STRIPE_PUBLISHABLE_KEY: ${WEB_STRIPE_PUBLISHABLE_KEY}
+      WEB_STRIPE_SECRET_KEY: ${WEB_STRIPE_SECRET_KEY}
     volumes:
       - bind:
           create_host_path: true
