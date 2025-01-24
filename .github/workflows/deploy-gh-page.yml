@@ -26,9 +26,6 @@ on:
   push:
     branches:
       - main
-
-
-  workflow_dispatch: true
 permissions:
   contents: write
   id-token: write
