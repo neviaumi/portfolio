@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
 
-echo "WEB_STRIPE_PUBLISHABLE_KEY: $WEB_STRIPE_PUBLISHABLE_KEY"
-echo "WEB_STRIPE_SECRET_KEY: $WEB_STRIPE_SECRET_KEY"
-
 npx astro build
