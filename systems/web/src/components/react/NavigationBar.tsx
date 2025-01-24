@@ -218,7 +218,7 @@ export default function NavigationBar({
       position="sticky"
       square={true}
       sx={{
-        height: 64,
+        height: 64 + 32,
         justifyContent: 'center',
       }}
       title={title}
