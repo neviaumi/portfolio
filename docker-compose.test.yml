@@ -1,8 +1,6 @@
 services:
   cms:
     command: ./scripts/docker/start.sh --test
-    ports:
-      - '4001:4001'
   tests:
     build:
       context: systems/tests
@@ -16,9 +14,7 @@ services:
         condition: service_healthy
     entrypoint: /bin/bash
     environment:
-      - TESTS_WEB_BASE_URL=http://localhost:4321/
-      - TESTS_CMS_BASE_URL=http://localhost:4001/
+      - TESTS_WEB_BASE_URL=http://web:4321/
+      - TESTS_CMS_BASE_URL=http://cms:4001/
   web:
     command: ./scripts/docker/start.sh --test
-    ports:
-      - '4321:4321'

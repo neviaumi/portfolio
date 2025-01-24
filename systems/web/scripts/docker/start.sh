@@ -10,7 +10,7 @@ if [ "$MODE" == "--dev" ]; then
 elif [ "$MODE" == "--test" ]; then
   echo "Start Web frontend in test mode"
   npx astro build
-  npx astro preview --host
+  npx astro dev --host
 else
     echo "Invalid argument: $MODE"
     exit 1

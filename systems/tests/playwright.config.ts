@@ -16,6 +16,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* Run tests in files in parallel */
   fullyParallel: true,
+  maxFailures: 1,
   /* Configure projects for major browsers */
   projects: [
     // {
