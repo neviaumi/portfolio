@@ -70,39 +70,20 @@ const WhoAmIPage: Template = {
     {
       fields: [
         {
-          label: 'Referrer name',
-          name: 'name',
-          type: 'string',
-        },
-        {
-          description:
-            'Your referrer profile pictures, may be from LinkedIn, Github...etc.',
-          label: 'Profile Picture',
-          name: 'profilePicture',
-          type: 'string',
-        },
-        {
-          label: 'relationship',
-          name: 'relationship',
-          type: 'string',
-        },
-        {
-          label: 'Comments',
-          name: 'comments',
-          type: 'string',
-          ui: {
-            component: 'textarea',
-          },
+          collections: ['references'],
+          label: 'References',
+          name: 'references',
+          type: 'reference',
         },
       ],
       label: 'Recommends from co-workers',
       list: true,
-      name: 'references',
+      name: 'workReferences',
       type: 'object',
       ui: {
         itemProps: item => {
           // Field values are accessed by item?.<Field name>
-          return { label: `${item?.['name']}, ${item?.['relationship']}` };
+          return { label: `${item?.['references']}` };
         },
       },
     },
@@ -134,6 +115,21 @@ const CoreValuesPage: Template = {
   name: 'coreValues',
 };
 
+const ExperiencesPage: Template = {
+  fields: [
+    { label: 'Page title', name: 'title', type: 'string' },
+    {
+      collections: ['experience'],
+      label: 'Experiences',
+      name: 'experiencesRef',
+      type: 'reference',
+    },
+  ],
+
+  label: 'Experiences',
+  name: 'experiences',
+};
+
 const foobar: Template = {
   fields: [
     {
@@ -154,7 +150,7 @@ const Pages: Collection = {
   label: 'Pages',
   name: 'page',
   path: 'content/pages',
-  templates: [WhoAmIPage, CoreValuesPage, foobar],
+  templates: [WhoAmIPage, CoreValuesPage, ExperiencesPage, foobar],
   ui: {
     allowedActions: {
       create: false,

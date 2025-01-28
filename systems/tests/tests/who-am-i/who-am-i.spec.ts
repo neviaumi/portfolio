@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+import { sanitise } from '../test-helper.ts';
 import { homePage, whoAmIPage } from '../web.ts';
 import { replicateFrontendCMSQuery } from './query.graphql.ts';
 
@@ -82,16 +83,16 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
 - list:
   - listitem "${experiencesSectionData.works[0].name}":
     - text: ${experiencesSectionData.works[0].name} ${experiencesSectionData.works[0].role}
-    - paragraph: Contributed to the development of a personal nance super-app, focusing on backend performance, integration, and user experience improvements.
+    - paragraph: ${sanitise(experiencesSectionData.works[0].brief)}
   - listitem "${experiencesSectionData.works[1].name}":
     - text: ${experiencesSectionData.works[1].name} ${experiencesSectionData.works[1].role}
-    - paragraph: Developed an Access Control System to help partners manage tool access, focusing on frontend performance and design consistency.
+    - paragraph: ${sanitise(experiencesSectionData.works[1].brief)}
   - listitem "${experiencesSectionData.works[2].name}":
     - text: ${experiencesSectionData.works[2].name} ${experiencesSectionData.works[2].role}
-    - paragraph: Developed a registration system for companies using our digital wallet platform, contributing to both front-end and back- end functionality while enhancing team skills and system reliability.
+    - paragraph: ${sanitise(experiencesSectionData.works[2].brief)}
   - listitem "${experiencesSectionData.works[3].name}":
     - text: ${experiencesSectionData.works[3].name} ${experiencesSectionData.works[3].role}
-    - paragraph: Developed internal SSO for seamless staff login, boosting productivity. Built a messaging platform for WebPush, In-App, and SMS notications, enhancing communication and streamlining internal operations with improved HR access management.`,
+    - paragraph: ${sanitise(experiencesSectionData.works[3].brief)}`,
       );
     });
     test('Have Recommends from co-workers section in document', async ({
@@ -102,31 +103,32 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
         'section[title="Recommends from co-workers"]',
       );
       // console.log(await referencesSection.ariaSnapshot());
-      await expect(referencesSection).toBeVisible();
+      // await expect(referencesSection).toBeVisible();
       // TODO: resolve snapshot mismatch when content contain multiple-lines
-      /**
-       const cmsData = await replicateFrontendCMSQuery();
-       const referencesSectionData = cmsData.page.references;
+      const cmsData = await replicateFrontendCMSQuery();
+      const referencesSectionData = cmsData.page.workReferences.map(
+        (ref: any) => ref.references,
+      );
       await expect(referencesSection)
         .toMatchAriaSnapshot(`- text: Recommends from co-workers
 - list:
   - listitem "${referencesSectionData[0].name}":
     - img "${referencesSectionData[0].name}"
     - text: ${[referencesSectionData[0].name, referencesSectionData[0].relationship].join(' ')}
-    - paragraph: ${referencesSectionData[0].comments.replaceAll('\n', ' ')}
+    - paragraph: ${sanitise(referencesSectionData[0].comments)}
   - listitem "${referencesSectionData[1].name}":
     - img "${referencesSectionData[1].name}"
     - text: ${[referencesSectionData[1].name, referencesSectionData[1].relationship].join(' ')}
-    - paragraph: ${referencesSectionData[1].comments.replaceAll('\n', ' ')}
+    - paragraph: ${sanitise(referencesSectionData[1].comments)}
   - listitem "${referencesSectionData[2].name}":
     - img "${referencesSectionData[2].name}"
     - text: ${[referencesSectionData[2].name, referencesSectionData[2].relationship].join(' ')}
-    - paragraph: ${referencesSectionData[2].comments.replaceAll('\n', ' ')}
+    - paragraph: ${sanitise(referencesSectionData[2].comments)}
   - listitem "${referencesSectionData[3].name}":
     - img "${referencesSectionData[3].name}"
     - text: ${[referencesSectionData[3].name, referencesSectionData[3].relationship].join(' ')}
-    - paragraph: ${referencesSectionData[3].comments.replaceAll('\n', ' ')}
-          `);**/
+    - paragraph: ${sanitise(referencesSectionData[3].comments)}
+          `);
     });
   });
 });

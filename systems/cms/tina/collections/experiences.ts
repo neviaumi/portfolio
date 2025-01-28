@@ -11,9 +11,22 @@ const Experiences: Collection = {
           type: 'string',
         },
         {
-          description: 'The role you working on that company ',
+          description: 'The role you working on that company',
           label: 'Role',
           name: 'role',
+          type: 'string',
+        },
+        {
+          description: 'Data range you have service in this company',
+          label: 'Period',
+          name: 'period',
+          type: 'string',
+        },
+        {
+          description:
+            'The country office located , it on-site / hybird ...etc.',
+          label: 'Location',
+          name: 'location',
           type: 'string',
         },
         {
@@ -24,6 +37,36 @@ const Experiences: Collection = {
           type: 'string',
           ui: {
             component: 'textarea',
+          },
+        },
+        {
+          description:
+            'Description to explain what you working on, what the work environment in company look like...etc.',
+          label: 'Description',
+          name: 'description',
+          type: 'string',
+          ui: {
+            component: 'textarea',
+          },
+        },
+        {
+          fields: [
+            {
+              collections: ['references'],
+              label: 'References',
+              name: 'references',
+              type: 'reference',
+            },
+          ],
+          label: 'Recommends from co-workers',
+          list: true,
+          name: 'workReferences',
+          type: 'object',
+          ui: {
+            itemProps: item => {
+              // Field values are accessed by item?.<Field name>
+              return { label: `${item?.['references']}` };
+            },
           },
         },
       ],
