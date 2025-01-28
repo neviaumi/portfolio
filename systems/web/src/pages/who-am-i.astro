@@ -16,7 +16,7 @@ const summary = page.summary;
 const {heading: coreValueSectionHeading, values: {values: _coreValues}} = page.coreValues;
 const coreValues = await prepareCoreValuesProps(_coreValues);
 const experiences = page.experiences;
-const references = page.references;
+const references = page.workReferences.map((ref: {references: any[]}) => ref.references);
 const skills = page.skills.sections;
 
 ---
@@ -33,7 +33,7 @@ const skills = page.skills.sections;
 		<SummarySection summary={summary}/>
 		<CoreValuesSection heading={coreValueSectionHeading} values={coreValues}/>
 		<SkillsSection client:load skills={skills}/>
-		<ExperiencesSection works={experiences.works}/>
+		<ExperiencesSection works={experiences.works.slice(0,4)}/>
 		<ReferencesSection references={references}/>
 		<OverlayButtons client:load/>
 	</Main>

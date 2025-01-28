@@ -30,12 +30,6 @@ const query = gql`
           }
         }
         id
-        references {
-          comments
-          name
-          profilePicture
-          relationship
-        }
         skills {
           ... on Skill {
             id
@@ -45,6 +39,7 @@ const query = gql`
             }
           }
         }
+
         summary {
           careerOverview
           name
@@ -52,6 +47,17 @@ const query = gql`
           profilePicture
         }
         title
+        workReferences {
+          references {
+            ... on References {
+              comments
+              id
+              name
+              profilePicture
+              relationship
+            }
+          }
+        }
       }
     }
   }

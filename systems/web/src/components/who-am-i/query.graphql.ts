@@ -29,12 +29,6 @@ export default gql`
           }
         }
         id
-        references {
-          comments
-          name
-          profilePicture
-          relationship
-        }
         skills {
           ... on Skill {
             id
@@ -44,6 +38,7 @@ export default gql`
             }
           }
         }
+
         summary {
           careerOverview
           name
@@ -51,6 +46,17 @@ export default gql`
           profilePicture
         }
         title
+        workReferences {
+          references {
+            ... on References {
+              comments
+              id
+              name
+              profilePicture
+              relationship
+            }
+          }
+        }
       }
     }
   }
