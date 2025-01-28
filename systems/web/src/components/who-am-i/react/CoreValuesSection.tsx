@@ -73,7 +73,6 @@ export default function CoreValuesSection({
                   },
                   border: 1,
                   borderColor: 'transparent',
-                  // boxSizing: 'border-box',
                   maxWidth: '100vw',
                   width: {
                     lg: '24rem',

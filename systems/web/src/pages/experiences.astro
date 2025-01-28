@@ -1,5 +1,6 @@
 ---
 import Query from "../components/experiences/query.graphql";
+import OverlayButtons from "../components/react/OverlayButtons";
 
 import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
 import WorkTimelineSection from "../components/experiences/react/WorkTimelineSection.tsx"
@@ -21,6 +22,7 @@ const experiences = page.experiencesRef.works;
         <Main>
             <WorkTimelineSection works={experiences}/>
             <WorkDetailSection works={experiences}/>
+            <OverlayButtons client:load/>
         </Main>
     </Page>
 </Layout>
