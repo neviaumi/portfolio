@@ -5,6 +5,7 @@ import NavigationBar, {DrawerToggleButton} from "../../components/react/Navigati
 import HeadingSection from "../../components/services/react/HeadingSection.tsx"
 import ServiceListingSection from "../../components/services/react/ServiceListingSection.tsx"
 import {listProductWithPrice} from "../../stripe.ts"
+import OverlayButtons from "../../components/react/OverlayButtons";
 
 const title = "Services";
 const products = await listProductWithPrice();
@@ -21,6 +22,7 @@ const products = await listProductWithPrice();
         <Main>
             <HeadingSection/>
             <ServiceListingSection client:load products={products}/>
+            <OverlayButtons/>
         </Main>
     </Page>
 </Layout>

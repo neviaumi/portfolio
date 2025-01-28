@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import React from 'react';
@@ -49,6 +50,11 @@ export default function ExperiencesSection({
                 component={'li'}
                 key={work.name}
                 sx={{
+                  '&:hover': {
+                    borderColor: 'action.active',
+                  },
+                  border: 1,
+                  borderColor: 'transparent',
                   width: {
                     lg: '24rem',
                     xs: '100vw',
@@ -57,22 +63,36 @@ export default function ExperiencesSection({
                 tabIndex={0}
                 title={work.name}
               >
-                <CardHeader
-                  component={'header'}
-                  subheader={work.role}
-                  subheaderTypographyProps={{
-                    variant: 'body2',
-                  }}
-                  title={work.name}
-                  titleTypographyProps={{
-                    variant: 'h5',
-                  }}
-                />
-                <CardContent>
-                  <Typography component={'p'} variant="body1">
-                    {work.brief}
-                  </Typography>
-                </CardContent>
+                <Link
+                  href={`/portfolio/experiences#${work.name}`}
+                  underline="hover"
+                >
+                  <CardHeader
+                    component={'header'}
+                    slotProps={{
+                      subheader: {
+                        variant: 'body2',
+                      },
+                      title: {
+                        color: 'text.primary',
+                        variant: 'h5',
+                      },
+                    }}
+                    subheader={work.role}
+                    title={work.name}
+                  />
+                  <CardContent>
+                    <Typography
+                      component={'p'}
+                      sx={{
+                        color: 'text.primary',
+                      }}
+                      variant="body1"
+                    >
+                      {work.brief}
+                    </Typography>
+                  </CardContent>
+                </Link>
               </Card>
             );
           })}

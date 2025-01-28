@@ -81,18 +81,15 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
       await expect(experiencesSection).toMatchAriaSnapshot(
         `- text: Experiences
 - list:
-  - listitem "${experiencesSectionData.works[0].name}":
-    - text: ${experiencesSectionData.works[0].name} ${experiencesSectionData.works[0].role}
-    - paragraph: ${sanitise(experiencesSectionData.works[0].brief)}
-  - listitem "${experiencesSectionData.works[1].name}":
-    - text: ${experiencesSectionData.works[1].name} ${experiencesSectionData.works[1].role}
-    - paragraph: ${sanitise(experiencesSectionData.works[1].brief)}
-  - listitem "${experiencesSectionData.works[2].name}":
-    - text: ${experiencesSectionData.works[2].name} ${experiencesSectionData.works[2].role}
-    - paragraph: ${sanitise(experiencesSectionData.works[2].brief)}
-  - listitem "${experiencesSectionData.works[3].name}":
-    - text: ${experiencesSectionData.works[3].name} ${experiencesSectionData.works[3].role}
-    - paragraph: ${sanitise(experiencesSectionData.works[3].brief)}`,
+${experiencesSectionData.works
+  .slice(0, 4)
+  .map((work: any) => {
+    return `  - listitem "${work.name}":
+    - link "${[work.name, work.role, work.brief].join(' ')}":
+      - text: ${work.name} ${work.role}
+      - paragraph: ${work.brief}`;
+  })
+  .join('\n')}`,
       );
     });
     test('Have Recommends from co-workers section in document', async ({
@@ -102,9 +99,6 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
       const referencesSection = page.locator(
         'section[title="Recommends from co-workers"]',
       );
-      // console.log(await referencesSection.ariaSnapshot());
-      // await expect(referencesSection).toBeVisible();
-      // TODO: resolve snapshot mismatch when content contain multiple-lines
       const cmsData = await replicateFrontendCMSQuery();
       const referencesSectionData = cmsData.page.workReferences.map(
         (ref: any) => ref.references,
