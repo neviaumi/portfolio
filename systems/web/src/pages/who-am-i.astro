@@ -16,7 +16,7 @@ const summary = page.summary;
 const {heading: coreValueSectionHeading, values: {values: _coreValues}} = page.coreValues;
 const coreValues = await prepareCoreValuesProps(_coreValues);
 const experiences = page.experiences;
-const references = page.workReferences.map((ref: {references: any[]}) => ref.references);
+const references = page.workReferences.map((ref) => ref.references);
 const skills = page.skills.sections;
 
 ---
