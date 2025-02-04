@@ -130,6 +130,20 @@ const ExperiencesPage: Template = {
   name: 'experiences',
 };
 
+const SkillsPage: Template = {
+  fields: [
+    { label: 'Page title', name: 'title', type: 'string' },
+    {
+      collections: ['skill'],
+      label: 'Skills',
+      name: 'skillsRef',
+      type: 'reference',
+    },
+  ],
+  label: 'Skills',
+  name: 'skills',
+};
+
 const foobar: Template = {
   fields: [
     {
@@ -150,7 +164,7 @@ const Pages: Collection = {
   label: 'Pages',
   name: 'page',
   path: 'content/pages',
-  templates: [WhoAmIPage, CoreValuesPage, ExperiencesPage, foobar],
+  templates: [WhoAmIPage, CoreValuesPage, ExperiencesPage, SkillsPage, foobar],
   ui: {
     allowedActions: {
       create: false,

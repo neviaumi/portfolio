@@ -14,3 +14,4 @@ export const experiencesPage = new URL(
   '/portfolio/experiences',
   TESTS_WEB_BASE_URL,
 );
+export const skillsPage = new URL('/portfolio/skills', TESTS_WEB_BASE_URL);
