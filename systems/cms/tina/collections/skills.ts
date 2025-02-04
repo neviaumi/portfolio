@@ -17,6 +17,20 @@ const Skills: Collection = {
           name: 'level',
           type: 'number',
         },
+        {
+          label: 'Description',
+          name: 'description',
+          overrides: {
+            toolbar: ['ul'],
+          },
+          type: 'rich-text',
+        },
+        {
+          label: 'tags',
+          list: true,
+          name: 'tags',
+          type: 'string',
+        },
       ],
       label: 'Skill section',
       list: true,
