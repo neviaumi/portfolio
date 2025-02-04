@@ -71,7 +71,7 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
     test('Have skills section in document', async ({ page }) => {
       await page.goto(pageUrl.toString());
       const skillsSection = page.locator('section[title="Skills Radar"]');
-      await expect(skillsSection).toMatchAriaSnapshot(`- text: Skills Radar`);
+      await expect(skillsSection).toMatchAriaSnapshot(`- link "Skills Radar"`);
     });
     test('Have Experiences section in document', async ({ page }) => {
       const cmsData = await replicateFrontendCMSQuery();

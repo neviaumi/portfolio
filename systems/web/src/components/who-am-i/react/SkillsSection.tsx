@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
@@ -86,15 +87,19 @@ export default function SkillsSection({
   }, [isLoading, skills]);
   return (
     <section title={'Skills Radar'}>
-      <Typography
-        component={'header'}
-        sx={{
-          textAlign: 'center',
-        }}
-        variant={'h4'}
-      >
-        Skills Radar
-      </Typography>
+      <Link href={`/portfolio/skills#`} underline="hover">
+        <Typography
+          component={'header'}
+          sx={{
+            color: 'text.primary',
+            textAlign: 'center',
+          }}
+          variant={'h4'}
+        >
+          Skills Radar
+        </Typography>
+      </Link>
+
       <Paper
         sx={{
           alignItems: 'center',
