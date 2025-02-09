@@ -15,3 +15,4 @@ export const experiencesPage = new URL(
   TESTS_WEB_BASE_URL,
 );
 export const skillsPage = new URL('/portfolio/skills', TESTS_WEB_BASE_URL);
+export const faqPage = new URL('/portfolio/faq', TESTS_WEB_BASE_URL);

@@ -1,10 +1,18 @@
 ---
-const title = "FAQ";
 
 import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
-import WIP from '../components/react/WIP.tsx';
 import Layout from '../layouts/Layout.astro';
 import {Page, Main} from "../components/react/PageContainer"
+import cms from "../cms.ts";
+import OverlayButtons from "../components/react/OverlayButtons";
+import TableOfContentSection from "../components/faq/react/TableOfContentSection.tsx"
+import QuestionAnswerListingSection from "../components/faq/react/QuestionAnswerListingSection.tsx"
+
+
+import Query from "../components/faq/query.graphql"
+const {page} = await cms.gqlRequest(Query).then(data => data.data)
+const title = page.title;
+const questions = page.questions
 
 ---
 <Layout title={title}>
@@ -12,6 +20,14 @@ import {Page, Main} from "../components/react/PageContainer"
         <NavigationBar title={title}>
             <DrawerToggleButton client:load slot="drawer" title={title}/>
         </NavigationBar>
-        <Main><WIP/></Main>
+        <Main sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 1
+                }}>
+            <TableOfContentSection questions={questions}/>
+            <QuestionAnswerListingSection questions={questions}/>
+            <OverlayButtons client:load/>
+        </Main>
     </Page>
 </Layout>
