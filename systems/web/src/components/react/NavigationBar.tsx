@@ -127,21 +127,6 @@ export function DrawerToggleButton({ title }: { title: string }) {
             </ListItemButton>
           </ListItem>
           <ListItem>
-            <ListItemButton component={'a'} href={'/portfolio/services'}>
-              <ListItemIcon>
-                <HandymanOutlinedIcon
-                  sx={{
-                    color: 'action.active',
-                    transform: 'scale(1.7)',
-                  }}
-                />
-              </ListItemIcon>
-              <ListItemText
-                primary={<Typography variant={'body1'}>Services</Typography>}
-              />
-            </ListItemButton>
-          </ListItem>
-          <ListItem>
             <ListItemButton component={'a'} href={'/portfolio/experiences'}>
               <ListItemIcon>
                 <WorkHistoryOutlinedIcon
@@ -183,6 +168,21 @@ export function DrawerToggleButton({ title }: { title: string }) {
               </ListItemIcon>
               <ListItemText
                 primary={<Typography variant={'body1'}>FAQ</Typography>}
+              />
+            </ListItemButton>
+          </ListItem>
+          <ListItem>
+            <ListItemButton component={'a'} href={'/portfolio/services'}>
+              <ListItemIcon>
+                <HandymanOutlinedIcon
+                  sx={{
+                    color: 'action.active',
+                    transform: 'scale(1.7)',
+                  }}
+                />
+              </ListItemIcon>
+              <ListItemText
+                primary={<Typography variant={'body1'}>Services</Typography>}
               />
             </ListItemButton>
           </ListItem>

@@ -144,6 +144,59 @@ const SkillsPage: Template = {
   name: 'skills',
 };
 
+const FAQPage: Template = {
+  fields: [
+    { label: 'Page title', name: 'title', type: 'string' },
+    {
+      label: 'Introduction',
+      name: 'introduction',
+      type: 'string',
+      ui: {
+        component: 'textarea',
+      },
+    },
+    {
+      description:
+        'Check here: https://www.techinterviewhandbook.org/behavioral-interview-questions/',
+      fields: [
+        {
+          label: 'Question',
+          name: 'question',
+          type: 'string',
+        },
+        {
+          label: 'Answer',
+          name: 'answer',
+          type: 'rich-text',
+        },
+        {
+          label: 'Group',
+          name: 'group',
+          options: [
+            '📌 Work Preferences & Ideal Role',
+            '🛠 Problem-Solving & Challenges',
+            '🚀 Productivity & Time Management',
+            '📂 Projects & Experience',
+          ],
+          type: 'string',
+        },
+      ],
+      label: 'Common behaviour questions',
+      list: true,
+      name: 'questions',
+      type: 'object',
+      ui: {
+        itemProps: item => {
+          // Field values are accessed by item?.<Field name>
+          return { label: `${item?.['question']}` };
+        },
+      },
+    },
+  ],
+  label: 'F & Q',
+  name: 'faq',
+};
+
 const foobar: Template = {
   fields: [
     {
@@ -164,7 +217,14 @@ const Pages: Collection = {
   label: 'Pages',
   name: 'page',
   path: 'content/pages',
-  templates: [WhoAmIPage, CoreValuesPage, ExperiencesPage, SkillsPage, foobar],
+  templates: [
+    WhoAmIPage,
+    CoreValuesPage,
+    ExperiencesPage,
+    SkillsPage,
+    FAQPage,
+    foobar,
+  ],
   ui: {
     allowedActions: {
       create: false,
