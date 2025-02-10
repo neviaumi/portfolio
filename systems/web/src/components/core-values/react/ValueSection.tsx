@@ -19,25 +19,25 @@ function Star({
 }) {
   return (
     <>
-      <Typography component={'h3'} variant={'h6'}>
+      <Typography component={'h5'} variant={'h6'}>
         Situation
       </Typography>
       <Typography component={'p'} variant={'body1'}>
         {situation}
       </Typography>
-      <Typography component={'h3'} variant={'h6'}>
+      <Typography component={'h5'} variant={'h6'}>
         Task
       </Typography>
       <Typography component={'p'} variant={'body1'}>
         {task}
       </Typography>
-      <Typography component={'h3'} variant={'h6'}>
+      <Typography component={'h5'} variant={'h6'}>
         Action
       </Typography>
       <Typography component={'p'} variant={'body1'}>
         {action}
       </Typography>
-      <Typography component={'h3'} variant={'h6'}>
+      <Typography component={'h5'} variant={'h6'}>
         Result
       </Typography>
       <Typography component={'p'} variant={'body1'}>
@@ -129,11 +129,11 @@ export default function ValueSection({
           component={'header'}
           sx={{ display: 'flex', flexDirection: 'column' }}
         >
-          <Typography component={'h1'} variant="h5">
+          <Typography component={'h3'} variant="h5">
             {value.name}
           </Typography>
           <Typography
-            component={'h2'}
+            component={'h4'}
             sx={{
               color: 'action.active',
             }}

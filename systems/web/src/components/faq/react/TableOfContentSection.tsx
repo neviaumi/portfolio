@@ -47,7 +47,7 @@ export default function TableOfContentSection({
           return (
             <ListItem key={group} title={group}>
               <Box component={'section'}>
-                <Typography component={'header'} variant={'h5'}>
+                <Typography component={'h2'} variant={'h5'}>
                   {group}
                 </Typography>
                 <List

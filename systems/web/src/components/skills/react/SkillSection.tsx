@@ -19,6 +19,7 @@ export default function SkillSection({
       <CardHeader
         slotProps={{
           title: {
+            component: 'h2',
             variant: 'h5',
           },
         }}

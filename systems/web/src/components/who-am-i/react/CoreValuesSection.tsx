@@ -38,10 +38,10 @@ export default function CoreValuesSection({
           textAlign: 'center',
         }}
       >
-        <Typography component={'h1'} variant={'h4'}>
+        <Typography component={'h2'} variant={'h4'}>
           Core Values
         </Typography>
-        <Typography color={'action.active'} component={'h2'} variant={'body1'}>
+        <Typography color={'action.active'} component={'h3'} variant={'body1'}>
           {heading}
         </Typography>
       </Box>
@@ -110,12 +110,12 @@ export default function CoreValuesSection({
                       },
                     }}
                     slots={{
+                      subheader: Typography,
                       title: Typography,
                     }}
                     subheader={value.headline}
                     sx={{
                       paddingTop: 4,
-                      textAlign: 'center',
                     }}
                     title={value.name}
                   />

@@ -42,24 +42,27 @@ ${timelineSectionData
     const workDetailsSection = page.locator('article[title="Work Details"]');
     const workDetailsSectionData = cmsData.page.experiencesRef.works;
     await expect(workDetailsSection).toMatchAriaSnapshot(
-      workDetailsSectionData
-        .slice(0, 4)
-        .map((work: any) =>
-          !work.workReferences
-            ? `- text: ${work.role} at ${work.name} ${work.period}, ${work.location}
-- paragraph: ${sanitise(work.description)}`
-            : `- text: ${work.role} at ${work.name} ${work.period}, ${work.location}
-- paragraph: ${sanitise(work.description)}
-- article:
-  - separator
+      `- article "Work Details":
+${workDetailsSectionData
+  .slice(0, 4)
+  .map((work: any) =>
+    !work.workReferences
+      ? `  - heading "${work.role} at ${work.name}" [level=2]
+  - heading "${work.period}, ${work.location}" [level=3]
+  - paragraph: ${sanitise(work.description)}`
+      : `  - heading "${work.role} at ${work.name}" [level=2]
+  - heading "${work.period}, ${work.location}" [level=3]
+  - paragraph: ${sanitise(work.description)}
+  - article:
+    - separator
 ${work.workReferences
   .map((ref: any) => {
-    return `  - img "${ref.references.name}"
-  - text: ${ref.references.name} ${ref.references.relationship}`;
+    return `    - img "${ref.references.name}"
+    - text: ${ref.references.name} ${ref.references.relationship}`;
   })
   .join('\n')}`,
-        )
-        .join('\n'),
+  )
+  .join('\n')}`,
     );
   });
 });

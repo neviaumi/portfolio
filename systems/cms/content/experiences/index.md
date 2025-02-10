@@ -38,7 +38,7 @@ works:
   - name: PlayStation
     role: Software Engineer II
     period: May 2022 - Mar 2024
-    location: 'Liverpool,  UK (remote)'
+    location: 'Liverpool, UK (remote)'
     brief: >-
       Worked on a partner-facing platform, developing an access management
       system to manage user roles and permissions. Integrated frontend systems

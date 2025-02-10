@@ -48,8 +48,8 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
       const coreValuesSectionData = cmsData.page.coreValues;
       const cmsValues = coreValuesSectionData.values.values;
       await expect(coreValuesSection)
-        .toMatchAriaSnapshot(`- heading "Core Values" [level=1]
-- heading "${coreValuesSectionData.heading}" [level=2]
+        .toMatchAriaSnapshot(`- heading "Core Values" [level=2]
+- heading "${coreValuesSectionData.heading}" [level=3]
 - list:
   - listitem "${coreValuesSectionData.values.values[0].name}":
     - link "${[cmsValues[0].name, cmsValues[0].headline, cmsValues[0].brief.replaceAll('\n', ' ')].join(' ')}":
@@ -79,7 +79,7 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
       const experiencesSection = page.locator('section[title="Experiences"]');
       const experiencesSectionData = cmsData.page.experiences;
       await expect(experiencesSection).toMatchAriaSnapshot(
-        `- text: Experiences
+        `- heading "Experiences" [level=2]
 - list:
 ${experiencesSectionData.works
   .slice(0, 4)
@@ -104,7 +104,7 @@ ${experiencesSectionData.works
         (ref: any) => ref.references,
       );
       await expect(referencesSection)
-        .toMatchAriaSnapshot(`- text: Recommends from co-workers
+        .toMatchAriaSnapshot(`- heading "Recommends from co-workers" [level=2]
 - list:
   - listitem "${referencesSectionData[0].name}":
     - img "${referencesSectionData[0].name}"

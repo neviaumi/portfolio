@@ -20,7 +20,7 @@ export default function ReferencesSection({
   return (
     <section title={'Recommends from co-workers'}>
       <Typography
-        component={'header'}
+        component={'h2'}
         sx={{
           textAlign: 'center',
         }}

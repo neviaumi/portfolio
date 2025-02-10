@@ -19,7 +19,7 @@ export default function ExperiencesSection({
   return (
     <section title={'Experiences'}>
       <Typography
-        component={'header'}
+        component={'h2'}
         sx={{
           textAlign: 'center',
         }}

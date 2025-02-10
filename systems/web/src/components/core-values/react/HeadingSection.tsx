@@ -16,13 +16,13 @@ export default function HeadingSection({
         marginBottom: 1,
         marginTop: 0.5,
       }}
-      title={'Heading'}
+      title={'What Are Core Values and Why?'}
     >
       <CardHeader
-        component={'header'}
+        component={'h2'}
         slotProps={{
           title: {
-            variant: 'h5',
+            variant: 'h4',
           },
         }}
         slots={{

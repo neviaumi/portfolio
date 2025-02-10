@@ -22,10 +22,12 @@ test.describe('Core values page flow', () => {
   test('Have what is core values section in document', async ({ page }) => {
     const cmsData = await replicateFrontendCMSQuery();
     await page.goto(coreValuesPage.toString());
-    const headingSection = page.locator('section[title="Heading"]');
+    const headingSection = page.locator(
+      'section[title="What Are Core Values and Why?"]',
+    );
     const headingSectionData = cmsData.page.whatAreCoreValues;
     await expect(headingSection).toMatchAriaSnapshot(
-      `- text: What Are Core Values and Why?
+      `- heading "What Are Core Values and Why?" [level=2]
 - paragraph: "${sanitise(headingSectionData)}"`,
     );
   });
@@ -37,16 +39,16 @@ test.describe('Core values page flow', () => {
       (value: { name: string }) => value.name === 'Evolution',
     );
     await expect(evolutionSection)
-      .toMatchAriaSnapshot(`- heading "${evolutionSectionData.name}" [level=1]
-- heading "${evolutionSectionData.headline}" [level=2]
+      .toMatchAriaSnapshot(`- heading "${evolutionSectionData.name}" [level=3]
+- heading "${evolutionSectionData.headline}" [level=4]
 - paragraph: ${sanitise(evolutionSectionData.description)}
-- heading "Situation" [level=3]
+- heading "Situation" [level=5]
 - paragraph: ${sanitise(evolutionSectionData.star.situation)}
-- heading "Task" [level=3]
+- heading "Task" [level=5]
 - paragraph: ${sanitise(evolutionSectionData.star.task)}
-- heading "Action" [level=3]
+- heading "Action" [level=5]
 - paragraph: ${sanitise(evolutionSectionData.star.action)}
-- heading "Result" [level=3]
+- heading "Result" [level=5]
 - paragraph: ${sanitise(evolutionSectionData.star.result)}
 - paragraph: ${sanitise(evolutionSectionData.footer)}`);
   });
@@ -58,8 +60,8 @@ test.describe('Core values page flow', () => {
       (value: { name: string }) => value.name === 'Interactive',
     );
     await expect(interactiveSection)
-      .toMatchAriaSnapshot(`- heading "${interactiveSectionData.name}" [level=1]
-- heading "${interactiveSectionData.headline}" [level=2]
+      .toMatchAriaSnapshot(`- heading "${interactiveSectionData.name}" [level=3]
+- heading "${interactiveSectionData.headline}" [level=4]
 - paragraph: ${sanitise(interactiveSectionData.description)}`);
   });
   test('Have Communication section in document', async ({ page }) => {
@@ -70,8 +72,8 @@ test.describe('Core values page flow', () => {
       (value: { name: string }) => value.name === 'Communication',
     );
     await expect(communicationSection)
-      .toMatchAriaSnapshot(`- heading "${communicationSectionData.name}" [level=1]
-- heading "${communicationSectionData.headline}" [level=2]
+      .toMatchAriaSnapshot(`- heading "${communicationSectionData.name}" [level=3]
+- heading "${communicationSectionData.headline}" [level=4]
 - paragraph: ${sanitise(communicationSectionData.description)}`);
   });
   test('Have Flexible section in document', async ({ page }) => {
@@ -82,8 +84,8 @@ test.describe('Core values page flow', () => {
       (value: { name: string }) => value.name === 'Flexible',
     );
     await expect(flexibleSection)
-      .toMatchAriaSnapshot(`- heading "${flexibleSectionData.name}" [level=1]
-- heading "${flexibleSectionData.headline}" [level=2]
+      .toMatchAriaSnapshot(`- heading "${flexibleSectionData.name}" [level=3]
+- heading "${flexibleSectionData.headline}" [level=4]
 - paragraph: ${sanitise(flexibleSectionData.description)}`);
   });
 });
