@@ -101,6 +101,14 @@ export default function CoreValuesSection({
                       />
                     }
                     component={'header'}
+                    slotProps={{
+                      title: {
+                        sx: {
+                          color: 'text.primary',
+                        },
+                        variant: 'h5',
+                      },
+                    }}
                     slots={{
                       title: Typography,
                     }}
