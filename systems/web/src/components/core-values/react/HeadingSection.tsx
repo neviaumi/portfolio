@@ -10,6 +10,7 @@ export default function HeadingSection({
 }) {
   return (
     <Card
+      aria-description={whatIsCoreValues}
       component={'section'}
       sx={{
         marginBottom: 1,
@@ -19,10 +20,15 @@ export default function HeadingSection({
     >
       <CardHeader
         component={'header'}
-        title={'What Are Core Values and Why?'}
-        titleTypographyProps={{
-          variant: 'h5',
+        slotProps={{
+          title: {
+            variant: 'h5',
+          },
         }}
+        slots={{
+          title: Typography,
+        }}
+        title={'What Are Core Values and Why?'}
       />
       <CardContent>
         <Typography component={'p'} variant="body1">

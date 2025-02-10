@@ -14,7 +14,7 @@ const {page} = await cms.gqlRequest(Query).then(data => data.data)
 const title = page.title
 const experiences = page.experiencesRef.works;
 ---
-<Layout title={title}>
+<Layout title={title} description="Explore the portfolio of a seasoned software engineer with experience at PlayStation, Emma App, Neat, and HK01. Learn about their expertise in frontend and backend development, and read testimonials from colleagues.">
     <Page>
         <NavigationBar title={title}>
             <DrawerToggleButton client:load slot="drawer" title={title}/>

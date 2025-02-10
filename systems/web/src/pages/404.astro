@@ -1,18 +1,18 @@
 ---
 import {Page, Main} from "../components/react/PageContainer"
 import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
-import ResumeLoader from "../components/resume/react/ResumeLoader.tsx"
+import WIP from '../components/react/WIP';
 import Layout from '../layouts/Layout.astro';
-const title = "Resume"
+const title = "Page not found"
 ---
 
-<Layout title={title} description="Explore David's resume, highlighting his skills and experience. Learn more about his professional background and qualifications.">
+<Layout title={title} description={title}>
     <Page>
         <NavigationBar title={title}>
             <DrawerToggleButton client:load slot="drawer" title={title}/>
         </NavigationBar>
         <Main>
-            <ResumeLoader client:load/>
+            <WIP/>
         </Main>
     </Page>
 

@@ -47,6 +47,7 @@ export default function ExperiencesSection({
           {works.map(work => {
             return (
               <Card
+                aria-description={work.brief}
                 component={'li'}
                 key={work.name}
                 sx={{

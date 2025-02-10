@@ -14,6 +14,7 @@ export default function ThanksForPayment() {
       sx={{
         paddingTop: 8,
       }}
+      title={'Thanks for payment'}
     >
       <Box
         sx={{
@@ -33,14 +34,19 @@ export default function ThanksForPayment() {
       </Box>
 
       <CardHeader
+        slotProps={{
+          title: {
+            variant: 'h4',
+          },
+        }}
+        slots={{
+          title: Typography,
+        }}
         sx={{
           paddingTop: 4,
           textAlign: 'center',
         }}
         title="Thanks for your payment"
-        titleTypographyProps={{
-          variant: 'h4',
-        }}
       />
       <CardContent
         sx={{

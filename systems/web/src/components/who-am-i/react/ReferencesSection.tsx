@@ -48,6 +48,7 @@ export default function ReferencesSection({
           {references.map(reference => {
             return (
               <Card
+                aria-description={reference.comments}
                 component={'li'}
                 key={reference.name}
                 sx={{
@@ -67,14 +68,20 @@ export default function ReferencesSection({
                     />
                   }
                   component={'header'}
+                  slotProps={{
+                    subheader: {
+                      variant: 'body2',
+                    },
+                    title: {
+                      variant: 'h5',
+                    },
+                  }}
+                  slots={{
+                    subheader: Typography,
+                    title: Typography,
+                  }}
                   subheader={reference.relationship}
-                  subheaderTypographyProps={{
-                    variant: 'body2',
-                  }}
                   title={reference.name}
-                  titleTypographyProps={{
-                    variant: 'h5',
-                  }}
                 />
                 <CardContent>
                   <Typography component={'p'} variant="body1">

@@ -101,14 +101,15 @@ export default function CoreValuesSection({
                       />
                     }
                     component={'header'}
-                    subheader={value.headline}
-                    title={value.name}
-                    titleTypographyProps={{
-                      sx: {
-                        color: 'text.primary',
-                      },
-                      variant: 'h5',
+                    slots={{
+                      title: Typography,
                     }}
+                    subheader={value.headline}
+                    sx={{
+                      paddingTop: 4,
+                      textAlign: 'center',
+                    }}
+                    title={value.name}
                   />
                   <CardContent>
                     <Typography
