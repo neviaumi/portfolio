@@ -1,4 +1,5 @@
 ---
+import { pwaInfo } from 'virtual:pwa-info';
 import Footer from '../components/Footer.astro';
 const { title, description } = Astro.props;
 const currentPath = new URL(Astro.url.pathname.includes('portfolio') ? Astro.url.pathname: `/portfolio${Astro.url.pathname}`, 'https://neviaumi.github.io').toString();
@@ -16,6 +17,12 @@ const currentPath = new URL(Astro.url.pathname.includes('portfolio') ? Astro.url
 		<!-- End Google Tag Manager -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, minimal-ui">
+		<!--<link rel="manifest" href="/portfolio/manifest.json" />-->
+		<link rel="apple-touch-icon" type="image/png" href="/portfolio/icons/192.png"/>
+		<link rel="mask-icon" href="/favicon.svg" color="#FFFFFF"/>
+		<meta name="msapplication-TileColor" content="#FFFFFF"/>
+		<meta name="theme-color" content="#ffffff"/>
+
 		<link rel="icon" type="image/png" href="/portfolio/favicon.png" />
 		<link rel="canonical" href={currentPath} />
 		<meta name="generator" content={Astro.generator} />
@@ -25,6 +32,8 @@ const currentPath = new URL(Astro.url.pathname.includes('portfolio') ? Astro.url
 		<meta property="og:url" content={currentPath} />
 
 		<link rel="sitemap" href="/portfolio/sitemap-index.xml" />
+		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+		<script src="/src/pwa.ts"/>
 		<title>{title}</title>
 	</head>
 	<body>
