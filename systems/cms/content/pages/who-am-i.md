@@ -42,31 +42,18 @@ summary:
   position: Software Engineer
   profilePicture: 'https://avatars.githubusercontent.com/u/2247500'
   careerOverview: >-
-    I began my career in 2014 as a Web Developer for a small local business,
-    later expanding my experience across diverse environments, from tech
-    startups to multinational corporations. Over the years, I’ve grown
-    technically and reshaped my perspective on work, striving to create balance
-    and purpose in my professional life.
-
-
-    Initially, I focused on crafting overengineered solutions that anticipated
-    every possible scenario—even those unlikely to occur. Through experience, I
-    learned that simplicity, combined with automated testing, is key to creating
-    scalable, maintainable systems that can evolve over time.
-
-
-    Midway through my journey, I embraced Agile methodology, which introduced an
-    iterative, feedback-driven approach to development. Delivering features
-    incrementally enables faster validation and refinement, avoiding the
-    pitfalls of building a product nobody wants. However, effective Agile relies
-    on transparent communication—teams must uphold the definition of “done,”
-    resist unreasonable timelines, and openly discuss technical concerns with
-    product owners.
-
-
-    Throughout my journey, I’ve remained committed to building meaningful
-    solutions that align with business goals, always seeking to combine
-    technical excellence with practical impact.
+    I began my career in 2014 as a Web Developer for a small local business and
+    have since expanded my expertise across various environments, from tech
+    startups to multinational corporations. My journey has taught me the value
+    of simplicity and automated testing in building scalable, maintainable
+    systems. By embracing Agile methodology, I've learned to deliver features
+    incrementally, enabling faster validation and reducing the risk of
+    developing unwanted products. My experiences have reinforced the importance
+    of transparent communication and collaboration within teams. I am committed
+    to creating meaningful solutions that not only meet business goals but also
+    foster innovation and practical impact. As I seek my next role, I am excited
+    to contribute to a collaborative environment that values continuous growth
+    and adaptation.
 coreValues:
   heading: These Are the Principles Guiding My Professional Journey
   values: content/core-values/index.md
