@@ -12,7 +12,10 @@ const {page} = await cms.gqlRequest(Query).then(data => data.data)
 const title = page.title
 const values =  await prepareCoreValuesProps(page.values.values);
 ---
-<Layout title={title}>
+<Layout
+        title={title}
+        description={"Explore my core values—Evolution, Interactive Development, Communication, and Flexibility—and how they shape my approach as a professional engineer. Learn how these principles guide my work, collaboration, and continuous growth in the tech industry."}
+>
     <Page>
         <NavigationBar title={title}>
             <DrawerToggleButton client:load slot="drawer" title={title}/>

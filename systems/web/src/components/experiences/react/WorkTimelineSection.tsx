@@ -27,7 +27,11 @@ export default function WorkTimelineSection({ works }: { works: Array<Work> }) {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Link href={`#${work.name}`} underline={'hover'}>
+                  <Link
+                    href={`#${work.name}`}
+                    title={`${work.role} at ${work.name}`}
+                    underline={'hover'}
+                  >
                     <Typography
                       sx={{
                         color: 'text.primary',
@@ -50,7 +54,7 @@ export default function WorkTimelineSection({ works }: { works: Array<Work> }) {
                 <TimelineDot />
                 <TimelineConnector />
               </TimelineSeparator>
-              <TimelineContent>
+              <TimelineContent title={`${work.role} at ${work.name}`}>
                 <Typography
                   sx={{
                     color: 'text.primary',

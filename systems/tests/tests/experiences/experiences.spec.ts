@@ -39,7 +39,7 @@ ${timelineSectionData
   test('Have Work details section in document', async ({ page }) => {
     const cmsData = await replicateFrontendCMSQuery();
     await page.goto(experiencesPage.toString());
-    const workDetailsSection = page.locator('section[title="Work Details"]');
+    const workDetailsSection = page.locator('article[title="Work Details"]');
     const workDetailsSectionData = cmsData.page.experiencesRef.works;
     await expect(workDetailsSection).toMatchAriaSnapshot(
       workDetailsSectionData

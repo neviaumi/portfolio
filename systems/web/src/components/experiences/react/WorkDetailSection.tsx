@@ -51,7 +51,7 @@ function WorkReference({
 export default function WorkDetailsSection({ works }: { works: Array<Work> }) {
   return (
     <Box
-      component={'section'}
+      component={'article'}
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -61,7 +61,13 @@ export default function WorkDetailsSection({ works }: { works: Array<Work> }) {
     >
       {works.slice(0, 4).map((work: Work) => {
         return (
-          <Card id={work.name} key={work.name}>
+          <Card
+            aria-description={work.description}
+            component={'section'}
+            id={work.name}
+            key={work.name}
+            title={work.name}
+          >
             <CardHeader
               slotProps={{
                 title: {

@@ -94,6 +94,7 @@ export default function ValueSection({
 }) {
   return (
     <Card
+      aria-description={value.description}
       component={'section'}
       id={value.name}
       sx={{
