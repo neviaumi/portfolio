@@ -41,7 +41,6 @@ ${timelineSectionData
     await page.goto(experiencesPage.toString());
     const workDetailsSection = page.locator('article[title="Work Details"]');
     const workDetailsSectionData = cmsData.page.experiencesRef.works;
-    console.log(await workDetailsSection.ariaSnapshot());
     await expect(workDetailsSection).toMatchAriaSnapshot(
       `- article "Work Details":
 ${workDetailsSectionData
