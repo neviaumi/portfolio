@@ -1,6 +1,6 @@
 ---
 summary: HelloWorld
-title: F&Q
+title: FAQ
 introduction: >-
   Welcome to my FAQ section! Here, I answer some common questions about my work
   experience, problem-solving approach, and what I look for in a team.
@@ -47,7 +47,7 @@ questions:
       gradually.
 
 
-      # Key Takeaways & Relevance:
+      #### Key Takeaways & Relevance:
 
 
       This experience reinforced the importance of iterative development and
@@ -93,7 +93,7 @@ questions:
       individual efficiency.
 
 
-      # Team-Level Strategy
+      #### Team-Level Strategy
 
 
       I break down each story into detailed sub-tasks before starting
@@ -108,7 +108,7 @@ questions:
       * Allows work to be completed in smaller, manageable pieces
 
 
-      # Personal Strategy
+      #### Personal Strategy
 
 
       I use a daily to-do list alongside our daily stand-up to stay focused on
@@ -127,7 +127,7 @@ questions:
       helps me regain productivity and avoid burnout.
 
 
-      # Example Application
+      #### Example Application
 
 
       When working at Emma, the team lacked structured project management
@@ -259,7 +259,6 @@ questions:
       * Content should be committed to Git directly.
 
       * Must provide API access for content retrieval.
-
 
 
       After researching options like Contentful, WordPress, PayloadCMS, TinaCMS,

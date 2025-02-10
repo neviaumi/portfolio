@@ -89,7 +89,7 @@ export default function SkillsSection({
     <section title={'Skills Radar'}>
       <Link href={`/portfolio/skills#`} underline="hover">
         <Typography
-          component={'header'}
+          component={'h2'}
           sx={{
             color: 'text.primary',
             textAlign: 'center',

@@ -70,11 +70,17 @@ export default function WorkDetailsSection({ works }: { works: Array<Work> }) {
           >
             <CardHeader
               slotProps={{
+                subheader: {
+                  component: 'h3',
+                  variant: 'body2',
+                },
                 title: {
+                  component: 'h2',
                   variant: 'h5',
                 },
               }}
               slots={{
+                subheader: Typography,
                 title: Typography,
               }}
               subheader={`${work.period}, ${work.location}`}

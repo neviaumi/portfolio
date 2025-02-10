@@ -26,6 +26,7 @@ function QuestionAnswerSection({
       <CardHeader
         slotProps={{
           title: {
+            component: 'h3',
             variant: 'h5',
           },
         }}
