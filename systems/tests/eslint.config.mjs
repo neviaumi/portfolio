@@ -3,7 +3,6 @@ import { useESModuleEslintConfig } from '@busybox/eslint-config-esm';
 import { useReactEslintConfig } from '@busybox/eslint-config-react';
 import {
   useJSONEslintConfig,
-  useMarkdownEslintConfig,
   usePackageJsonEslintConfig,
   useYamlEslintConfig,
 } from '@busybox/eslint-config-text-document';
@@ -16,22 +15,6 @@ import {
 } from './eslint-configs/graphql.js';
 import { usePlaywrightEslintConfig } from './eslint-configs/playwright.js';
 import pkgjson from './package.json' with { type: 'json' };
-
-function withOverride(overrideConfig) {
-  return function createEslintConfigHOC(originalConfigFunc) {
-    return function (...args) {
-      const originalConfig = originalConfigFunc(...args);
-      return {
-        ...originalConfig,
-        ...overrideConfig,
-        rules: {
-          ...originalConfig.rules,
-          ...overrideConfig.rules,
-        },
-      };
-    };
-  };
-}
 
 export default [
   {
@@ -53,15 +36,9 @@ export default [
   useReactEslintConfig(),
   useTrustCodeFilesAsGraphQLEslintConfig(),
   useGraphQLEslintConfig(),
-  // useTypescriptDefinitionEslintConfig(),
   useCodeSortingEslintConfig(),
   useYamlEslintConfig(),
   usePackageJsonEslintConfig(),
   useJSONEslintConfig(),
-  withOverride({
-    rules: {
-      'markdownlint/md013': 'off',
-    },
-  })(useMarkdownEslintConfig)(),
   usePlaywrightEslintConfig(),
 ];

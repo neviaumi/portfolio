@@ -91,3 +91,29 @@ ${faqPage}
     },
   ];
 }
+
+export function withPromptThatInstructOnlyResponseToQuestion(originalPrompt) {
+  return async (...args) => {
+    const initialPrompts = await originalPrompt(...args);
+    return initialPrompts.concat([
+      {
+        content: `All the html content was loaded now. 
+on the next prompts i will pass though the question from user directly to you.
+Remember to only respond to the question that related to the html content you received.
+If you don't know the answer, just make sure the response include "I don't know" and you are feel free to include why you don't know
+If you think that reason why you can't get the answer is because missing JD. You can ask their upload the JD and do again.
+I will capture the "I don't know" answer and use it to improve the model.
+I will do that by 
+\`\`\`javascript
+if (promptsMessage.includes("I don't know")) {
+  // log the question
+} else {
+  // continue prompts  
+}
+\`\`\`
+`,
+        role: 'user',
+      },
+    ]);
+  };
+}

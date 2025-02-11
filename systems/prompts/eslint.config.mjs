@@ -38,10 +38,10 @@ export default [
     name: pkgjson.name,
   },
   withOverride({
-    roles: {
-      'no-console': 'off'
-    }
-  })(useESModuleEslintConfig()),
+    rules: {
+      'no-console': 'off',
+    },
+  })(useESModuleEslintConfig)(),
   useCodeSortingEslintConfig(),
   useYamlEslintConfig(),
   usePackageJsonEslintConfig(),
