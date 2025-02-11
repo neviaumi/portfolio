@@ -1,3 +1,3 @@
 export function sanitise(source: string) {
-  return source.replaceAll('\n', ' ');
+  return source.trim().replaceAll('\n', ' ');
 }
