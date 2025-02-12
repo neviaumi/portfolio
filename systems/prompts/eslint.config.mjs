@@ -2,7 +2,6 @@ import { useCodeSortingEslintConfig } from '@busybox/eslint-config-code-sorting'
 import { useESModuleEslintConfig } from '@busybox/eslint-config-esm';
 import {
   useJSONEslintConfig,
-  useMarkdownEslintConfig,
   usePackageJsonEslintConfig,
   useYamlEslintConfig,
 } from '@busybox/eslint-config-text-document';
@@ -38,17 +37,12 @@ export default [
     name: pkgjson.name,
   },
   withOverride({
-    roles: {
-      'no-console': 'off'
-    }
-  })(useESModuleEslintConfig()),
+    rules: {
+      'no-console': 'off',
+    },
+  })(useESModuleEslintConfig)(),
   useCodeSortingEslintConfig(),
   useYamlEslintConfig(),
   usePackageJsonEslintConfig(),
   useJSONEslintConfig(),
-  withOverride({
-    rules: {
-      'markdownlint/md013': 'off',
-    },
-  })(useMarkdownEslintConfig)(),
 ];
