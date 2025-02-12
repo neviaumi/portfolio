@@ -2,7 +2,6 @@ import { useCodeSortingEslintConfig } from '@busybox/eslint-config-code-sorting'
 import { useESModuleEslintConfig } from '@busybox/eslint-config-esm';
 import {
   useJSONEslintConfig,
-  useMarkdownEslintConfig,
   usePackageJsonEslintConfig,
   useYamlEslintConfig,
 } from '@busybox/eslint-config-text-document';
@@ -46,9 +45,4 @@ export default [
   useYamlEslintConfig(),
   usePackageJsonEslintConfig(),
   useJSONEslintConfig(),
-  withOverride({
-    rules: {
-      'markdownlint/md013': 'off',
-    },
-  })(useMarkdownEslintConfig)(),
 ];
