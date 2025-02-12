@@ -4,8 +4,6 @@
 - Deciders: [list everyone involved in the decision] <!-- optional -->
 - Date: [YYYY-MM-DD when the decision was last updated] <!-- optional -->
 
-Technical Story: [description | ticket/issue URL] <!-- optional -->
-
 ## Context and Problem Statement
 
 ## Decision Drivers <!-- optional -->
