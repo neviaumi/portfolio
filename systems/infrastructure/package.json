@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "@cdktf/provider-cloudflare": "12.1.0",
+    "cdktf": "0.20.11",
+    "cdktf-cli": "0.20.11",
+    "constructs": "10.4.2",
+    "vite-node": "3.0.5"
+  },
+  "devDependencies": {
+    "@busybox/eslint-config-code-sorting": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-esm": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-text-document": "2024.11.10-alpha.2150",
+    "@busybox/eslint-config-typescript": "2024.11.10-alpha.2150",
+    "@busybox/prettier-config": "2024.12.13-alpha.2308",
+    "@busybox/tsconfig": "2024.12.13-alpha.2308",
+    "@eslint/config-inspector": "0.6.0",
+    "@types/jest": "29.5.14",
+    "@types/node": "22.13.1",
+    "eslint": "9.14.0",
+    "globals": "15.13.0",
+    "jest": "29.7.0",
+    "prettier": "3.4.2",
+    "ts-jest": "29.2.5",
+    "ts-node": "10.9.2",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": ">=20",
+    "yarn": "Use npm"
+  },
+  "license": "MIT",
+  "name": "@portfolio/infrastructure",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1"
+}

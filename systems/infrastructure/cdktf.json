@@ -1,0 +1,10 @@
+{
+  "app": "npx vite-node main.ts",
+  "context": {
+  },
+  "language": "typescript",
+  "projectId": "97e0c075-92d5-439f-9845-24cb490d87b1",
+  "sendCrashReports": "true",
+  "terraformModules": [],
+  "terraformProviders": ["cloudflare/cloudflare"]
+}

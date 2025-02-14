@@ -1,0 +1,5 @@
+{
+  "exclude": ["dist", "cdktf.out"],
+  "extends": "@busybox/tsconfig/tsconfig-react.json",
+  "include": ["**/*"]
+}
