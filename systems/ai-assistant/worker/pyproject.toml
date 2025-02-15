@@ -1,0 +1,19 @@
+[project]
+name = "@portfolio/ai-assistant-worker"
+version = "0.1.0"
+description = "CloudFlare worker for ai-assistant"
+authors = [
+    {name = "David Ng", email = "david.ng.dev@gmail.com"},
+]
+dependencies = []
+requires-python = "==3.12.4"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+save_exact = true
+[dependency-groups]
+dev = [
+    "black==25.1.0",
+]

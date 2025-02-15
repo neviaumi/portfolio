@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "cheerio": "1.0.0",
-    "fastify": "5.2.1",
-    "openai": "4.83.0"
+    "openai": "4.83.0",
+    "wrangler": "3.109.1"
   },
   "devDependencies": {
     "@busybox/eslint-config-code-sorting": "2024.11.10-alpha.2150",
@@ -19,7 +19,7 @@
     "yarn": "Use npm"
   },
   "license": "MIT",
-  "name": "@portfolio/prompts",
+  "name": "@portfolio/ai-assistant",
   "private": true,
   "type": "module",
   "version": "0.0.1"

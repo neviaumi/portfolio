@@ -15,6 +15,10 @@ jobs:
         uses: actions/setup-node@v4.2.0
         with:
           node-version-file: .nvmrc
+      - name: Use Python3
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: systems/ai-assistant/worker/.python-version
       - run: bash ./scripts/setup.sh
       - run: bash ./scripts/ci/test.sh
 name: Verify PR
