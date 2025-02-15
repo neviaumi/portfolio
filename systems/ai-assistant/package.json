@@ -19,7 +19,7 @@
     "yarn": "Use npm"
   },
   "license": "MIT",
-  "name": "@portfolio/prompts",
+  "name": "@portfolio/ai-assistant",
   "private": true,
   "type": "module",
   "version": "0.0.1"
