@@ -1,0 +1,30 @@
+services:
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    command: ./scripts/docker/start.sh
+    entrypoint: /bin/sh
+    environment:
+      - CMS_BASE_URL=http://localhost:4001/
+    volumes:
+      - source: ./systems/cms/content
+        target: /app/content
+        type: bind
+      - source: ./systems/cms/public/uploads
+        target: /app/public/uploads
+        type: bind
+      - source: ./systems/cms/tina/tina-lock.json
+        target: /app/tina/tina-lock.json
+        type: bind
+  web-components:
+    build:
+      context: web-components
+      dockerfile: Dockerfile
+    command: ./scripts/docker/start.sh
+    depends_on:
+      worker:
+        condition: service_started
+    entrypoint: /bin/sh
+    environment:
+      - VITE_WORKER_BASE_URL=http://worker:8787/

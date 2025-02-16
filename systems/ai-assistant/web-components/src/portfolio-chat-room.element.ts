@@ -9,6 +9,8 @@ import '@material/web/list/list-item.js';
 import '@material/web/textfield/outlined-text-field';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
+const WORKER_BASE_URL = import.meta.env['VITE_WORKER_BASE_URL'];
+
 function sanitizeHtml(html: string) {
   const endIndex = html.indexOf('<'),
     startIndex = html.lastIndexOf('>');
@@ -23,8 +25,11 @@ export class PortfolioChatRoomElement extends LitElement {
   static override styles = [
     typescaleStyles,
     css`
-      aside {
+      :host {
+        display: block;
         width: 18rem;
+      }
+      aside {
         display: flex;
         gap: 1rem;
         flex-direction: column;
@@ -70,7 +75,7 @@ export class PortfolioChatRoomElement extends LitElement {
   private _chatToAssistantTask = new Task(this, {
     args: () => [this.messages],
     task: async ([messages], { signal }) => {
-      const response = await fetch('http://localhost:8787', {
+      const response = await fetch(WORKER_BASE_URL, {
         body: JSON.stringify({
           messages: messages,
         }),
@@ -110,8 +115,8 @@ export class PortfolioChatRoomElement extends LitElement {
             </md-list-item>`;
           })}
           ${haveExtraListItemOnList
-            ? html`<md-divider></md-divider
-                ><md-list-item data-message-role="assistant" id="last-item">
+            ? html` <md-divider></md-divider>
+                <md-list-item data-message-role="assistant" id="last-item">
                   Loading
                 </md-list-item>`
             : null}

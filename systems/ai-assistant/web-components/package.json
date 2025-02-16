@@ -18,6 +18,11 @@
     "typescript": "5.7.2",
     "vite": "6.1.0"
   },
+  "engines": {
+    "node": ">=20",
+    "yarn": "Use npm"
+  },
+  "license": "MIT",
   "name": "@ai-assistant/web-components",
   "private": true,
   "scripts": {
