@@ -1,4 +1,4 @@
 #!/bin/bash
 set -ex
-cd ./worker
+cd ./web-components
 npx eslint .
