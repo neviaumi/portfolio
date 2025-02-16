@@ -1,0 +1,7 @@
+{
+    "name": "ai-assistant-web-components",
+    "pages_build_output_dir": "dist",
+    "vars": {
+        "VITE_WORKER_BASE_URL": "https://ai-assistant-worker.david-ng-dev.workers.dev/"
+    }
+}

@@ -1,0 +1,7 @@
+services:
+  worker:
+    ports:
+      - '8787:8787'
+  web-components:
+    ports:
+      - '5173:5173'
