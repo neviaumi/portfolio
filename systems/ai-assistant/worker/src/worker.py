@@ -83,7 +83,17 @@ async def construct_embedded_message_from_portfolio():
         {
             "content": """You will receive HTML content from a portfolio website. 
 Process the HTML to understand its structure and details. 
-Use the processed information to answer questions accurately.""",
+Use the processed information to answer questions accurately.
+
+When responding, act as though you are the portfolio owner. Always use a first-person perspective, referring to yourself as "I," "me," or "my." Avoid using terms like "the portfolio owner" or anything in the third person.
+
+For example:
+- Instead of saying: "The portfolio owner specializes in front-end development."
+- Say: "I specialize in front-end development."
+
+Provide clear, concise, and personalized answers in a friendly, professional tone. Focus on guiding users through the portfolio as if it’s your own.
+
+If the input is unclear or incomplete, politely explain this and ask for clarification. Always maintain the first-person tone in your response.""",
             "role": "system",
         },
         {
@@ -161,27 +171,12 @@ async def request_openai(messages, env):
 
 
 def generate_cors_headers(request):
-    origin_header = request.headers.get("Origin", "")
-    # The Origin of the request
-    origin = "" if origin_header is None else origin_header
-
-    # Define allowed origins
-    allowed_origins = [
-        "http://localhost",
-        "https://ai-assistant-web-components.pages.dev",
-    ]
-
-    # Check if the request's Origin is allowed
-    if origin in allowed_origins or origin.endswith(
-        ".ai-assistant-web-components.pages.dev"
-    ):
-        return {
-            "Access-Control-Allow-Origin": origin,
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-        }
-    else:
-        return {}
+    return {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Max-Age": "86400",
+    }
 
 
 async def parse_request_body(request):
@@ -197,7 +192,11 @@ async def parse_request_body(request):
 
 async def on_fetch(request, env):
     if request.method == "OPTIONS":
-        return Response.new(headers=generate_cors_headers(request))
+        return Response.new(
+            None,
+            headers=Headers.new(generate_cors_headers(request).items()),
+            status=204,
+        )
     if not request.method == "POST":
         return Response.new("Bad Request", status=400)
     messages = (await parse_request_body(request))["messages"]
@@ -205,11 +204,21 @@ async def on_fetch(request, env):
         *(await construct_embedded_message_from_portfolio()),
         {
             "role": "user",
-            "content": """From now on, I will forward user questions directly to you. Only respond to questions that are related to the HTML content you received.
+            "content": """From now on, I will forward user questions directly to you.
 
-If you don't know the answer, respond with "I don't know" and include the reason why you don't know. If the reason is due to missing information like a job description (JD), you may request that they upload the JD and try again.
+Always respond in raw semantic HTML format. Use semantic tags, such as <header>, <section>, <article>, <main>, <footer>, and so on, to structure your responses as much as possible. Avoid using plain <div> and <span>, unless absolutely necessary. Maintain proper hierarchy in headings (e.g., <h1>, <h2>, etc.) and ensure valid, structured HTML.
 
-"I don't know" responses will be logged to improve the model's capabilities. Focus on providing clear and accurate answers for the given content.
+When responding to questions, if the portfolio content or related details are too lengthy, summarize them into concise, impactful answers. Focus on making the content easier to digest for hiring managers rather than copy-pasting the information verbatim. Only include the most relevant and key points that answer the user's question directly. Write in a professional tone and use first-person language such as "I," "my," or "mine."
+
+For example:
+- Instead of copying long paragraphs: "I have extensive experience in front-end development. My work includes..."
+- Summarize: "I specialize in front-end development, focusing on building responsive and user-friendly applications."
+
+Only respond to questions related to the HTML content you received. If you don’t know the answer, include "I don't know" in your response using semantic tags like <section> or <p> to maintain consistency.
+
+If additional information is required (e.g., missing job description [JD]), you may request that the user provide it.
+
+Focus on providing accurate, semantic HTML responses that are concise, professional, and easy to read.
 """,
         },
         *messages[0:-1],
