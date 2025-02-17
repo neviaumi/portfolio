@@ -5,10 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>David AI assistant</title>
     <script type="module" src="/src/portfolio-chat-room.element.ts"></script>
+    <script type="module" src="/src/portfolio-chat-room-fab.element.ts"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      portfolio-chat-room-fab[hidden] {
+        display: none;
+      }
+
+      portfolio-chat-room[hidden] {
+        display: none;
+      }
+    </style>
+    <script>
+      function onFABClicked(event) {
+        event.preventDefault();
+        const fabButton = event.target;
+        const chatRoom = document.querySelector('portfolio-chat-room');
+        chatRoom.removeAttribute('hidden');
+        fabButton.setAttribute('hidden', '');
+        chatRoom.addEventListener('close', () => {
+          fabButton.removeAttribute('hidden');
+            chatRoom.setAttribute('hidden', '');
+          })
+        }
+      document.addEventListener('DOMContentLoaded', () => {
+        const fabElement = document.querySelector('portfolio-chat-room-fab');
+        fabElement?.addEventListener('click', onFABClicked);
+      });
+    </script>
+
   </head>
+
   <body>
-    <portfolio-chat-room>
-    </portfolio-chat-room>
+    <portfolio-chat-room hidden></portfolio-chat-room>
+  <portfolio-chat-room-fab >
+    </portfolio-chat-room-fab>
   </body>
 </html>

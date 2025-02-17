@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@lit/task": "1.0.2",
+    "@material-symbols/svg-400": "0.28.2",
     "@material/web": "2.2.0",
     "lit": "3.2.1"
   },
