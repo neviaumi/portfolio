@@ -2,8 +2,9 @@ import { Task, TaskStatus } from '@lit/task';
 import closeIcon from '@material-symbols/svg-400/outlined/close.svg?raw';
 import sendIcon from '@material-symbols/svg-400/outlined/send.svg?raw';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
-import { css, html, LitElement, unsafeCSS } from 'lit';
+import { css, html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '@material/web/button/elevated-button.js';
 import '@material/web/divider/divider.js';
 import '@material/web/list/list.js';
@@ -13,9 +14,9 @@ import '@material/web/icon/icon.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/iconbutton/filled-icon-button.js';
 import '@material/web/progress/linear-progress.js';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 import chatBotIcon from './assets/chat-bot-256x256.png';
+import * as theme from './theme.ts';
 
 const WORKER_BASE_URL = import.meta.env['VITE_WORKER_BASE_URL'];
 
@@ -27,82 +28,6 @@ function sanitizeHtml(html: string) {
   }
   return html.substring(startIndex, endIndex);
 }
-
-function space(factor: number) {
-  return unsafeCSS(`${factor * 0.25}rem`);
-}
-
-const theme = {
-  color: css`
-    :host {
-      --md-sys-color-primary: rgb(101 85 143);
-      --md-sys-color-surface-tint: rgb(103 80 164);
-      --md-sys-color-on-primary: rgb(255 255 255);
-      --md-sys-color-primary-container: rgb(234 221 255);
-      --md-sys-color-on-primary-container: rgb(33 0 93);
-      --md-sys-color-secondary: rgb(98 91 113);
-      --md-sys-color-on-secondary: rgb(255 255 255);
-      --md-sys-color-secondary-container: rgb(232 222 248);
-      --md-sys-color-on-secondary-container: rgb(29 25 43);
-      --md-sys-color-tertiary: rgb(125 82 96);
-      --md-sys-color-on-tertiary: rgb(255 255 255);
-      --md-sys-color-tertiary-container: rgb(255 216 228);
-      --md-sys-color-on-tertiary-container: rgb(49 17 29);
-      --md-sys-color-error: rgb(179 38 30);
-      --md-sys-color-on-error: rgb(255 255 255);
-      --md-sys-color-error-container: rgb(249 222 220);
-      --md-sys-color-on-error-container: rgb(65 14 11);
-      --md-sys-color-background: rgb(254 247 255);
-      --md-sys-color-on-background: rgb(29 27 32);
-      --md-sys-color-surface: rgb(254 247 255);
-      --md-sys-color-on-surface: rgb(29 27 32);
-      --md-sys-color-surface-variant: rgb(231 224 236);
-      --md-sys-color-on-surface-variant: rgb(73 69 79);
-      --md-sys-color-outline: rgb(121 116 126);
-      --md-sys-color-outline-variant: rgb(202 196 208);
-      --md-sys-color-shadow: rgb(0 0 0);
-      --md-sys-color-scrim: rgb(0 0 0);
-      --md-sys-color-inverse-surface: rgb(50 47 53);
-      --md-sys-color-inverse-on-surface: rgb(245 239 247);
-      --md-sys-color-inverse-primary: rgb(208 188 255);
-      --md-sys-color-primary-fixed: rgb(234 221 255);
-      --md-sys-color-on-primary-fixed: rgb(33 0 93);
-      --md-sys-color-primary-fixed-dim: rgb(208 188 255);
-      --md-sys-color-on-primary-fixed-variant: rgb(79 55 139);
-      --md-sys-color-secondary-fixed: rgb(232 222 248);
-      --md-sys-color-on-secondary-fixed: rgb(29 25 43);
-      --md-sys-color-secondary-fixed-dim: rgb(204 194 220);
-      --md-sys-color-on-secondary-fixed-variant: rgb(74 68 88);
-      --md-sys-color-tertiary-fixed: rgb(255 216 228);
-      --md-sys-color-on-tertiary-fixed: rgb(49 17 29);
-      --md-sys-color-tertiary-fixed-dim: rgb(239 184 200);
-      --md-sys-color-on-tertiary-fixed-variant: rgb(99 59 72);
-      --md-sys-color-surface-dim: rgb(222 216 225);
-      --md-sys-color-surface-bright: rgb(254 247 255);
-      --md-sys-color-surface-container-lowest: rgb(255 255 255);
-      --md-sys-color-surface-container-low: rgb(247 242 250);
-      --md-sys-color-surface-container: rgb(243 237 247);
-      --md-sys-color-surface-container-high: rgb(236 230 240);
-      --md-sys-color-surface-container-highest: rgb(230 224 233);
-    }
-  `,
-  shape: css`
-    :host {
-      --md-sys-shape-corner-extra-large: 28px;
-      --md-sys-shape-corner-extra-large-top: 28px 28px 0px 0px;
-      --md-sys-shape-corner-extra-small: 4px;
-      --md-sys-shape-corner-extra-small-top: 4px 4px 0px 0px;
-      --md-sys-shape-corner-full: 9999px;
-      --md-sys-shape-corner-large: 16px;
-      --md-sys-shape-corner-large-end: 0px 16px 16px 0px;
-      --md-sys-shape-corner-large-start: 16px 0px 0px 16px;
-      --md-sys-shape-corner-large-top: 16px 16px 0px 0px;
-      --md-sys-shape-corner-medium: 12px;
-      --md-sys-shape-corner-none: 0px;
-      --md-sys-shape-corner-small: 8px;
-    }
-  `,
-};
 
 @customElement('portfolio-chat-room')
 export class PortfolioChatRoomElement extends LitElement {
@@ -129,7 +54,8 @@ export class PortfolioChatRoomElement extends LitElement {
       }
       aside > header {
         background-color: var(--md-sys-color-primary);
-        padding: ${space(2)} ${space(2)} ${space(2)} ${space(8)};
+        padding: ${theme.space(2)} ${theme.space(2)} ${theme.space(2)}
+          ${theme.space(8)};
         display: flex;
         justify-content: space-between;
         color: var(--md-sys-color-on-primary);
@@ -142,12 +68,12 @@ export class PortfolioChatRoomElement extends LitElement {
       }
 
       aside > form {
-        margin: ${space(2)} 0 ${space(4)};
-        padding: 0 ${space(2)} 0 ${space(2)};
+        margin: ${theme.space(2)} 0 ${theme.space(4)};
+        padding: 0 ${theme.space(2)} 0 ${theme.space(2)};
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        gap: ${space(2)};
+        gap: ${theme.space(2)};
       }
 
       md-filled-text-field {
@@ -172,7 +98,8 @@ export class PortfolioChatRoomElement extends LitElement {
 
       md-list-item p {
         border-radius: var(--md-list-item-container-shape);
-        padding: ${space(2)} ${space(4)} ${space(2)} ${space(4)};
+        padding: ${theme.space(2)} ${theme.space(4)} ${theme.space(2)}
+          ${theme.space(4)};
         margin: 0px;
         display: block;
       }
@@ -195,6 +122,12 @@ export class PortfolioChatRoomElement extends LitElement {
       md-list-item[data-message-role='assistant'] p {
         background-color: var(--md-sys-color-secondary-container);
         color: var(--md-sys-color-on-secondary-container);
+      }
+
+      md-list-item[data-message-role='assistant'][data-message-status='error']
+        p {
+        background-color: var(--md-sys-color-error-container);
+        color: var(--md-sys-color-on-error-container);
       }
 
       md-divider {
@@ -220,7 +153,7 @@ export class PortfolioChatRoomElement extends LitElement {
   private _chatToAssistantTask = new Task(this, {
     args: () => [this.messages],
     task: async ([messages], { signal }) => {
-      await new Promise(resolve => setTimeout(resolve, 4000));
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Put some delay before fetching
       const response = await fetch(WORKER_BASE_URL, {
         body: JSON.stringify({
           messages: messages,
@@ -242,28 +175,23 @@ export class PortfolioChatRoomElement extends LitElement {
 
   override render() {
     const renderChatRoom = () => {
-      const messageLength = this.messages.length;
-      const isPendingInitializationOrTask =
-        messageLength === 1 ||
-        ([TaskStatus.PENDING] as TaskStatus[]).includes(
-          this._chatToAssistantTask.status,
-        );
+      const fetchingTaskState = this._chatToAssistantTask.status;
+      const isFetchingTaskError = fetchingTaskState === TaskStatus.ERROR;
+      const isFetchingTaskPending = fetchingTaskState === TaskStatus.PENDING;
+
       return html`<aside title="Meet David">
         <header>
           <h1 class="md-typescale-headline-large">Meet David</h1>
-          <md-icon-button title="Close the chat room">
+          <md-icon-button
+            title="Close the chat room"
+            @click="${this.dispatchCloseEvent}"
+          >
             ${unsafeHTML(closeIcon)}
           </md-icon-button>
         </header>
         <md-list aria-label="Messages">
-          ${this.messages.map((message, index) => {
-            return html`<md-list-item
-                data-message-role=${message.role}
-                id="${!isPendingInitializationOrTask &&
-                index === messageLength - 1
-                  ? 'last-item'
-                  : undefined}"
-              >
+          ${this.messages.map(message => {
+            return html`<md-list-item data-message-role=${message.role}>
                 ${message.role === 'assistant'
                   ? html`<img
                       slot="start"
@@ -278,9 +206,19 @@ export class PortfolioChatRoomElement extends LitElement {
                 ? html`<md-divider></md-divider>`
                 : null}`;
           })}
-          ${isPendingInitializationOrTask
+          ${isFetchingTaskError
             ? html` <md-divider></md-divider>
-                <md-list-item data-message-role="assistant" id="last-item">
+                <md-list-item
+                  data-message-role="assistant"
+                  data-message-status="error"
+                >
+                  <img slot="start" alt="ChatBot" src="${chatBotIcon}" />
+                  <p>I couldn't complete that request. Please try again!</p>
+                </md-list-item>`
+            : null}
+          ${isFetchingTaskPending
+            ? html` <md-divider></md-divider>
+                <md-list-item data-message-role="assistant">
                   <img slot="start" alt="ChatBot" src="${chatBotIcon}" />
                   <p>
                     <md-linear-progress
@@ -292,21 +230,24 @@ export class PortfolioChatRoomElement extends LitElement {
                 </md-list-item>`
             : null}
         </md-list>
-        <form @submit="${this._handleTriggerRequest}">
+        <form @submit="${this.submitUserMessage}">
           <md-filled-text-field
-            ?disabled="${isPendingInitializationOrTask}"
+            ?disabled="${isFetchingTaskPending}"
             label="Type your question..."
             name="message"
             placeholder="Got a question? Type here..."
             type="textarea"
+            value="${isFetchingTaskError && this.messages.length > 2
+              ? this.messages[this.messages.length - 1].content
+              : ''}"
             required
-            @paste="${this._handleOnPasteAndSanitizeContent}"
+            @paste="${this.processPastedContent}"
           >
           </md-filled-text-field>
           <md-filled-icon-button
             title="Ask question to bot"
             type="submit"
-            ?disabled="${isPendingInitializationOrTask}"
+            ?disabled="${isFetchingTaskPending}"
           >
             ${unsafeHTML(sendIcon)}
           </md-filled-icon-button>
@@ -319,10 +260,10 @@ export class PortfolioChatRoomElement extends LitElement {
         this.messages = messages;
         return renderChatRoom();
       },
-      error: error => html`<p>Oops, something went wrong: ${error}</p>`,
+      error: () => renderChatRoom(),
 
       initial: () => html`<p>Waiting to start task</p>`,
-      pending: renderChatRoom,
+      pending: () => renderChatRoom(),
     })}`;
   }
 
@@ -333,7 +274,28 @@ export class PortfolioChatRoomElement extends LitElement {
     }
   }
 
-  private _handleOnPasteAndSanitizeContent(event: ClipboardEvent): void {
+  private dispatchCloseEvent() {
+    this.dispatchEvent(
+      new CustomEvent('close', {
+        bubbles: true,
+        composed: true,
+        detail: { reason: 'user action' },
+      }),
+    );
+  }
+
+  private jumpToLastListItem() {
+    setTimeout(() => {
+      const lastItem = this.shadowRoot?.querySelector(
+        'md-list-item:last-child',
+      );
+      if (lastItem) {
+        lastItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 400);
+  }
+
+  private processPastedContent(event: ClipboardEvent): void {
     const textarea = event.target as HTMLTextAreaElement;
 
     // Retrieve pasted data from the clipboard
@@ -349,7 +311,7 @@ export class PortfolioChatRoomElement extends LitElement {
     textarea.value += sanitizedValue;
   }
 
-  private async _handleTriggerRequest(event: Event) {
+  private async submitUserMessage(event: Event) {
     // Prevent the form's default submit behavior (page reload)
     event.preventDefault();
     // Get the textarea value from the form
@@ -364,13 +326,6 @@ export class PortfolioChatRoomElement extends LitElement {
     if (!userMessage) return;
     this.messages = [...this.messages, { content: userMessage, role: 'user' }];
     form.reset();
-  }
-
-  private jumpToLastListItem() {
-    const lastItem = this.shadowRoot?.querySelector('#last-item');
-    if (lastItem) {
-      lastItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
   }
 }
 
