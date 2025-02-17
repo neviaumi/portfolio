@@ -18,6 +18,27 @@ const client = new OpenAI({
   apiKey,
 });
 
+export const portfolioSystem = {
+  content: `You are being provided the HTML content of a personal portfolio website, divided into the following sections:
+- Home Page: Highlights key professional details and a broad introduction.
+- Skills Page: Lists and describes technical and soft skills, along with proficiency levels.
+- Experience Page: Details professional work experience, projects, and significant accomplishments.
+- Core Value Page: Features personal values and professional principles.
+- FAQ Page: Answers common questions about the professional’s work approach, availability, and more.
+
+Process the content carefully. Once all sections are provided, confirm your readiness to assist with tailored job-related questions.`,
+  role: 'system',
+};
+
+export const jdSystem = {
+  content: `You are a helpful assistant designed to process both portfolio content and job descriptions (JDs) to aid in:
+1. Preparing tailored responses for job applications and interviews.
+2. Generating interview introduction speeches, cover letters, and follow-up messages.
+3. Aligning the user's skills, experiences, and values with the specific requirements of the job description.
+You will receive a user-provided portfolio and a processed JD, structured into sections (e.g., Title, Responsibilities, Qualifications, etc.). Use both inputs to provide highly relevant and personalized assistance.`,
+  role: 'system',
+};
+
 export async function prompt(messages, options) {
   const chatCompletion = await client.chat.completions.create(
     Object.assign(
@@ -39,6 +60,36 @@ export function readMessageFromPrompt(prompts) {
   return lastPrompt.content;
 }
 
+export async function processJD(rawJobDescription) {
+  // Define the prompt for OpenAI
+  const messages = [
+    {
+      content: `You are a helpful assistant that processes job descriptions (JDs) into a structured format. 
+Given a raw text job description, your output should be grouped into the following sections:
+1. Title: The job title mentioned in the JD.
+2. Responsibilities: The list of specific role-related tasks and goals.
+3. Qualifications: Key qualifications, requirements, or skills the candidate should have.
+4. Company Info: Information about the company culture, goals, or additional context.
+5. Other: Any other details that don’t fit into the categories above but might still be important.
+
+If a section is not explicitly mentioned, infer where appropriate or leave it empty. Make sure your output is clean and easy to process. Answer only with the structured JD format without adding anything extra.`,
+      role: 'system',
+    },
+    {
+      content: `Here is the Job Description (JD):
+${rawJobDescription}
+Please extract and format the content as described.`,
+      role: 'user',
+    },
+  ];
+
+  // Call the OpenAI API to process the JD
+  const transformedJD = await prompt(messages);
+
+  // Extract the response and return it
+  return readMessageFromPrompt(transformedJD);
+}
+
 export async function loadPortfolioIntoPrompts() {
   const [homePage, skillPage, experiencePage, faqPage, coreValuePage] =
     await Promise.all([
@@ -48,72 +99,40 @@ export async function loadPortfolioIntoPrompts() {
       loadFAQPage(),
       loadCoreValuePage(),
     ]);
-  return [
-    {
-      content: `You will receive the content of a portfolio website in html format. 
-Please process the html and understand it. Afterward, i will ask you questions and you get the answers from that content.`,
-      role: 'system',
-    },
-    {
-      content: `Here is the html content from home page:
+  return {
+    content: `Here is the HTML content from the Home Page:
 \`\`\`html
 ${homePage}
-\`\`\``,
-      role: 'user',
-    },
-    {
-      content: `Here is the html content from skills page:
+\`\`\`
+Here is the HTML content from the Skills Page:
 \`\`\`html
 ${skillPage}
-\`\`\``,
-      role: 'user',
-    },
-    {
-      content: `Here is the html content from experience page:
+\`\`\`
+Here is the HTML content from the Experience Page:
 \`\`\`html
 ${experiencePage}
-\`\`\``,
-      role: 'user',
-    },
-    {
-      content: `Here is the html content from core-value page:
+\`\`\`
+Here is the HTML content from the Core Value Page:
 \`\`\`html
 ${coreValuePage}
-\`\`\``,
-      role: 'user',
-    },
-    {
-      content: `Here is the html content from FAQ page:
+\`\`\`
+Here is the HTML content from the FAQ Page:
 \`\`\`html
 ${faqPage}
-\`\`\``,
-      role: 'user',
-    },
-  ];
+\`\`\`
+
+Please confirm once you have processed the entire portfolio content.`,
+    role: 'user',
+  };
 }
 
-export function withPromptThatInstructOnlyResponseToQuestion(originalPrompt) {
-  return async (...args) => {
-    const initialPrompts = await originalPrompt(...args);
-    return initialPrompts.concat([
-      {
-        content: `All the html content was loaded now. 
-on the next prompts i will pass though the question from user directly to you.
-Remember to only respond to the question that related to the html content you received.
-If you don't know the answer, just make sure the response include "I don't know" and you are feel free to include why you don't know
-If you think that reason why you can't get the answer is because missing JD. You can ask their upload the JD and do again.
-I will capture the "I don't know" answer and use it to improve the model.
-I will do that by 
-\`\`\`javascript
-if (promptsMessage.includes("I don't know")) {
-  // log the question
-} else {
-  // continue prompts  
-}
+export function loadJDIntoPrompts(transformedJD) {
+  return {
+    content: `Here is the structured Job Description (JD):
+\`\`\`text
+${transformedJD}
 \`\`\`
-`,
-        role: 'user',
-      },
-    ]);
+Please use this JD in combination with my portfolio to assist with job-related tasks.`,
+    role: 'user',
   };
 }

@@ -1,0 +1,52 @@
+Job Description
+We're looking for a skilled developer to help shape the future of our SaaS platform. If you love solving complex problems, building scalable features, and working with cutting-edge technology, this could be the role for you.
+
+
+
+What You’ll Be Doing:
+Develop, test, and deploy scalable features for our growing SaaS product.
+Collaborate in an agile scrum environment, working closely with our CTO to address bugs and build new features.
+Integrate APIs and third-party services to expand our platform’s capabilities.
+Stay ahead of the curve with emerging technologies and fintech best practices.
+Troubleshoot, debug, and optimise applications for performance and scalability.
+Experience working with LLMs and AI-driven applications is a plus.
+
+What We’re Looking For:
+Tech Stack:
+
+Must-have: JavaScript (TS), React, Tailwind
+Nice-to-have: Python, SQL
+Experience & Skills:
+
+Experience deploying a commercially used application and managing a live codebase.
+Strong experience with integrations is highly desirable.
+At least three years of professional development experience (post-university).
+Location & Working Setup:
+
+Must be based in London or Greater London.
+Hybrid role: three days in the office, two remote.
+
+
+If this sounds like the right opportunity for you, we’d love to hear from you.
+
+Company Benefits
+Flexible working scheme
+Staff activities
+Training programs
+Gym membership
+Interview Process
+We conduct a three-stage interview process to ensure the best fit for both you and our team.
+
+Initial Interview (Google Meet)
+
+You will meet with ourPeople&Culture Manager and a senior member of our management team.
+This is an informal conversation where we’ll discuss your professional experience and qualifications for the role.
+Founder Interview (Google Meet)
+
+You will have a discussion with one or both of our founders.
+This interview will focus on a deeper dive into the role, expectations, and alignment with our company vision.
+Task-Based Interview (In-Person or Google Meet)
+
+You will be given a practical task relevant to the role.
+This can be completed either in person or via Google Meet, depending on availability and circumstances.
+We look forward to getting to know you through this process!
