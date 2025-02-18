@@ -38,6 +38,7 @@ function ChatRoom({
           width: 'fit-content',
         }}
       >
+        {/*@ts-expect-error No typing for web component*/}
         <portfolio-chat-room ref={chatRoomRef}></portfolio-chat-room>
       </Box>
     </Modal>
@@ -56,6 +57,7 @@ export default function ChatRoomButton() {
   return (
     <>
       <ChatRoom hidden={!shouldChatRoomOpen} onClose={onChatRoomClose} />
+      {/*@ts-expect-error No typing for web component*/}
       <portfolio-chat-room-fab onClick={openChatRoom}></portfolio-chat-room-fab>
     </>
   );
