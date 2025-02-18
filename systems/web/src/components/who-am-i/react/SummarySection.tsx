@@ -29,12 +29,8 @@ export default function SummarySection({
       <CardHeader
         action={
           <a href={'/portfolio/resume'}>
-            <IconButton aria-label="resume" size={'large'}>
-              <WorkHistoryOutlinedIcon
-                sx={{
-                  transform: 'scale(1.5)',
-                }}
-              />
+            <IconButton aria-label="resume">
+              <WorkHistoryOutlinedIcon fontSize={'large'} />
             </IconButton>
           </a>
         }

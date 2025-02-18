@@ -109,7 +109,6 @@ export default function ServiceListingSection({
                 sx={{
                   height: 320,
                   objectFit: 'cover',
-                  // transform: 'scale(1.25)',
                   width: 320,
                 }}
               />

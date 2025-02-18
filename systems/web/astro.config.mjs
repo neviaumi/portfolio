@@ -33,6 +33,7 @@ export default defineConfig({
         theme_color: '#ffffff',
         workbox: { navigateFallback: '/portfolio/404' },
       },
+      // registerType: true ? null : 'autoUpdate',
       registerType: 'autoUpdate',
     }),
   ],

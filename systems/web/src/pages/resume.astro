@@ -3,6 +3,8 @@ import {Page, Main} from "../components/react/PageContainer"
 import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
 import ResumeLoader from "../components/resume/react/ResumeLoader.tsx"
 import Layout from '../layouts/Layout.astro';
+import OverlayButtons from "../components/react/OverlayButtons";
+
 const title = "Resume"
 ---
 
@@ -13,6 +15,7 @@ const title = "Resume"
         </NavigationBar>
         <Main>
             <ResumeLoader client:load/>
+            <OverlayButtons client:load/>
         </Main>
     </Page>
 

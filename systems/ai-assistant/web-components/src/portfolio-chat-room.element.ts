@@ -54,16 +54,25 @@ export class PortfolioChatRoomElement extends LitElement {
       }
       aside > header {
         background-color: var(--md-sys-color-primary);
-        padding: ${theme.space(2)} ${theme.space(2)} ${theme.space(2)}
-          ${theme.space(8)};
+        padding: 0 ${theme.space(4)} 0 ${theme.space(4)};
         display: flex;
         justify-content: space-between;
+        align-items: center;
         color: var(--md-sys-color-on-primary);
       }
+      aside > header > img {
+        width: ${theme.space(6)};
+        height: ${theme.space(6)};
+        aspect-ratio: 1;
+      }
       aside > header > h1 {
-        margin: 0;
+        margin: 0 ${theme.space(4)} 0 ${theme.space(6)};
+        flex-grow: 1;
       }
       aside > header > md-icon-button {
+        --md-icon-button-state-layer-height: ${theme.space(6)};
+        --md-icon-button-state-layer-width: ${theme.space(6)};
+        --md-icon-button-icon-size: ${theme.space(6)};
         --md-icon-button-icon-color: var(--md-sys-color-on-primary);
       }
 
@@ -181,6 +190,7 @@ export class PortfolioChatRoomElement extends LitElement {
 
       return html`<aside title="Meet David">
         <header>
+          <img slot="start" alt="ChatBot" src="${chatBotIcon}" />
           <h1 class="md-typescale-headline-large">Meet David</h1>
           <md-icon-button
             title="Close the chat room"
