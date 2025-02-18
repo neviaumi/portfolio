@@ -1,9 +1,9 @@
 ---
 import {Page, Main} from "../components/react/PageContainer"
-import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
+import NavigationBar from '../components/react/NavigationBar.tsx';
 import ResumeLoader from "../components/resume/react/ResumeLoader.tsx"
 import Layout from '../layouts/Layout.astro';
-import OverlayButtons from "../components/react/OverlayButtons";
+import BottomOverlay from "../components/react/BottomOverlay";
 
 const title = "Resume"
 ---
@@ -11,12 +11,11 @@ const title = "Resume"
 <Layout title={title} description="Explore David's resume, highlighting his skills and experience. Learn more about his professional background and qualifications.">
     <script slot="extra" src="https://neviaumi.github.io/resume.json/json-resume.element.js" type="module" async defer/>
     <Page>
-        <NavigationBar title={title}>
-            <DrawerToggleButton client:load slot="drawer" title={title}/>
-        </NavigationBar>
+        <NavigationBar client:load title={title}/>
+
         <Main>
             <ResumeLoader client:load/>
-            <OverlayButtons client:load/>
+            <BottomOverlay client:load/>
         </Main>
     </Page>
 

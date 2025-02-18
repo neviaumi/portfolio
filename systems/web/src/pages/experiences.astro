@@ -1,8 +1,8 @@
 ---
 import Query from "../components/experiences/query.graphql";
-import OverlayButtons from "../components/react/OverlayButtons";
+import BottomOverlay from "../components/react/BottomOverlay";
 
-import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
+import NavigationBar from '../components/react/NavigationBar.tsx';
 import WorkTimelineSection from "../components/experiences/react/WorkTimelineSection.tsx"
 import Layout from '../layouts/Layout.astro';
 import {Page, Main} from "../components/react/PageContainer"
@@ -16,13 +16,12 @@ const experiences = page.experiencesRef.works;
 ---
 <Layout title={title} description="Explore the portfolio of a seasoned software engineer with experience at PlayStation, Emma App, Neat, and HK01. Learn about their expertise in frontend and backend development, and read testimonials from colleagues.">
     <Page>
-        <NavigationBar title={title}>
-            <DrawerToggleButton client:load slot="drawer" title={title}/>
-        </NavigationBar>
+        <NavigationBar client:load title={title}/>
+
         <Main>
             <WorkTimelineSection works={experiences}/>
             <WorkDetailSection works={experiences}/>
-            <OverlayButtons client:load/>
+            <BottomOverlay client:load/>
         </Main>
     </Page>
 </Layout>

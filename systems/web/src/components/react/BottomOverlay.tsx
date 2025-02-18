@@ -4,7 +4,7 @@ import React from 'react';
 import ChatRoomButton from './ChatRoomButton.tsx';
 import ScrollToTopButton from './ScrollToTopButton.tsx';
 
-export default function OverlayButtons() {
+export default function BottomOverlay() {
   return (
     <Box
       sx={{

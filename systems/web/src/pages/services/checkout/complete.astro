@@ -1,6 +1,8 @@
 ---
 import Layout from "../../../layouts/Layout.astro"
-import NavigationBar, {DrawerToggleButton} from "../../../components/react/NavigationBar.tsx"
+import NavigationBar from "../../../components/react/NavigationBar.tsx"
+import BottomOverlay from "../../../components/react/BottomOverlay.tsx"
+
 import {Page, Main} from "../../../components/react/PageContainer.tsx"
 import ThanksForPayment from "../../../components/services-checkout-completed/react/ThanksForPayment.tsx"
 
@@ -8,9 +10,10 @@ const title = "Checkout Completed"
 ---
 <Layout title={title}>
     <Page>
-        <NavigationBar title={title}>
-            <DrawerToggleButton client:load slot="drawer" title={title}/>
-        </NavigationBar>
-        <Main><ThanksForPayment/></Main>
+        <NavigationBar client:load title={title}/>
+
+        <Main><ThanksForPayment/>
+        <BottomOverlay client:load/>
+        </Main>
     </Page>
 </Layout>
