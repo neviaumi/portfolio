@@ -36,6 +36,7 @@ const currentPath = new URL(Astro.url.pathname.includes('portfolio') ? Astro.url
 		<link rel="sitemap" href="/portfolio/sitemap-index.xml" />
 		{ pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 		<script src="/src/pwa.ts"/>
+		<slot name="extra"/>
 		<title>{title}</title>
 	</head>
 	<body>
