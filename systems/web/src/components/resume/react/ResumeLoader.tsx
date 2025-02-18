@@ -5,7 +5,11 @@ export default function ResumeLoader() {
   return (
     <Paper>
       {/*@ts-expect-error No typing for web component*/}
-      <json-resume></json-resume>
+      <json-resume
+        src={'https://neviaumi.github.io/resume.json/resume.base.json'}
+      >
+        {/*@ts-expect-error No typing for web component*/}
+      </json-resume>
     </Paper>
   );
 }
