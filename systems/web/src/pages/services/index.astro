@@ -1,11 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import {Page, Main} from "../../components/react/PageContainer.tsx"
-import NavigationBar, {DrawerToggleButton} from "../../components/react/NavigationBar";
+import NavigationBar from "../../components/react/NavigationBar";
 import HeadingSection from "../../components/services/react/HeadingSection.tsx"
 import ServiceListingSection from "../../components/services/react/ServiceListingSection.tsx"
 import {listProductWithPrice} from "../../stripe.ts"
-import OverlayButtons from "../../components/react/OverlayButtons";
+import BottomOverlay from "../../components/react/BottomOverlay";
 
 const title = "Services";
 const products = await listProductWithPrice();
@@ -16,13 +16,12 @@ const products = await listProductWithPrice();
                 async
                 src="https://js.stripe.com/v3/buy-button.js">
         </script>
-        <NavigationBar title={title}>
-            <DrawerToggleButton client:load slot="drawer" title={title}/>
-        </NavigationBar>
+        <NavigationBar client:load title={title}/>
+
         <Main>
             <HeadingSection/>
             <ServiceListingSection client:load products={products}/>
-            <OverlayButtons/>
+            <BottomOverlay/>
         </Main>
     </Page>
 </Layout>

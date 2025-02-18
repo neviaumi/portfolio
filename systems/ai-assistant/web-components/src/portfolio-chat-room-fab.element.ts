@@ -12,7 +12,7 @@ export class PortfolioChatRoomFabElementElement extends LitElement {
   override render() {
     return html`
       <md-branded-fab label="Chat with AI" disabled>
-        <img slot="icon" alt="Chat with AI" src="${chatBotIcon}" />
+        <img slot="icon" alt="Chat Bot Icon" src="${chatBotIcon}" />
       </md-branded-fab>
     `;
   }

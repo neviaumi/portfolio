@@ -1,6 +1,6 @@
 ---
 import {Page, Main} from "../components/react/PageContainer"
-import NavigationBar, {DrawerToggleButton} from '../components/react/NavigationBar.tsx';
+import NavigationBar from '../components/react/NavigationBar.tsx';
 import SummarySection from "../components/who-am-i/react/SummarySection.tsx"
 import SkillsSection from "../components/who-am-i/react/SkillsSection.tsx"
 import CoreValuesSection, {prepareCoreValuesProps} from "../components/who-am-i/react/CoreValuesSection.tsx"
@@ -9,7 +9,7 @@ import ReferencesSection from "../components/who-am-i/react/ReferencesSection.ts
 import Query from "../components/who-am-i/query.graphql.ts"
 import Layout from '../layouts/Layout.astro';
 import cms from "../cms.ts";
-import OverlayButtons from "../components/react/OverlayButtons";
+import BottomOverlay from "../components/react/BottomOverlay";
 const {page} = await cms.gqlRequest(Query).then(data => data.data)
 const title = page.title
 const summary = page.summary;
@@ -23,9 +23,7 @@ const skills = page.skills.sections;
 
 <Layout title={title} description={"David, a Software Engineer, shares his professional journey and insights. Explore his work and experience in web development."}>
 	<Page>
-		<NavigationBar title={title}>
-			<DrawerToggleButton client:load slot="drawer" title={title}/>
-		</NavigationBar>
+		<NavigationBar client:load title={title}/>
 	<Main sx={{
 		display: 'flex',
 		flexDirection: 'column',
@@ -35,7 +33,7 @@ const skills = page.skills.sections;
 		<SkillsSection client:load skills={skills}/>
 		<ExperiencesSection works={experiences.works.slice(0,4)}/>
 		<ReferencesSection references={references}/>
-		<OverlayButtons client:load/>
+		<BottomOverlay client:load/>
 	</Main>
 	</Page>
 </Layout>

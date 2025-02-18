@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box';
 import React from 'react';
 
-import GoBackButton from './GoBackButton.tsx';
+import ChatRoomButton from './ChatRoomButton.tsx';
 import ScrollToTopButton from './ScrollToTopButton.tsx';
 
-export default function OverlayButtons() {
+export default function BottomOverlay() {
   return (
     <Box
       sx={{
@@ -15,8 +15,8 @@ export default function OverlayButtons() {
         position: 'sticky',
       }}
     >
-      <GoBackButton />
       <ScrollToTopButton />
+      <ChatRoomButton />
     </Box>
   );
 }

@@ -9,6 +9,7 @@ export default defineConfig({
     lib: {
       entry: [
         resolve(rootDir, 'src/portfolio-chat-room.element.ts'),
+        resolve(rootDir, 'src/portfolio-chat-room-fab.element.ts'),
         resolve(rootDir, 'index.html'),
       ],
       formats: ['es'],
