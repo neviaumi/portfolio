@@ -41,19 +41,53 @@ summary:
   name: David
   position: Software Engineer
   profilePicture: 'https://avatars.githubusercontent.com/u/2247500'
-  careerOverview: >-
-    I began my career in 2014 as a Web Developer for a small local business and
-    have since expanded my expertise across various environments, from tech
-    startups to multinational corporations. My journey has taught me the value
-    of simplicity and automated testing in building scalable, maintainable
-    systems. By embracing Agile methodology, I've learned to deliver features
-    incrementally, enabling faster validation and reducing the risk of
-    developing unwanted products. My experiences have reinforced the importance
-    of transparent communication and collaboration within teams. I am committed
-    to creating meaningful solutions that not only meet business goals but also
-    foster innovation and practical impact. As I seek my next role, I am excited
-    to contribute to a collaborative environment that values continuous growth
-    and adaptation.
+  careerOverview: >
+    ## Welcome to My Portfolio
+
+
+    I am a passionate and dedicated Software Engineer with a strong foundation
+    in both backend and frontend development. Following an enriching journey
+    across various environments—from startups to multinational corporations—I am
+    currently seeking new opportunities to apply my skills and contribute to
+    innovative projects. Although I am currently exploring my next professional
+    chapter, I view this time as an exciting opportunity for growth and
+    collaboration.
+
+
+    ### What You Can Expect
+
+
+    In this portfolio, you will discover a comprehensive showcase of my skills,
+    experiences, and projects that reflect my commitment to crafting meaningful
+    software solutions. I have integrated an AI assistant to enhance your
+    experience and help you quickly find the information most relevant to your
+    needs.
+
+
+    As you navigate through my portfolio, you will see my expertise in:
+
+
+    * Backend and Frontend Development: Proficient in modern frameworks and
+    technologies, I thrive on creating efficient, scalable applications.
+
+    * Automated Testing: My focus on robust testing methodologies ensures the
+    reliability of software solutions.
+
+    * Agile Collaboration: I believe in the power of teamwork and open
+    communication to achieve optimal results in development.
+
+
+
+    I aim to connect with forward-thinking teams that value continuous
+    improvement, innovation, and clear communication. My core values—evolution,
+    interactive development, communication, and flexibility—guide my approach to
+    every project, fostering environments where creativity and collaboration
+    flourish.
+
+
+    I welcome the chance to bring my enthusiasm, skills, and a fresh perspective
+    to your team. Let's work together to craft exceptional digital experiences
+    that make a difference!
 coreValues:
   heading: These Are the Principles Guiding My Professional Journey
   values: content/core-values/index.md

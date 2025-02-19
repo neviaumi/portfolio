@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+import cms from '../cms.ts';
 import { sanitise } from '../test-helper.ts';
 import { homePage, whoAmIPage } from '../web.ts';
 import { replicateFrontendCMSQuery } from './query.graphql.ts';
@@ -39,7 +40,9 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
       await expect(summarySection)
         .toMatchAriaSnapshot(`- img "${summarySectionData.name}"
 - text: ${summarySectionData.name} ${summarySectionData.position}
-- paragraph: ${summarySectionData.careerOverview.replaceAll('\n', ' ')}`);
+- link "resume":
+  - button "resume"
+${cms.covertRichTextFieldToAriaYml(summarySectionData.careerOverview, 0)}`);
     });
     test('Have core-values section in document', async ({ page }) => {
       const cmsData = await replicateFrontendCMSQuery();

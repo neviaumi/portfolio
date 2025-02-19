@@ -7,7 +7,8 @@ import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
+
+import { RichTextMarkdown } from '../../../cms.ts';
 
 export default function SkillSection({
   section,
@@ -33,7 +34,7 @@ export default function SkillSection({
           paddingTop: 0,
         }}
       >
-        <Box component={TinaMarkdown} content={section.description} />
+        <Box component={RichTextMarkdown} content={section.description} />
         <Divider />
         <Stack
           component={'ul'}
