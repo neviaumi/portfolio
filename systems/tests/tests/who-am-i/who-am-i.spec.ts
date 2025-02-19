@@ -37,15 +37,6 @@ import { replicateFrontendCMSQuery } from './query.graphql.ts';
       await page.goto(pageUrl.toString());
       const summarySection = page.locator('section[title="Summary"]');
       const summarySectionData = cmsData.page.summary;
-      console.log(`Live:
-${await summarySection.ariaSnapshot()}`);
-      console.log(`Generated:
-- img "${summarySectionData.name}"
-- text: ${summarySectionData.name} ${summarySectionData.position}
-- link "resume":
-  - button "resume"
-${cms.covertRichTextFieldToAriaYml(summarySectionData.careerOverview, 0)}
-`);
       await expect(summarySection)
         .toMatchAriaSnapshot(`- img "${summarySectionData.name}"
 - text: ${summarySectionData.name} ${summarySectionData.position}
