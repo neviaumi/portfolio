@@ -3,7 +3,8 @@
     "@lit/task": "1.0.2",
     "@material-symbols/svg-400": "0.28.2",
     "@material/web": "2.2.0",
-    "lit": "3.2.1"
+    "lit": "3.2.1",
+    "wrangler": "3.109.2"
   },
   "devDependencies": {
     "@busybox/eslint-config-code-sorting": "2024.11.10-alpha.2150",

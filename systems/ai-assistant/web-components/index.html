@@ -6,10 +6,14 @@
     <title>David AI assistant</title>
     <script type="module" src="/src/portfolio-chat-room.element.ts"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <script type="module">
+      document.querySelector('portfolio-chat-room').addEventListener("close", () => {
+        console.log("close")
+      })
+    </script>
   </head>
 
   <body>
-    <portfolio-chat-room hidden></portfolio-chat-room>
+    <portfolio-chat-room ></portfolio-chat-room>
   </body>
 </html>
