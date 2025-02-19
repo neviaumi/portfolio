@@ -29,6 +29,77 @@ function sanitizeHtml(html: string) {
   return html.substring(startIndex, endIndex);
 }
 
+@customElement('chat-room-header')
+export class ChatRoomHeaderElement extends LitElement {
+  static override styles = [
+    typescaleStyles,
+    theme.color,
+    theme.shape,
+
+    css`
+      :host {
+        /* Customizable variable for icon size */
+        --chat-room-header-icon-size: ${theme.space(6)};
+      }
+
+      svg {
+        fill: currentColor;
+      }
+
+      header {
+        /* Material Design color and shape tokens */
+        background-color: var(--md-sys-color-primary);
+        padding: 0 ${theme.space(4)};
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--md-sys-color-on-primary);
+      }
+
+      /* Chat Bot Icon */
+      header img {
+        width: var(--chat-room-header-icon-size);
+        height: var(--chat-room-header-icon-size);
+        aspect-ratio: 1;
+      }
+
+      /* Title */
+      header h1 {
+        margin: 0 ${theme.space(4)};
+        flex-grow: 1;
+      }
+
+      /* Close Button */
+      md-icon-button {
+        --md-icon-button-icon-size: var(--chat-room-header-icon-size);
+        --md-icon-button-icon-color: var(--md-sys-color-on-primary);
+      }
+    `,
+  ];
+
+  override render() {
+    return html`
+      <header>
+        <img src="${chatBotIcon}" alt="Chat Bot Icon" />
+        <h1 class="md-typescale-headline-large">Meet David</h1>
+        <md-icon-button @click=${this.handleClose}>
+          ${unsafeHTML(closeIcon)}
+        </md-icon-button>
+      </header>
+    `;
+  }
+
+  private handleClose() {
+    this.dispatchEvent(
+      new CustomEvent('close', {
+        bubbles: true,
+        composed: true,
+        detail: { reason: 'user action' },
+      }),
+    );
+  }
+}
+
 @customElement('portfolio-chat-room')
 export class PortfolioChatRoomElement extends LitElement {
   static override styles = [
@@ -51,29 +122,6 @@ export class PortfolioChatRoomElement extends LitElement {
         flex-direction: column;
         height: 100%;
         background-color: var(--md-sys-color-surface-container);
-      }
-      aside > header {
-        background-color: var(--md-sys-color-primary);
-        padding: 0 ${theme.space(4)} 0 ${theme.space(4)};
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: var(--md-sys-color-on-primary);
-      }
-      aside > header > img {
-        width: ${theme.space(6)};
-        height: ${theme.space(6)};
-        aspect-ratio: 1;
-      }
-      aside > header > h1 {
-        margin: 0 ${theme.space(4)} 0 ${theme.space(6)};
-        flex-grow: 1;
-      }
-      aside > header > md-icon-button {
-        --md-icon-button-state-layer-height: ${theme.space(6)};
-        --md-icon-button-state-layer-width: ${theme.space(6)};
-        --md-icon-button-icon-size: ${theme.space(6)};
-        --md-icon-button-icon-color: var(--md-sys-color-on-primary);
       }
 
       aside > form {
@@ -189,16 +237,7 @@ export class PortfolioChatRoomElement extends LitElement {
       const isFetchingTaskPending = fetchingTaskState === TaskStatus.PENDING;
 
       return html`<aside title="Meet David">
-        <header>
-          <img slot="start" alt="ChatBot" src="${chatBotIcon}" />
-          <h1 class="md-typescale-headline-large">Meet David</h1>
-          <md-icon-button
-            title="Close the chat room"
-            @click="${this.dispatchCloseEvent}"
-          >
-            ${unsafeHTML(closeIcon)}
-          </md-icon-button>
-        </header>
+        <chat-room-header></chat-room-header>
         <md-list aria-label="Messages">
           ${this.messages.map(message => {
             return html`<md-list-item data-message-role=${message.role}>
@@ -282,16 +321,6 @@ export class PortfolioChatRoomElement extends LitElement {
       await this.updateComplete;
       this.jumpToLastListItem(); // Jump to the top of the last assistant message
     }
-  }
-
-  private dispatchCloseEvent() {
-    this.dispatchEvent(
-      new CustomEvent('close', {
-        bubbles: true,
-        composed: true,
-        detail: { reason: 'user action' },
-      }),
-    );
   }
 
   private jumpToLastListItem() {
