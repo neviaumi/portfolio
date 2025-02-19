@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 
 import { formatGqlQuery, gql } from './graphql.ts';
 
+export { TinaMarkdown as RichTextMarkdown } from 'tinacms/dist/rich-text';
+
 const currentDir = path.parse(fileURLToPath(import.meta.url)).dir;
 const cmsBaseURL = process.env['WEB_CMS_BASE_URL'];
 if (!cmsBaseURL) {

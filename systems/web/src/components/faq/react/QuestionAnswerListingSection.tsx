@@ -5,8 +5,8 @@ import CardHeader from '@mui/material/CardHeader';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
+import { RichTextMarkdown } from '../../../cms.ts';
 import { calculateIdFromQuestion } from './utils.ts';
 
 function QuestionAnswerSection({
@@ -36,7 +36,7 @@ function QuestionAnswerSection({
         title={question}
       />
       <CardContent>
-        <Box component={TinaMarkdown} content={answer} />
+        <Box component={RichTextMarkdown} content={answer} />
       </CardContent>
     </Card>
   );
