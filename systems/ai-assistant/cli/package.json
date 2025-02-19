@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "cheerio": "1.0.0",
+    "graphql": "16.10.0",
+    "graphql-tag": "2.12.6",
+    "openai": "4.83.0"
   },
   "devDependencies": {
     "@busybox/eslint-config-code-sorting": "2024.11.10-alpha.2150",
@@ -7,6 +11,7 @@
     "@busybox/eslint-config-text-document": "2024.11.10-alpha.2150",
     "@busybox/prettier-config": "2024.12.13-alpha.2308",
     "@eslint/config-inspector": "0.6.0",
+    "@graphql-eslint/eslint-plugin": "4.3.0",
     "eslint": "9.14.0",
     "globals": "15.13.0",
     "prettier": "3.4.2"
@@ -16,7 +21,7 @@
     "yarn": "Use npm"
   },
   "license": "MIT",
-  "name": "@portfolio/ai-assistant",
+  "name": "@ai-assistant/cli",
   "private": true,
   "type": "module",
   "version": "0.0.1"

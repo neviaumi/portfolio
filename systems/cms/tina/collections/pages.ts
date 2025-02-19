@@ -26,10 +26,7 @@ const WhoAmIPage: Template = {
         {
           label: 'Career overview',
           name: 'careerOverview',
-          type: 'string',
-          ui: {
-            component: 'textarea',
-          },
+          type: 'rich-text',
         },
       ],
       label: 'Summary',

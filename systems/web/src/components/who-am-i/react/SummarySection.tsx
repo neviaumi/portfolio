@@ -6,11 +6,13 @@ import CardHeader from '@mui/material/CardHeader';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 
+import { RichTextMarkdown } from '../../../cms.ts';
+
 export default function SummarySection({
   summary,
 }: {
   summary: {
-    careerOverview: string;
+    careerOverview: any;
     name: string;
     position: string;
     profilePicture: string;
@@ -52,10 +54,15 @@ export default function SummarySection({
         subheader={position}
         title={name}
       />
-      <CardContent>
-        <Typography component={'p'} variant="body1">
-          {careerOverview}
-        </Typography>
+      <CardContent
+        sx={{
+          paddingTop: 0,
+        }}
+      >
+        <RichTextMarkdown content={careerOverview} />
+        {/*<Typography component={'p'} variant="body1">*/}
+        {/*  {careerOverview}*/}
+        {/*</Typography>*/}
       </CardContent>
     </Card>
   );
