@@ -88,9 +88,9 @@ ${experiencesSectionData.works
   .slice(0, 4)
   .map((work: any) => {
     return `  - listitem "${work.name}":
-    - link "${[work.name, work.role, work.brief].join(' ')}":
+    - link "${[work.name, work.role, work.portfolioIntro].join(' ')}":
       - text: ${work.name} ${work.role}
-      - paragraph: ${work.brief}`;
+      - paragraph: ${work.portfolioIntro}`;
   })
   .join('\n')}`,
       );

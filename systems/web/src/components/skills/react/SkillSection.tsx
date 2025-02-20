@@ -13,7 +13,7 @@ import { RichTextMarkdown } from '../../../cms.ts';
 export default function SkillSection({
   section,
 }: {
-  section: { description: any; section: string; tags: string[] };
+  section: { description: any; keywords: { name: string }[]; section: string };
 }) {
   return (
     <Card component={'article'} id={section.section} title={section.section}>
@@ -49,8 +49,8 @@ export default function SkillSection({
             padding: 0,
           }}
         >
-          {section.tags.map(tag => (
-            <Chip component={'li'} key={tag} label={tag} />
+          {section.keywords.map(({ name }) => (
+            <Chip component={'li'} key={name} label={name} />
           ))}
         </Stack>
       </CardContent>

@@ -9,11 +9,11 @@ const query = gql`
           ... on Experience {
             id
             works {
-              brief
-              description
+              detailedDescription
               location
               name
               period
+              portfolioIntro
               role
               workReferences {
                 references {

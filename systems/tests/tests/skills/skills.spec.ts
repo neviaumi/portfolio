@@ -18,7 +18,11 @@ test.describe('Skills page flow', () => {
     expect(accessibilityScanResults.violations).toEqual([]);
   });
   cmsData.page.skillsRef.sections.map(
-    (section: { description: any; section: string; tags: string[] }) => {
+    (section: {
+      description: any;
+      keywords: { name: string }[];
+      section: string;
+    }) => {
       test(`${section.section} should exist and match the structure`, async ({
         page,
       }) => {
@@ -30,7 +34,7 @@ test.describe('Skills page flow', () => {
 ${cms.covertRichTextFieldToAriaYml(section.description, 2)}
   - separator
   - list:
-${section.tags.map((tag: string) => `    - listitem: ${tag}`).join('\n')}`;
+${section.keywords.map(({ name }: { name: string }) => `    - listitem: ${name}`).join('\n')}`;
         await expect(sectionOnPage).toMatchAriaSnapshot(calculatedAriaSnapshot);
       });
     },

@@ -4,13 +4,20 @@ works:
     role: Backend Engineer
     period: Mar 2024 - May 2024
     location: 'London, UK (on-site)'
-    brief: >-
+    url: 'https://emma-app.com/onboarding/welcome'
+    resumeSummary: >
+      As a Backend Engineer at Emma App Technologies, I implemented bank
+      integrations and optimized banking connections to enhance user access for
+      a personal finance app. I led the development of a QR code generator for
+      marketing campaigns, resulting in improved performance tracking and
+      immediate business value.
+    portfolioIntro: >-
       Contributed to a personal finance app integrating with major banks like
       HSBC and Barclays. Focused on adding bank integrations, optimizing banking
       connections, and adapting mobile registration flows for the web. Delivered
       a QR code generator for marketing campaigns, enabling performance tracking
       for partners.
-    description: >-
+    detailedDescription: >-
       Emma is a subscription-based service that integrates with high-street
       banks like HSBC and Barclays. The app provides personal finance management
       features such as transaction tracking, monthly budget setup, and
@@ -35,17 +42,43 @@ works:
       I decided to leave Emma after two months due to the demanding and costly
       daily commute to London, which felt unnecessary given the largely
       independent work style outside of the weekly meeting.
+    highlights:
+      - >-
+        Developed and integrated multiple banking connections with major
+        institutions like HSBC and Barclays, streamlining user access and
+        enhancing app functionality.
+      - >-
+        Designed a customized QR code generator for marketing campaigns,
+        improving collaboration with partners and enabling effective performance
+        tracking.
+      - >-
+        Optimized the mobile registration flow across platforms, significantly
+        enhancing user experience and efficiency in onboarding processes.
+    keywords:
+      - Open Banking
+      - FinTech
+      - NextJS
+      - Typescript
+      - React
+      - NodeJS
   - name: PlayStation
     role: Software Engineer II
     period: May 2022 - Mar 2024
     location: 'Liverpool, UK (remote)'
-    brief: >-
+    url: 'https://partners.playstation.net/'
+    resumeSummary: >-
+      At PlayStation, I served as a Software Engineer II, primarily focusing on
+      developing a frontend access management system for partner integration. I
+      integrated frontend functionalities with APIs, managed a component
+      library, and conducted experiments with micro frontend architecture to
+      enhance collaboration and usability across team projects.
+    portfolioIntro: >-
       Worked on a partner-facing platform, developing an access management
       system to manage user roles and permissions. Integrated frontend systems
       with APIs and maintained a component library. Introduced innovative
       methods for micro frontends and experimented with SaaS tools like feature
       flagging services.
-    description: >-
+    detailedDescription: >-
       I worked on a game development partner-facing platform at PlayStation.
 
       My primary focus was on the frontend of an access management system. This
@@ -78,19 +111,49 @@ works:
       team. While my teammates worked in a hybrid setup and conducted in-person
       planning sessions, I remained remote, which made communication more
       challenging.
+    highlights:
+      - >-
+        Optimized UI component library with SCSS and Storybook, streamlining
+        frontend development and improving consistency across applications for
+        better user experience.
+      - >-
+        Introduced innovative micro frontend methods and implemented feature
+        flag services, enhancing the deployment process and reducing feature
+        rollout times by 30%.
+      - >-
+        Developed and maintained an access management system using React and
+        Typescript, improving user management efficiency for partners by
+        enabling dynamic role assignments and group management.
+    keywords:
+      - Storybook
+      - SCSS
+      - Jenkins
+      - Microservice
+      - AWS
+      - Typescript
+      - React
+      - NodeJS
     workReferences:
       - references: content/references/PlayStation.md
   - name: Neat
     role: Software Engineer
     period: May 2021 - May 2022
     location: HK / UK (Hybrid / Remote)
-    brief: >-
+    url: 'https://www.neatcommerce.com/'
+    resumeSummary: >-
+      As a Software Engineer at Neat, I developed the registration system for
+      virtual accounts, enhancing accessibility through translation features and
+      establishing robust testing processes. My role involved technical
+      mentorship and collaboration within a structured sprint cycle,
+      contributing significantly to essential business functionalities and
+      engineering effectiveness.
+    portfolioIntro: >-
       Developed the registration system for Neat’s virtual account service for
       small businesses. Implemented translation features, established testing
       processes, and provided technical mentorship. Collaborated in a
       well-structured sprint cycle, contributing to key business features and
       engineering housekeeping.
-    description: >-
+    detailedDescription: >-
       Neat was a Hong Kong-based company that provided virtual account services
       for small business owners. With a virtual account, business owners could
       access features such as spending analysis and a dedicated bank account for
@@ -114,19 +177,50 @@ works:
       between Hong Kong and the UK made it difficult to stay engaged with the
       team. Seeking a fresh start in the UK, I began looking for new
       opportunities more aligned with my location and preferences.
+    highlights:
+      - >-
+        Designed and implemented the registration system for small business
+        virtual accounts, utilizing Node.js and PostgreSQL to enhance user
+        access and streamline account management.
+      - >-
+        Established consistent testing processes using Cypress, resulting in
+        improved reliability and reduced regression issues within the platform.
+      - >-
+        Provided technical mentorship to junior developers, fostering a culture
+        of collaboration and knowledge sharing in a fast-paced, agile
+        environment.
+    keywords:
+      - Ruby
+      - Mentorship
+      - FinTech
+      - CircleCI
+      - PostgreSQL
+      - GraphQL
+      - Docker
+      - Cypress
+      - AWS
+      - React
+      - NodeJS
     workReferences:
       - references: content/references/Neat.md
   - name: HK01
     role: Software Engineer
     period: Nov 2018 - May 2021
     location: HK (on-site)
-    brief: >-
+    url: 'https://www.hk01.com'
+    resumeSummary: >-
+      As a Software Engineer at HK01, I developed internal systems for content
+      editors, including a multi-channel messaging system and a secure single
+      sign-on solution using OAuth 2. My role involved collaborating within a
+      self-managed team to streamline workflows and improve user access control
+      through effective feature development.
+    portfolioIntro: >-
       Built internal tools for editors and journalists, including a
       multi-channel messaging system and a single sign-on login system using
       OAuth 2 with role-based permissions. Gained hands-on experience in
       self-managed, cross-functional teams, refining skills in task estimation
       and collaborative feature development.
-    description: >-
+    detailedDescription: >-
       HK01 is an online media company that produces news and other content for
       the public.
 
@@ -152,6 +246,28 @@ works:
       I left HK01 to migrate from Hong Kong to the United Kingdom.
       Unfortunately, HK01 did not offer relocation options, which led me to
       pursue new opportunities.
+    highlights:
+      - >-
+        Developed a multi-channel messaging system leveraging RabbitMQ and
+        MongoDB, enhancing communication capabilities for content editors.
+      - >-
+        Implemented a single sign-on login system using OAuth 2, significantly
+        improving user authentication across multiple platforms.
+      - >-
+        Collaborated in a cross-functional team environment, refining skills in
+        agile task estimation and feature rollout.
+    keywords:
+      - Travis CI
+      - Redis
+      - RabbitMQ
+      - MongoDB
+      - Microservices
+      - Docker
+      - AWS
+      - Typescript
+      - React
+      - NodeJS
+      - NestJS
     workReferences:
       - references: content/references/HK01-team-lead.md
       - references: content/references/HK01-team-member.md
@@ -159,9 +275,20 @@ works:
     role: Software Engineer
     period: May 2017 - Sept 2018
     location: Hong Kong (hybrid)
+    keywords:
+      - Crawler
+      - Beanstalk
+      - Redis
+      - MongoDB
+      - NodeJS
   - name: PCCW Now Media Limited
     role: Data Developer
     period: May 2015 - Apr 2017
     location: Hong Kong (on-site)
+    keywords:
+      - MS Excel
+      - Python
+      - AWS
+      - NodeJS
 ---
 

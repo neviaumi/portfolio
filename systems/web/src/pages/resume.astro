@@ -4,8 +4,8 @@ import NavigationBar from '../components/react/NavigationBar.tsx';
 import ResumeLoader from "../components/resume/react/ResumeLoader.tsx"
 import Layout from '../layouts/Layout.astro';
 import BottomOverlay from "../components/react/BottomOverlay";
-
 const title = "Resume"
+const resumeJsonUrl = new URL("portfolio/resume.json",Astro.url.origin).toString()
 ---
 
 <Layout title={title} description="Explore David's resume, highlighting his skills and experience. Learn more about his professional background and qualifications.">
@@ -14,7 +14,7 @@ const title = "Resume"
         <NavigationBar client:load title={title}/>
 
         <Main>
-            <ResumeLoader client:load/>
+            <ResumeLoader client:load resumeJsonUrl={resumeJsonUrl}/>
             <BottomOverlay client:load/>
         </Main>
     </Page>

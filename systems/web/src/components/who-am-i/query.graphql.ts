@@ -22,8 +22,8 @@ export default gql`
           ... on Experience {
             id
             works {
-              brief
               name
+              portfolioIntro
               role
             }
           }

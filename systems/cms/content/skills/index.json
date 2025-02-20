@@ -2,83 +2,283 @@
   "sections": [
     {
       "description": "I have been working in backend development since the start of my career, gaining experience across various areas. This includes building CRUD APIs for data persistence, implementing message brokers for asynchronous tasks, and setting up monitoring systems for performance tracking and error logging.\nMy toolkit includes Node.js and Python for backend services, GraphQL and REST API for client-server communication, and databases like PostgreSQL and MongoDB. I also have experience with RabbitMQ and BullMQ for background job processing. Additionally, I’ve worked with cloud services such as AWS SQS, GCP Cloud Tasks, AWS RDS, and GCP Firebase.\nWhile I specialize in the Node.js ecosystem, I am also comfortable working with Python-based projects. Even with unfamiliar tools, I quickly adapt and become productive after an initial learning phase.\n",
+      "keywords": [
+        {
+          "domain": "Programming Language",
+          "level": "Master",
+          "name": "NodeJS"
+        },
+        {
+          "domain": "Caching",
+          "level": "Intermediate",
+          "name": "Redis"
+        },
+        {
+          "domain": "Framework",
+          "level": "Master",
+          "name": "Express"
+        },
+        {
+          "domain": "Framework",
+          "level": "Master",
+          "name": "NestJS"
+        },
+        {
+          "domain": "Programming Language",
+          "level": "Intermediate",
+          "name": "Python"
+        },
+        {
+          "domain": "Relational Database",
+          "level": "Intermediate",
+          "name": "PostgreSQL"
+        },
+        {
+          "domain": "NoSQL Database",
+          "level": "Intermediate",
+          "name": "MongoDB"
+        },
+        {
+          "domain": "Message Broker",
+          "level": "Intermediate",
+          "name": "RabbitMQ"
+        },
+        {
+          "domain": "Message Broker",
+          "level": "Intermediate",
+          "name": "BullMQ"
+        },
+        {
+          "domain": "API Protocols",
+          "level": "Intermediate",
+          "name": "GraphQL"
+        },
+        {
+          "domain": "API Protocols",
+          "level": "Master",
+          "name": "REST API"
+        },
+        {
+          "domain": "Architectural Concepts",
+          "level": "Intermediate",
+          "name": "Microservices"
+        },
+        {
+          "domain": "Cloud Platforms",
+          "level": "Intermediate",
+          "name": "AWS"
+        },
+        {
+          "domain": "Cloud Platforms",
+          "level": "Beginner",
+          "name": "GCP"
+        }
+      ],
       "level": 8,
-      "section": "Backend Development",
-      "tags": [
-        "Cloud Service",
-        "BullMQ",
-        "RabbitMQ",
-        "MongoDB",
-        "PostgreSQL",
-        "REST API",
-        "GraphQL",
-        "Python",
-        "NodeJS"
-      ]
+      "section": "Backend Development"
     },
     {
       "description": "I have been working in frontend development since 2018, with solid experience in the React ecosystem. I have built Redux-based SPAs, React Hooks-based SPAs, and worked with Remix and Next.js for server-side rendering (SSR).\nI have experience with various styling approaches, including Styled Components, Sass, TailwindCSS, and CSS Modules. My toolkit includes React for Virtual DOM rendering, Ant Design (AntD) and MUI for UI frameworks, and Vite, Rollup, and Webpack for bundling. Additionally, I am comfortable building frontend applications without relying on frameworks or libraries when necessary.\nBeyond traditional frontend development, I have also worked on MicroFrontend architecture, gaining experience while building an access control system for PlayStation. I have also managed an internal React component library, ensuring consistent UI/UX across multiple projects.\nWhile I have more experience in frontend development than backend, I find frontend development to be more complex due to the need to integrate multiple tools for styling, DOM manipulation, and bundling. In contrast, backend development is more focused on business logic. However, performance optimization becomes crucial for both, especially when handling high requests per minute (RPM) and ensuring smooth rendering.\n",
+      "keywords": [
+        {
+          "domain": "Frontend Frameworks",
+          "level": "Master",
+          "name": "React"
+        },
+        {
+          "domain": "Programming Language",
+          "level": "Master",
+          "name": "Typescript"
+        },
+        {
+          "domain": "Frontend Frameworks",
+          "level": "Intermediate",
+          "name": "NextJS"
+        },
+        {
+          "domain": "Frontend Frameworks",
+          "level": "Intermediate",
+          "name": "Remix"
+        },
+        {
+          "domain": "Frontend Frameworks",
+          "level": "Intermediate",
+          "name": "Astro"
+        },
+        {
+          "domain": "Styling",
+          "level": "Master",
+          "name": "CSS"
+        },
+        {
+          "domain": "Styling",
+          "level": "Intermediate",
+          "name": "TailwindCSS"
+        },
+        {
+          "domain": "Styling",
+          "level": "Intermediate",
+          "name": "Styled Components"
+        },
+        {
+          "domain": "Design Tools",
+          "level": "Intermediate",
+          "name": "Material Design"
+        },
+        {
+          "domain": "Design Tools",
+          "level": "Intermediate",
+          "name": "Figma"
+        }
+      ],
       "level": 10,
-      "section": "Web Frontend Development",
-      "tags": [
-        "Component Library",
-        "MicroFrontend",
-        "Webpack",
-        "Styled components",
-        "TailwindCSS",
-        "Remix",
-        "Next.JS",
-        "Redux",
-        "React"
-      ]
+      "section": "Web Frontend Development"
     },
     {
       "description": "I started exploring automated testing in 2017. Before that, I wrote code without tests, which made debugging and maintenance more difficult. Initially, I relied heavily on mocking, but I soon realized that excessive mocking led to false positives and tests that did not accurately reflect real implementations.\nOver time, I explored various testing tools, including Jest and Mocha for unit testing, Testing Library for frontend component testing, and Cypress and Playwright for browser-based and end-to-end testing.\nBeyond tools, I have experience implementing different levels of testing:\n\n* Unit tests to verify individual components or functions\n* Integration tests to ensure smooth interaction between backend and frontend\n* End-to-end tests to cover complete user journeys\n\nI have also set up testing from scratch in existing systems, ensuring proper test coverage and stability. From my experience, systems with well-structured tests are easier to maintain, allowing for safer refactoring and dependency upgrades. While writing tests increases initial development time, the long-term benefits—such as preventing regressions and improving confidence in code changes—make it a valuable investment.\n",
+      "keywords": [
+        {
+          "domain": "Testing Frameworks",
+          "level": "Master",
+          "name": "Jest"
+        },
+        {
+          "domain": "Testing Frameworks",
+          "level": "Intermediate",
+          "name": "Cypress"
+        },
+        {
+          "domain": "Testing Frameworks",
+          "level": "Intermediate",
+          "name": "Playwright"
+        },
+        {
+          "domain": "Testing Frameworks",
+          "level": "Intermediate",
+          "name": "Testing Library"
+        },
+        {
+          "domain": "Testing Frameworks",
+          "level": "Intermediate",
+          "name": "Mocha"
+        },
+        {
+          "domain": "Testing Concepts",
+          "level": "Master",
+          "name": "Unit Testing"
+        },
+        {
+          "domain": "Testing Concepts",
+          "level": "Intermediate",
+          "name": "Integration Testing"
+        },
+        {
+          "domain": "Testing Concepts",
+          "level": "Intermediate",
+          "name": "End-to-End Testing"
+        }
+      ],
       "level": 6,
-      "section": "Automated Testing",
-      "tags": [
-        "End-to-End Testing",
-        "Integration Testing",
-        "Test Automation Strategy",
-        "Unit Testing",
-        "Playwright",
-        "Cypress",
-        "Testing Library",
-        "Mocha",
-        "Jest"
-      ]
+      "section": "Automated Testing"
     },
     {
       "description": "At the beginning of my career, I worked in an unsupervised environment where I had to set up and manage all AWS infrastructure, including Redshift, S3, PinPoint, Lambda, and CodeDeploy. Alongside development, I manually handled infrastructure configurations such as scaling instances, monitoring, and deployment processes.\nLater, I gained experience with Continuous Integration and Deployment (CI/CD), where merging code would automatically trigger testing and deployment procedures. I also started collaborating with DevOps teams, which allowed me to focus more on development while infrastructure was managed by specialized teams.\nBeyond development, I am capable of preparing Docker images for deployment in Kubernetes (K8s) clusters. I have hands-on experience setting up CI/CD pipelines using Travis CI, CircleCI, and GitHub Actions, automating test execution and deployments.\nTo deepen my understanding of infrastructure management, I started deploying personal projects on GitHub, using Pulumi to manage Infrastructure as Code (IaC) on Google Cloud Platform (GCP). This approach allows for automated, reproducible environments such as testing and pre-production, making configuration management (e.g., API timeouts, security settings, and hostname generation) more efficient through CLI access.\nWhile Terraform is widely used in the industry, I find Pulumi to be more developer-friendly since it uses general-purpose programming languages instead of domain-specific languages (DSLs), making the learning curve more approachable.\n",
+      "keywords": [
+        {
+          "domain": "Containerization",
+          "level": "Intermediate",
+          "name": "Docker"
+        },
+        {
+          "domain": "CI/CD Pipelines",
+          "level": "Master",
+          "name": "GitHub Actions"
+        },
+        {
+          "domain": "Infrastructure as Code",
+          "level": "Intermediate",
+          "name": "Pulumi"
+        },
+        {
+          "domain": "Cloud Platforms",
+          "level": "Intermediate",
+          "name": "AWS"
+        },
+        {
+          "domain": "Cloud Platforms",
+          "level": "Beginner",
+          "name": "GCP"
+        },
+        {
+          "domain": "CI/CD Pipelines",
+          "level": "Intermediate",
+          "name": "CI/CD"
+        },
+        {
+          "domain": "CI/CD Pipelines",
+          "level": "Intermediate",
+          "name": "CircleCI"
+        },
+        {
+          "domain": "CI/CD Pipelines",
+          "level": "Intermediate",
+          "name": "Travis CI"
+        }
+      ],
       "level": 6,
-      "section": "Infrastructure",
-      "tags": [
-        "CircleCI",
-        "TravisCI",
-        "Infrastructure as Code (IaC)",
-        "Github Actions",
-        "Pulumi",
-        "Docker",
-        "CI/CD",
-        "GCP",
-        "AWS"
-      ]
+      "section": "Infrastructure"
     },
     {
       "description": "I first experienced Agile development in 2018. Before that, I worked without structured product management methods—there were no planning phases, backlog tracking, or estimations. This lack of structure made it difficult to predict timelines, track progress, or maintain visibility into future work.\nOnce I joined an Agile team, I gained hands-on experience with self-managed teams that collaboratively estimated features, planned sprints, and demoed results to stakeholders. Working within 1–2 week sprint cycles, we clearly defined development scopes, planned upcoming tasks, and maintained daily stand-ups to share progress, unblock issues, and recognize team contributions.\nOne key lesson I learned was the importance of incremental delivery. While breaking large requirements into smaller, sprint-sized tasks improves project management, I also believe feature flags play a crucial role in Agile development. I have worked in Agile teams where features were developed for over a year but remained hidden from users. This made it harder to measure real impact. Feature flags allow teams to release features gradually to specific user groups, enabling better feedback collection and flexibility to refine requirements based on real usage.\n",
+      "keywords": [
+        {
+          "domain": "Development Practices",
+          "level": "Intermediate",
+          "name": "Agile"
+        },
+        {
+          "domain": "Development Practices",
+          "level": "Master",
+          "name": "Scrum"
+        },
+        {
+          "domain": "Development Practices",
+          "level": "Master",
+          "name": "Retrospective & Process Improvement"
+        },
+        {
+          "domain": "Team Collaboration",
+          "level": "Master",
+          "name": "Cross-Functional Collaboration"
+        },
+        {
+          "domain": "Team Collaboration",
+          "level": "Intermediate",
+          "name": "Stakeholder Communication"
+        },
+        {
+          "domain": "Development Practices",
+          "level": "Intermediate",
+          "name": "Feature Flags"
+        },
+        {
+          "domain": "Development Practices",
+          "level": "Intermediate",
+          "name": "Continuous Delivery"
+        },
+        {
+          "domain": "Team Workflows",
+          "level": "Intermediate",
+          "name": "Backlog Management"
+        },
+        {
+          "domain": "Team Workflows",
+          "level": "Intermediate",
+          "name": "Sprint Planning"
+        }
+      ],
       "level": 6,
-      "section": "Agile Team collaborate",
-      "tags": [
-        "Retrospective & Process Improvement",
-        "Stakeholder Communication",
-        "Cross-Functional Collaboration",
-        "Feature Flags",
-        "Continuous Delivery",
-        "Backlog Management",
-        "Sprint Planning",
-        "Scrum",
-        "Agile Development"
-      ]
+      "section": "Agile Team collaborate"
     }
   ]
 }

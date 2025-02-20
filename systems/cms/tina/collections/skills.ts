@@ -20,16 +20,68 @@ const Skills: Collection = {
         {
           label: 'Description',
           name: 'description',
-          overrides: {
-            toolbar: ['ul'],
-          },
           type: 'rich-text',
         },
         {
-          label: 'tags',
+          description:
+            'A list of tools, techniques, or areas relevant to this skill.',
+          fields: [
+            {
+              description: 'The name of the skill, e.g. Web Development.',
+              label: 'Name',
+              name: 'name',
+              type: 'string',
+            },
+            {
+              description:
+                'The proficiency level, e.g. Beginner, Intermediate, Master.',
+              label: 'Level',
+              name: 'level',
+              options: ['Beginner', 'Intermediate', 'Master'],
+              type: 'string',
+            },
+            {
+              description:
+                'The domain or category of the skill, e.g. Programming Language, Framework, etc.',
+              label: 'Domain',
+              name: 'domain',
+              options: [
+                'Architectural Concepts',
+                'Programming Language',
+                'Caching',
+                'Framework',
+                'Relational Database',
+                'NoSQL Database',
+                'Message Broker',
+                'API Protocols',
+                'Cloud Platforms',
+                'Frontend Frameworks',
+                'Styling',
+                'Design Tools',
+                'Testing Frameworks',
+                'Testing Concepts',
+                'Containerization', // New: Docker, Kubernetes, etc.
+                'CI/CD Pipelines', // New: Continuous Integration/Delivery practices
+                'Infrastructure as Code', // New: Tools like Terraform, CloudFormation
+                'Development Practices', // New: General development workflows
+                'Team Collaboration', // New: Tools and skills like Jira, Slack
+                'Team Workflows', // New: Agile, Scrum methodologies
+              ],
+              type: 'string',
+            },
+          ],
+          label: 'Keywords',
           list: true,
-          name: 'tags',
-          type: 'string',
+          name: 'keywords',
+          type: 'object',
+          ui: {
+            itemProps(item: Record<string, any>): {
+              key?: string;
+              label?: boolean | string;
+            } {
+              return { label: item['name'] };
+            },
+          },
         },
       ],
       label: 'Skill section',

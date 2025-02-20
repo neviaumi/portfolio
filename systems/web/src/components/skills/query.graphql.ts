@@ -10,8 +10,10 @@ export default gql`
             id
             sections {
               description
+              keywords {
+                name
+              }
               section
-              tags
             }
           }
         }

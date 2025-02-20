@@ -30,10 +30,16 @@ const Experiences: Collection = {
           type: 'string',
         },
         {
+          description: 'Company website',
+          label: 'Company website',
+          name: 'url',
+          type: 'string',
+        },
+        {
           description:
-            'Shorten description to explain what you working on this role',
-          label: 'Brief description',
-          name: 'brief',
+            'A professionally concise summary of your experience for this role, focusing on main responsibilities, accomplishments, and measurable outcomes for resume use.',
+          label: 'Resume Summary',
+          name: 'resumeSummary',
           type: 'string',
           ui: {
             component: 'textarea',
@@ -41,13 +47,39 @@ const Experiences: Collection = {
         },
         {
           description:
-            'Description to explain what you working on, what the work environment in company look like...etc.',
-          label: 'Description',
-          name: 'description',
+            'A concise introduction of your role tailored for the portfolio homepage. This should highlight your main activities in an engaging and creative manner.',
+          label: 'Portfolio Introduction',
+          name: 'portfolioIntro',
           type: 'string',
           ui: {
             component: 'textarea',
           },
+        },
+        {
+          description:
+            'A comprehensive explanation of your work in this role. Include key responsibilities, projects, achievements, challenges, and the work environment. Focus on providing a rich, in-depth narrative.',
+          label: 'Detailed Description',
+          name: 'detailedDescription',
+          type: 'string',
+          ui: {
+            component: 'textarea',
+          },
+        },
+        {
+          description:
+            'A list of tools, techniques, or areas relevant to this experiences.',
+          label: 'Highlights',
+          list: true,
+          name: 'highlights',
+          type: 'string',
+        },
+        {
+          description:
+            'A list of tools, techniques, or areas relevant to this experiences.',
+          label: 'Keywords',
+          list: true,
+          name: 'keywords',
+          type: 'string',
         },
         {
           fields: [
@@ -78,36 +110,6 @@ const Experiences: Collection = {
         itemProps: item => {
           // Field values are accessed by item?.<Field name>
           return { label: `${item?.['role']} in ${item?.['name']}` };
-        },
-      },
-    },
-    {
-      fields: [
-        {
-          description: 'Project name',
-          label: 'Name',
-          name: 'name',
-          type: 'string',
-        },
-        {
-          description:
-            'Shorten description to explain what you working on this project',
-          label: 'Brief description',
-          name: 'brief',
-          type: 'string',
-          ui: {
-            component: 'textarea',
-          },
-        },
-      ],
-      label: 'Projects',
-      list: true,
-      name: 'projects',
-      type: 'object',
-      ui: {
-        itemProps: item => {
-          // Field values are accessed by item?.<Field name>
-          return { label: `${item?.['name']}` };
         },
       },
     },
