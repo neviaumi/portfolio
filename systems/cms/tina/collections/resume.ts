@@ -1,7 +1,5 @@
 import type { Collection } from 'tinacms';
 
-import { boolean, string } from 'yup';
-
 const ResumeJSON: Collection = {
   fields: [
     // Basics Section
