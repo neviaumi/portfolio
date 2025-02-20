@@ -1,0 +1,109 @@
+{
+  "basics": {
+    "name": "David Ng",
+    "label": "Software Engineer",
+    "image": "https://avatars.githubusercontent.com/u/2247500",
+    "email": "david.ng.pub@gmail.com",
+    "url": "https://neviaumi.github.io/portfolio?utm_source=resume",
+    "summary": "Dynamic Software Engineer with a robust foundation in backend and frontend development, specializing in modern frameworks such as React and Node.js. Adept in Agile methodologies and automated testing, I focus on delivering scalable and efficient applications while collaborating with cross-functional teams to align with business objectives. Passionate about continuous improvement and creative problem-solving, I thrive in diverse environments from startups to multinational corporations, fostering growth and innovation in every project.",
+    "location": {
+      "countryCode": "UK",
+      "region": "United Kingdom"
+    },
+    "profiles": [
+      {
+        "network": "Linkedin",
+        "username": "Kong Chor Ng",
+        "url": "https://www.linkedin.com/in/davidnhk/"
+      },
+      {
+        "network": "Github",
+        "username": "neviaumi",
+        "url": "https://github.com/neviaumi"
+      }
+    ]
+  },
+  "work": "content/experiences/index.md",
+  "education": [
+    {
+      "institution": "The Open University of Hong Kong",
+      "url": "https://www.hkmu.edu.hk/",
+      "area": "Information Technology",
+      "studyType": "Bachelor",
+      "startDate": "2012-09-01",
+      "endDate": "2014-05-01",
+      "score": "4.0"
+    }
+  ],
+  "skills": "content/skills/index.json",
+  "languages": [
+    {
+      "language": "Chinese",
+      "fluency": "Master"
+    },
+    {
+      "language": "English",
+      "fluency": "Intermediate"
+    }
+  ],
+  "colleagueReferences": [
+    {
+      "references": "content/references/PlayStation.md"
+    },
+    {
+      "references": "content/references/Neat.md"
+    },
+    {
+      "references": "content/references/HK01-team-lead.md"
+    },
+    {
+      "references": "content/references/HK01-team-member.md"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portfolio",
+      "description": "This portfolio showcases my journey as a software engineer. It highlights my core values, experiences, and skills developed over the years. I've collaborated on various projects and focused on continuous learning and improvement, leveraging Agile methodologies to build scalable solutions. My background spans diverse environments like tech startups and multinational corporations, demonstrating a commitment to impactful software development.",
+      "highlights": [
+        "An overview of the technical skills I am confident in and continue to refine.",
+        "Summary of the core values that guide my career and decision-making.",
+        "A showcase of my diverse professional experiences across tech startups and corporations."
+      ],
+      "keywords": [
+        "Playwright",
+        "Material design",
+        "Docker",
+        "TypeScript",
+        "Github Actions",
+        "React",
+        "TinaCMS",
+        "Astro",
+        "Figma"
+      ],
+      "url": "https://neviaumi.github.io/portfolio?utm_source=resume",
+      "roles": [
+        "Code Owner",
+        "Maintainer"
+      ]
+    },
+    {
+      "name": "resume.json",
+      "description": "Resume website that allows for quick and easy updates, ensuring format stability and effortless editing. This project enabled automated PDF exports upon deployment to GitHub Pages and facilitated the generation of tailored interview introductions based on job descriptions, enhancing my job application process.",
+      "highlights": [
+        "Automated PDF export upon deployment to GitHub Pages for seamless resume sharing.",
+        "Built a dynamic, JSON-driven resume generator using TailwindCSS and WebComponents for effortless updates without format issues."
+      ],
+      "keywords": [
+        "GitHub Actions",
+        "Web Component",
+        "CSS",
+        "TailwindCSS"
+      ],
+      "url": "https://github.com/neviaumi/resume.json",
+      "roles": [
+        "Maintainer",
+        "Code Owner"
+      ]
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 import { gql } from '../../graphql.ts';
 
 export type Work = {
-  brief: string;
-  description: string;
+  detailedDescription: string;
   location: string;
   name: string;
   period: string;
+  portfolioIntro: string;
   role: string;
   workReferences: {
     references: {
@@ -26,11 +26,11 @@ export default gql`
           ... on Experience {
             id
             works {
-              brief
-              description
+              detailedDescription
               location
               name
               period
+              portfolioIntro
               role
               workReferences {
                 references {

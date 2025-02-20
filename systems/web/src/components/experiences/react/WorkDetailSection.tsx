@@ -62,7 +62,7 @@ export default function WorkDetailsSection({ works }: { works: Array<Work> }) {
       {works.slice(0, 4).map((work: Work) => {
         return (
           <Card
-            aria-description={work.description}
+            aria-description={work.detailedDescription}
             component={'section'}
             id={work.name}
             key={work.name}
@@ -87,7 +87,9 @@ export default function WorkDetailsSection({ works }: { works: Array<Work> }) {
               title={`${work.role} at ${work.name}`}
             />
             <CardContent>
-              <Typography variant={'body1'}>{work.description}</Typography>
+              <Typography variant={'body1'}>
+                {work.detailedDescription}
+              </Typography>
             </CardContent>
             {work.workReferences && (
               <WorkReference

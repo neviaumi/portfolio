@@ -24,6 +24,7 @@ export default gql`
             works {
               brief
               name
+              portfolioIntro
               role
             }
           }

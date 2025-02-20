@@ -11,8 +11,8 @@ export default function ExperiencesSection({
   works,
 }: {
   works: Array<{
-    brief: string;
     name: string;
+    portfolioIntro: string;
     role: string;
   }>;
 }) {
@@ -47,7 +47,7 @@ export default function ExperiencesSection({
           {works.map(work => {
             return (
               <Card
-                aria-description={work.brief}
+                aria-description={work.portfolioIntro}
                 component={'li'}
                 key={work.name}
                 sx={{
@@ -90,7 +90,7 @@ export default function ExperiencesSection({
                       }}
                       variant="body1"
                     >
-                      {work.brief}
+                      {work.portfolioIntro}
                     </Typography>
                   </CardContent>
                 </Link>

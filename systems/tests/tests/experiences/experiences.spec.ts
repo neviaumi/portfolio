@@ -49,10 +49,10 @@ ${workDetailsSectionData
     !work.workReferences
       ? `  - heading "${work.role} at ${work.name}" [level=2]
   - heading "${work.period}, ${work.location}" [level=3]
-  - paragraph: ${sanitise(work.description)}`
+  - paragraph: ${sanitise(work.detailedDescription)}`
       : `  - heading "${work.role} at ${work.name}" [level=2]
   - heading "${work.period}, ${work.location}" [level=3]
-  - paragraph: ${sanitise(work.description)}
+  - paragraph: ${sanitise(work.detailedDescription)}
   - article:
     - separator
 ${work.workReferences

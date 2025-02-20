@@ -11,8 +11,10 @@ const query = gql`
             id
             sections {
               description
+              keywords {
+                name
+              }
               section
-              tags
             }
           }
         }

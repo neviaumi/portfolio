@@ -4,6 +4,7 @@ import CoreValues from './collections/core-values.ts';
 import Experiences from './collections/experiences.ts';
 import Pages from './collections/pages.ts';
 import References from './collections/refernces.ts';
+import Resume from './collections/resume.ts';
 import Skills from './collections/skills.ts';
 
 export const config = defineConfig({
@@ -25,7 +26,7 @@ export const config = defineConfig({
     },
   },
   schema: {
-    collections: [CoreValues, Experiences, Skills, References, Pages],
+    collections: [CoreValues, Experiences, Skills, References, Resume, Pages],
   },
 });
 
