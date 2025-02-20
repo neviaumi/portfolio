@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+    <title>David resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        @page {
+            size: A4 portrait;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        body {
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+
+        @media print {
+            :root {
+                font-size: 50%; /* When default font size is 16px, 50% is 8px, all rem will be based on 8px */
+            }
+
+            body {
+                font-size: 2rem; /*Restore default font size*/
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+
+
+    </style>
+    <script src="https://neviaumi.github.io/resume.json/json-resume.element.js" type="module" ></script>
+</head>
+
+<body>
+<json-resume src="/resume.json"></json-resume>
+</body>
+
+</html>

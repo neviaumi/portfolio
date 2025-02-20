@@ -1,6 +1,22 @@
 services:
   cms:
     command: ./scripts/docker/start.sh --build
+  resume-builder:
+    build:
+      context: systems/resume
+      dockerfile: Dockerfile
+      target: base
+    command: ./scripts/docker/build.sh
+    depends_on:
+      web:
+        condition: service_healthy
+    entrypoint: /bin/bash
+    environment:
+      VITE_JSON_RESUME_URL: http://web:4321/portfolio/resume.json
+    volumes:
+      - source: ./dist
+        target: /app/public
+        type: bind
   web:
     command: ./scripts/docker/build.sh
     environment:
@@ -9,6 +25,6 @@ services:
     volumes:
       - bind:
           create_host_path: true
-        source: ./systems/web/dist
+        source: ./dist
         target: /app/dist
         type: bind
