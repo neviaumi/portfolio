@@ -1,3 +1,8 @@
+Full-Stack Developer
+
+Pri0rt1y AI Ltd is an ai-assistant platform, that provides a suite of AI tools, for small & medium size businesses who want to enhance efficiencies and increase sales at a fraction of the cost.
+
+
 Job Description
 We're looking for a skilled developer to help shape the future of our SaaS platform. If you love solving complex problems, building scalable features, and working with cutting-edge technology, this could be the role for you.
 
