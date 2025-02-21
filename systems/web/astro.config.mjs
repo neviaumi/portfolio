@@ -32,8 +32,8 @@ export default defineConfig({
         start_url: 'https://neviaumi.github.io/portfolio/',
         theme_color: '#ffffff',
       },
-      registerType: process.env.NODE_ENV !== 'production' ? null : 'autoUpdate',
-      selfDestroying: process.env.NODE_ENV !== 'production',
+      registerType: null,
+      selfDestroying: true,
       workbox: {
         globPatterns: ['**/*.{js,css,html,json,pdf,png,jpg,svg}'], // Precaches all relevant files
         navigateFallback: '/portfolio/404',
