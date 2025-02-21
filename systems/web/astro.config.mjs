@@ -31,14 +31,13 @@ export default defineConfig({
         short_name: 'Portfolio',
         start_url: 'https://neviaumi.github.io/portfolio/',
         theme_color: '#ffffff',
-        workbox: {
-          globPatterns: ['**/*.{js,css,html,json,pdf,png,jpg,svg}'], // Precaches all relevant files
-          navigateFallback: '/portfolio/404',
-        },
       },
-      // No service worker in development
       registerType: process.env.NODE_ENV !== 'production' ? null : 'autoUpdate',
       selfDestroying: process.env.NODE_ENV !== 'production',
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,json,pdf,png,jpg,svg}'], // Precaches all relevant files
+        navigateFallback: '/portfolio/404',
+      },
     }),
   ],
   site: 'https://neviaumi.github.io/',
