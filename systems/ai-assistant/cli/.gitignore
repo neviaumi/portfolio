@@ -1,2 +1,3 @@
 commands/chat.js
+commands/chat.*.js
 assets/jd.txt
