@@ -31,10 +31,15 @@ export default defineConfig({
         short_name: 'Portfolio',
         start_url: 'https://neviaumi.github.io/portfolio/',
         theme_color: '#ffffff',
-        workbox: { navigateFallback: '/portfolio/404' },
+        workbox: {
+          navigateFallback: '/portfolio/404',
+          navigateFallbackAllowlist: [
+            /^\/portfolio\/api\/.*$/,
+            /^\/portfolio\/.*\.json$/,
+          ], // Allow API routes and JSON paths
+        },
       },
-      // registerType: true ? null : 'autoUpdate',
-      registerType: 'autoUpdate',
+      registerType: process.env.NODE_ENV !== 'production' ? null : 'autoUpdate',
     }),
   ],
   site: 'https://neviaumi.github.io/',

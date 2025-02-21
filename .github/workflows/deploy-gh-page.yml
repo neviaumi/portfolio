@@ -13,10 +13,10 @@ jobs:
           WEB_STRIPE_SECRET_KEY: ${{secrets.WEB_STRIPE_SECRET_KEY}}
         name: Build website to static assets
         run: bash ./scripts/ci/build.sh
-      - name: Upload doc folder
+      - name: Upload dist folder
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./systems/web/dist
+          path: ./dist
       - id: deployment
         name: Deploy static site to GitHub Pages
         uses: actions/deploy-pages@v4
