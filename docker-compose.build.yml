@@ -14,7 +14,9 @@ services:
     environment:
       VITE_JSON_RESUME_URL: http://web:4321/portfolio/resume.json
     volumes:
-      - source: ./dist
+      - bind:
+          create_host_path: true
+        source: ./dist
         target: /app/public
         type: bind
   web:
