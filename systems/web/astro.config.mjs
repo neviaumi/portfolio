@@ -32,14 +32,13 @@ export default defineConfig({
         start_url: 'https://neviaumi.github.io/portfolio/',
         theme_color: '#ffffff',
         workbox: {
+          globPatterns: ['**/*.{js,css,html,json,pdf,png,jpg,svg}'], // Precaches all relevant files
           navigateFallback: '/portfolio/404',
-          navigateFallbackAllowlist: [
-            /^\/portfolio\/api\/.*$/,
-            /^\/portfolio\/.*\.json$/,
-          ], // Allow API routes and JSON paths
         },
       },
+      // No service worker in development
       registerType: process.env.NODE_ENV !== 'production' ? null : 'autoUpdate',
+      selfDestroying: process.env.NODE_ENV !== 'production',
     }),
   ],
   site: 'https://neviaumi.github.io/',
