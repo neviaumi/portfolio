@@ -1,3 +1,5 @@
+import { stdin as input, stdout as output } from 'node:process';
+import readline from 'node:readline/promises';
 import OpenAI from 'openai';
 
 import {
@@ -376,5 +378,66 @@ ${transformedJD}
 \`\`\`
 Please use this JD in combination with my portfolio to assist with job-related tasks.`,
     role: 'user',
+  };
+}
+
+export function withFeedbackLoop(promptFunction, feedbackLoopOptions = {}) {
+  const onPromptGenerated =
+    feedbackLoopOptions?.onPromptGenerated ??
+    (messages =>
+      console.log(
+        `${'-'.repeat(32)}
+AI response:
+${readMessageFromPrompt(messages)}
+${'-'.repeat(32)}`,
+      ));
+  const onFeedbackProvided =
+    feedbackLoopOptions?.onFeedbackProvided ??
+    (feedback =>
+      console.log(`${'-'.repeat(32)}
+User input:
+${feedback}
+${'-'.repeat(32)}`));
+  const onInitialFeedbackLoop =
+    feedbackLoopOptions.onInitialFeedbackLoop ??
+    (messages => {
+      console.log(messages.slice(-1)[0].content);
+    });
+  async function readFeedbackFromStdout(placeholder) {
+    console.log(placeholder); // Prompt the user
+    const rawInput = await new Promise(resolve => {
+      const lines = [];
+      const rl = readline.createInterface({ input, output });
+      rl.on('line', line => {
+        if (line.trim().toUpperCase() === 'EOP') {
+          rl.close();
+        } else {
+          lines.push(line);
+        }
+      });
+      rl.on('close', () => resolve(lines.join('\n').trim()));
+    });
+    return rawInput;
+  }
+
+  return async function promptFunctionWithFeedbackLoop(initialPrompts) {
+    let shouldKeepFeedbackLoop = true;
+    let prompts = initialPrompts;
+    onInitialFeedbackLoop(prompts);
+    while (shouldKeepFeedbackLoop) {
+      const feedback = await readFeedbackFromStdout(
+        `Provide your feedback (press Enter after each line). Type "EOP" on a new line when you're done:`,
+      );
+      if (!feedback.trim()) {
+        shouldKeepFeedbackLoop = false;
+        break;
+      }
+      onFeedbackProvided(feedback);
+      prompts = await promptFunction(
+        prompts.concat({ content: feedback, role: 'user' }),
+      );
+      onPromptGenerated(prompts);
+    }
+    return prompts;
   };
 }
