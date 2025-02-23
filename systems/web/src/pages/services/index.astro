@@ -2,14 +2,20 @@
 import Layout from '../../layouts/Layout.astro';
 import {Page, Main} from "../../components/react/PageContainer.tsx"
 import NavigationBar from "../../components/react/NavigationBar";
-import HeadingSection from "../../components/services/react/HeadingSection.tsx"
-import ServiceListingSection from "../../components/services/react/ServiceListingSection.tsx"
-import {listProductWithPrice} from "../../stripe.ts"
+import HeadingSection from "./_components/react/HeadingSection.tsx"
+import ServiceListingSection from "./_components/react/ServiceListingSection.tsx"
+import GigListingSection, {prepareGigListingProps} from "./_components/react/GigListingSection.tsx"
+import query from "./_components/_query.ts"
+import cms from "../../cms.ts"
+import {listProductWithPrice} from "./_components/_stripe.ts"
 import BottomOverlay from "../../components/react/BottomOverlay";
 
-const title = "Services";
 const products = await listProductWithPrice();
+const {page } =  await cms.gqlRequest(query).then(data => data.data)
+const title = page.title;
+const gigs = await prepareGigListingProps(page.gigs);
 ---
+
 <Layout title={title}>
     <Page>
         <script
@@ -19,8 +25,9 @@ const products = await listProductWithPrice();
         <NavigationBar client:load title={title}/>
 
         <Main>
-            <HeadingSection/>
+            <HeadingSection overview={page.overview}/>
             <ServiceListingSection client:load products={products}/>
+            <GigListingSection gigs={gigs}/>
             <BottomOverlay/>
         </Main>
     </Page>

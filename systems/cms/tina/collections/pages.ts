@@ -194,6 +194,50 @@ const FAQPage: Template = {
   name: 'faq',
 };
 
+const ServicePage: Template = {
+  fields: [
+    { label: 'Page title', name: 'title', type: 'string' },
+    {
+      label: 'Overview',
+      name: 'overview',
+      type: 'rich-text',
+    },
+    {
+      description:
+        'Check here: https://www.fiverr.com/users/davidnuk/manage_gigs?current_filter=active',
+      fields: [
+        {
+          label: 'Link',
+          name: 'link',
+          type: 'string',
+        },
+        {
+          label: 'Title',
+          name: 'title',
+          type: 'string',
+        },
+        {
+          label: 'Thumbnail',
+          name: 'thumbnail',
+          type: 'image',
+        },
+      ],
+      label: 'Fiverr gigs',
+      list: true,
+      name: 'gigs',
+      type: 'object',
+      ui: {
+        itemProps: item => {
+          // Field values are accessed by item?.<Field name>
+          return { label: `${item?.['link']}` };
+        },
+      },
+    },
+  ],
+  label: 'Services',
+  name: 'services',
+};
+
 const foobar: Template = {
   fields: [
     {
@@ -219,6 +263,7 @@ const Pages: Collection = {
     CoreValuesPage,
     ExperiencesPage,
     SkillsPage,
+    ServicePage,
     FAQPage,
     foobar,
   ],
