@@ -20,6 +20,7 @@ This repository powers a **portfolio platform** designed to showcase personal an
 5. [Spin-up Development Environment](#spin-up-development-environment)
 6. [Highlights](#highlights)
 7. [Acknowledgment](#acknowledgment)
+8. [AI Assistant](#ai-assistant)
 
 ---
 
@@ -53,6 +54,7 @@ This repository uses a **monorepository** to manage multiple systems and service
 - **`web`**: The frontend service, built with Astro.js and React for dynamic and static UI components.
 - **`cms`**: A content management system, likely for managing portfolio-related data (skills, references, etc.).
 - **`tests`**: Handles automated testing for storage, integration, and UI feedback.
+- **`ai-assistant`**: A modular sub-system that provides OpenAI-powered tools and features for integration, including CLI tools, a chatbot web component, and a Cloudflare worker backend.
 
 ### Functionality Overview
 1. **Portfolio Showcase**:
@@ -67,10 +69,14 @@ This repository uses a **monorepository** to manage multiple systems and service
   - Allows visitors to **request development services**.
   - **Stripe** integration handles secure payment processing.
 
-4. **Question Handling**:
+4. **AI-Powered Chatbot**:
+  - A chatbot is seamlessly integrated into all portfolio HTML files.
+  - Hiring managers or recruiters can directly ask questions to the chatbot, enabling on-the-spot inquiries about your skills, experience, and availability.
+
+5. **Question Handling**:
   - Answers **common behavioral questions** to facilitate a better understanding of your working and communication style.
 
-5. **High Performance**:
+6. **High Performance**:
   - Lightweight and fast builds through Astro.js for SEO-friendly and high-performance static website generation.
 
 ---
@@ -83,6 +89,7 @@ This repository uses a **monorepository** to manage multiple systems and service
 - **Material-UI (MUI)**: To ensure a polished design and professional feel.
 
 ### Backend
+- **AI Assistant Worker**: Cloudflare worker service for wrapping OpenAI APIs and serving requests from the web and CLI.
 - **CMS Integration**: Manages the portfolio data and makes it configurable for potential real-time updates.
 - **Docker**: Ensures portable and consistent local and production environments.
 
@@ -92,38 +99,69 @@ This repository uses a **monorepository** to manage multiple systems and service
 ### DevOps and Toolchain
 - **CI/CD**:
   - Uses **GitHub Actions** for deployments and PR quality checks.
-  - **Docker Compose**: Configures different stages (development, test, production) for seamless operations.
-- **TypeScript**: Ensures type safety and reliable code structures.
-- **ESLint** & **Prettier**: Maintains consistent and clean coding standards.
-- **Husky** & **Lint-staged**: Automates pre-commit checks for enhanced developer workflows.
+  - **Docker Compose**: Configures different stages (development, test, production) for seamless container setups.
 
 ---
 
 ## Spin-up Development Environment
 
-To run the development environment locally, use:
+To set up the development environment for this repository, you can use the following commands:
 
-```shell
-bash ./scripts/dev.sh
-```
+1. **Install Dependencies**:
+   ```bash
+   bash ./scripts/dev/setup.sh
+   ```
 
-Docker is used to spin up and maintain consistent environments, ensuring the development process matches production closely.
+2. **Start Development**:
+   ```bash
+   bash ./scripts/dev/start.sh
+   ```
 
 ---
 
 ## Highlights
 
-1. **Clear Structure for Multisystem Management**:
-  - A monorepository that logically separates concerns (frontend, CMS, testing).
-2. **Portfolio Customization**:
-  - Rich functionalities for displaying work experiences, providing references, and selling services.
-3. **Focus on Best Practices**:
-  - CI/CD pipelines, Dockerized workflows, and automated testing ensure a smooth developer experience and high-quality production builds.
-4. **Scalability and Extensibility**:
-  - Built on Astro, React, and Docker, enabling effortless adaptability and long-term maintainability.
+- **Monorepo Architecture**: Centralizes multiple systems in a single repository for better manageability and collaboration.
+- **AI-Driven**: Provides AI-powered utilities like chatbots and automated content generation.
+- **Service Monetization**: Adds real-world e-commerce functionality with Stripe integration.
+- **Responsive Design**: Built on modern frameworks to ensure great performance across devices.
+
+---
+
+## AI Assistant
+
+The **AI Assistant** is a sub-system located in `systems/ai-assistant` that adds OpenAI-powered capabilities to this portfolio. It is composed of the following components:
+
+### CLI
+The CLI provides modular commands for:
+- Managing CMS tasks.
+- Summarizing resumes and extracting keywords.
+- Providing chatbot-powered assistance.
+
+### Web Components
+A set of reusable web components enabling seamless integration of OpenAI-based chatbot interfaces for interacting with website visitors.
+
+### Integrated Chatbot
+The portfolio includes an **AI chatbot**, embedded into all portfolio HTML files, designed to:
+- Answer hiring managers' or recruiters' questions in real-time.
+- Provide details about expertise, skills, working style, and availability.
+
+### Cloudflare Worker
+The **worker** acts as a backend service wrapping OpenAI API requests, providing scalability, speed, and cost efficiency.
+
+#### Cloudflare Worker Setup
+The worker requires manual creation of a **Cloudflare AI Gateway** resource. This step currently cannot be automated. To complete setup:
+1. Sign into your Cloudflare account.
+2. Go to **Workers & KV > AI Gateway**.
+3. Create a new resource and configure it with the necessary OpenAI API details.
+
+Once the AI Gateway is created, use the deployment script to deploy the worker:
+```bash
+bash ./scripts/ci/deploy.sh
+```
 
 ---
 
 ## Acknowledgment
 
-This README was supplemented with the assistance of an AI tool to ensure clarity, structure, and comprehensive documentation. Contributions are welcome to improve or expand its content!
+This document was generated with the assistance of an AI tool to structure and outline the features, systems, and components of this repository. Thank you for checking out this portfolio platform. We welcome feedback, contributions, and suggestions to help improve its functionality, performance, and usability.
