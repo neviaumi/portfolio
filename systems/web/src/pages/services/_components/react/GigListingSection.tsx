@@ -55,7 +55,8 @@ export default function GigListingSection({
                 alignItems: 'center',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 1,
+                gap: 2,
+                height: '400px',
                 justifyContent: 'center',
                 paddingX: 2,
                 paddingY: 1,
@@ -74,7 +75,13 @@ export default function GigListingSection({
                   width: 320,
                 }}
               />
-              <Typography component={'h1'} variant={'h5'}>
+              <Typography
+                component={'h1'}
+                sx={{
+                  textAlign: 'center',
+                }}
+                variant={'h5'}
+              >
                 {gig.title}
               </Typography>
               <Button variant="contained">Discover My Work on Fiverr</Button>

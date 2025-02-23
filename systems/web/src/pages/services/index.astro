@@ -26,8 +26,8 @@ const gigs = await prepareGigListingProps(page.gigs);
 
         <Main>
             <HeadingSection overview={page.overview}/>
-            <ServiceListingSection client:load products={products}/>
             <GigListingSection gigs={gigs}/>
+            <ServiceListingSection client:load products={products}/>
             <BottomOverlay/>
         </Main>
     </Page>
