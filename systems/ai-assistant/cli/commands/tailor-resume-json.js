@@ -310,7 +310,10 @@ const defaultResume = await web.loadResumeJSON();
 defaultResume.basics.summary = await generateTailoredSummary();
 defaultResume.basics.label = `${jdJson.company} - ${jdJson.title}`;
 await scheduler.wait(5000);
-defaultResume.meta = { highlightedKeywords: await generateTailoredSkills() };
+defaultResume.meta = {
+  highlightedKeywords: await generateTailoredSkills(),
+  id: jdJson.id,
+};
 await scheduler.wait(5000);
 
 await generateTailoredWork().then(works =>
@@ -343,5 +346,5 @@ await fs.writeFile(
 );
 
 console.log(
-  `Use VITE_RESUME_SOURCE=${jdJson.id}.json to use the tailored resume in resume`,
+  `Use VITE_IS_TAILORED_RESUME=true VITE_RESUME_SOURCE=${jdJson.id}.json to use the tailored resume in resume`,
 );

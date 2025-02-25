@@ -68,4 +68,4 @@ Use my portfolio material wherever possible to support the generated questions, 
   },
 ];
 
-openAi.prompt(prompts).then(openAi.readMessageFromPrompt).then(console.log);
+openAi.prompt(prompts).then(openAi.withFeedbackLoop(openAi.prompt));

@@ -12,7 +12,7 @@ services:
         condition: service_healthy
     entrypoint: /bin/bash
     environment:
-      VITE_JSON_RESUME_URL: http://web:4321/portfolio/resume.json
+      VITE_RESUME_SOURCE: http://web:4321/portfolio/resume.json
     volumes:
       - bind:
           create_host_path: true
