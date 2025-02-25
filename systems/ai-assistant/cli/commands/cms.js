@@ -3,6 +3,7 @@ import { gql } from 'graphql-tag';
 import { fetch } from 'openai/_shims/index';
 
 const cmsBaseUrl = 'http://localhost:4001';
+
 export function getHomePageData() {
   return fetch(new URL('/graphql', cmsBaseUrl), {
     body: JSON.stringify({
@@ -37,6 +38,11 @@ export function getResumeData() {
           resume(relativePath: "resume.json") {
             basics {
               summary
+            }
+            projects {
+              name
+              description
+              highlights
             }
           }
         }
@@ -101,10 +107,11 @@ export function gerWorkExperienceData() {
           experience(relativePath: "index.md") {
             works {
               name
-              description
+              resumeSummary
+              portfolioIntro
               period
               keywords
-              brief
+              detailedDescription
               role
             }
           }

@@ -259,6 +259,7 @@ The response must strictly adhere to the following structure:
     "fieldName": "ok | missing | invalid" // Detailed validation for each field based on its presence and validity.
   },
   "schema": {} // The final structured job description strictly following the schema below. Use 'null' for missing fields.
+  "id": "string" // A unique identifier for the JD, formatted dynamically based on field availability.
 }
 \`\`\`
 
@@ -308,7 +309,24 @@ ${JSON.stringify(jobDescriptionSchema, null, 2)}
    - Tailor the message dynamically based on the input JD:
      - Highlight missing fields by name.
      - Reference job title or company if available to provide context in the message, e.g.,:
-       - "Processed successfully for the role 'Full Stack Developer'. Missing optional fields: salary, experience."`,
+       - "Processed successfully for the role 'Full Stack Developer'. Missing optional fields: salary, experience."
+7. **Unique ID Generation**:
+   - Always generate a unique ID for the JD:
+     - **If both \`companyName\` and \`title\` (role) are present:**
+       Format it as \`{companyName}-{role}-{4 digit hash}\`.
+     - **If \`title\` (role) is missing:**
+       Format it as \`{companyName}-{4 digit hash}\`.
+     - **If \`companyName\` is missing:**
+       Replace it with \`UnknownCompany\`.
+     - **Hash Logic:**
+       Generate the hash deterministically from the JD content to ensure identical inputs produce the same ID.
+       Truncate the hash to the first 4 characters for brevity.
+     - **Fallback Examples:**
+       - \`TechCorp-SoftwareEngineer-1e4a\`
+       - \`TechCorp-1e4a\` if \`title\` is missing.
+       - \`UnknownCompany-ab12\` if \`companyName\` is missing.
+
+`,
       role: 'system',
     },
     {
@@ -331,7 +349,13 @@ ${jobDescription}
   console.log(transformedJD.message);
 
   // Extract the response and return it
-  return JSON.stringify(transformedJD.schema, null, 2);
+  return JSON.stringify(
+    Object.assign(transformedJD.schema, {
+      id: transformedJD.id.toLowerCase(),
+    }),
+    null,
+    2,
+  );
 }
 
 export async function loadPortfolioIntoPrompts() {
