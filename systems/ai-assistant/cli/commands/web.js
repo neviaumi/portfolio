@@ -16,6 +16,12 @@ function onlyAccept2XXResponse(resp) {
   return resp;
 }
 
+export function loadResumeJSON() {
+  return fetch(new URL('/portfolio/resume.json', portfolioBaseUrl))
+    .then(onlyAccept2XXResponse)
+    .then(resp => resp.json());
+}
+
 export function loadHomePage() {
   return fetch(new URL('/portfolio', portfolioBaseUrl))
     .then(resp => resp.text())
