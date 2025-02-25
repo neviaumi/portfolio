@@ -1,3 +1,5 @@
+import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import playwright from 'playwright';
 import { createServer } from 'vite';
@@ -51,4 +53,21 @@ async function generateResumeToPDF(pdfPath) {
   await server.close();
 }
 
-await generateResumeToPDF(path.join(WORKSPACE_ROOT, 'public', 'resume.pdf'));
+const resumePdfFileName = await (async () => {
+  const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
+    ? true
+    : false;
+  const resumeSource = process.env['VITE_RESUME_SOURCE'];
+  if (!useTailoredResume) return 'resume.pdf';
+  return fs
+    .readFile(path.join(os.tmpdir(), resumeSource), { encoding: 'utf8' })
+    .then(JSON.parse)
+    .then(({ meta: { id } }) => `${id}.pdf`);
+})();
+
+await generateResumeToPDF(
+  path.join(WORKSPACE_ROOT, 'public', resumePdfFileName),
+);
+console.log(
+  `Resume PDF generated at ${path.join('public', resumePdfFileName)}`,
+);
