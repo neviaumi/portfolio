@@ -100,7 +100,7 @@ ${education.map(edu => `        \\item[-] ${edu.studyType} in ${edu.area}, ${edu
 \\end{document}`;
 }
 
-(async () => {
+async function fetchResumeJson() {
   const os = await import('node:os');
   const fs = await import('node:fs/promises');
   const path = await import('node:path');
@@ -118,11 +118,20 @@ ${education.map(edu => `        \\item[-] ${edu.studyType} in ${edu.area}, ${edu
       .then(JSON.parse);
   }
   return fetch(resumeSource).then(res => res.json());
-})()
+}
+fetchResumeJson()
   .then(resumeToLatex)
   .then(async latexText => {
     const workspace = await import('./workspace.js');
     const fs = await import('node:fs/promises');
-    await fs.writeFile(`${workspace.PUBLIC_FOLDER}/resume.tex`, latexText);
+    const fileName = await (async () => {
+      const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
+        ? true
+        : false;
+      if (!useTailoredResume) return 'resume.tex';
+      const resumeJson = await fetchResumeJson();
+      return resumeJson.meta.id + '.tex';
+    })();
+    await fs.writeFile(`${workspace.PUBLIC_FOLDER}/${fileName}`, latexText);
     return latexText;
   });
