@@ -17,7 +17,7 @@ services:
       - bind:
           create_host_path: true
         source: ./dist
-        target: /app/public
+        target: /app/dist
         type: bind
   web:
     command: ./scripts/docker/build.sh
