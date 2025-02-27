@@ -2,7 +2,13 @@ export function resumeToLatex(resume) {
   function escapes(source) {
     return source.replaceAll('&', '\\&');
   }
-  const { basics, education, skills, work: works } = resume,
+  const {
+      basics,
+      education,
+      meta: { highlightedKeywords: generatedHighlightKeywords } = {},
+      skills,
+      work: works,
+    } = resume,
     flattenSkills = skills
       .map(skill => [skill.name, skill.keywords])
       .reduce((acc, item) => {
@@ -13,9 +19,18 @@ export function resumeToLatex(resume) {
         }
         return acc;
       }, {}),
+    allKeywords = Object.values(flattenSkills).flat(),
     githubProfileUrl = basics.profiles.find(
       profile => profile.network === 'Github',
     ).url,
+    highlightedKeywords = (input => {
+      if (input.length === 0) return null;
+      return input;
+    })(
+      generatedHighlightKeywords?.filter(keyword =>
+        allKeywords.includes(keyword),
+      ) ?? [],
+    ),
     linkedInProfileUrl = basics.profiles.find(
       profile => profile.network === 'Linkedin',
     ).url;
@@ -80,6 +95,12 @@ LinkedIn: ${linkedInProfileUrl}
             
     \\section{TECHNICAL SKILLS}
     \\begin{itemize}
+${
+  highlightedKeywords
+    ? `        \\raggedright
+        \\item[-] Highlighted: ${escapes(highlightedKeywords.join(', '))}`
+    : ''
+}    
 ${Object.entries(flattenSkills)
   .map(
     ([skill, keywords]) =>
@@ -104,11 +125,10 @@ async function fetchResumeJson() {
   const os = await import('node:os');
   const fs = await import('node:fs/promises');
   const path = await import('node:path');
-  const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
-    ? true
-    : false;
+  const useTailoredResume =
+    process.env['VITE_IS_TAILORED_RESUME'] === 'true' ? true : false;
   const resumeSource =
-    process.env['VITE_RESUME_SOURCE'] ??
+    process.env['VITE_RESUME_SOURCE'] ||
     'https://neviaumi.github.io/portfolio/resume.json';
   if (useTailoredResume) {
     return fs
