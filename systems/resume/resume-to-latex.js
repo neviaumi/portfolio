@@ -1,0 +1,128 @@
+export function resumeToLatex(resume) {
+  function escapes(source) {
+    return source.replaceAll('&', '\\&');
+  }
+  const { basics, education, skills, work: works } = resume,
+    flattenSkills = skills
+      .map(skill => [skill.name, skill.keywords])
+      .reduce((acc, item) => {
+        if (acc[item[0]]) {
+          acc[item[0]].push(...item[1]);
+        } else {
+          acc[item[0]] = item[1];
+        }
+        return acc;
+      }, {}),
+    githubProfileUrl = basics.profiles.find(
+      profile => profile.network === 'Github',
+    ).url,
+    linkedInProfileUrl = basics.profiles.find(
+      profile => profile.network === 'Linkedin',
+    ).url;
+  return `\\documentclass{res}
+
+\\name{${basics.name}}
+\\address{${basics.location.region}}
+\\address{${basics.email}}
+
+\\begin{document}
+Name: ${basics.name}
+\\\\
+Position Applied For: ${basics.label}
+\\\\
+Email: ${basics.email}
+\\\\
+Address: ${basics.location.region}
+\\\\
+My website: https://neviaumi.github.io/portfolio/resume
+\\\\
+Github: ${githubProfileUrl}
+\\\\
+LinkedIn: ${linkedInProfileUrl}
+\\\\
+    \\section{ABOUT THIS DOCUMENT}
+    This document has been optimized for Applicant Tracking Systems (ATS) to ensure accurate parsing and alignment with job-specific requirements.
+    For a comprehensive view of my portfolio and additional details, please visit: https://neviaumi.github.io/portfolio/resume
+\\
+\\
+
+    \\hyphenpenalty=10000
+    \\exhyphenpenalty=10000
+    \\section{Summary}
+    ${basics.summary}
+\\
+\\  
+    \\section{EXPERIENCE}
+    \\begin{itemize}
+        ${works
+          .map(work => {
+            return `\\item[-] ${work.position} | ${work.company}, ${work.location} | ${work.startDate} - ${work.endDate}
+        ${work.summary ? `\\\\ \\textit{Role Summary:} ${work.summary.trim()}` : ''}
+        ${
+          work.highlights
+            ? `\\\\ \\textbf{Highlighted:}
+        \\begin{itemize}
+            ${work.highlights
+              ?.map(highlight => {
+                return `\\item[-] ${highlight}`;
+              })
+              .join('\n')}
+        \\end{itemize}`
+            : ''
+        }
+         
+`;
+          })
+          .join('\n')}
+    \\end{itemize}
+\\
+\\  
+            
+    \\section{TECHNICAL SKILLS}
+    \\begin{itemize}
+${Object.entries(flattenSkills)
+  .map(
+    ([skill, keywords]) =>
+      `        \\raggedright
+        \\item[-] ${skill}: ${escapes(keywords.join(', '))}`,
+  )
+  .join('\n')}
+    \\end{itemize}
+\\
+\\  
+    \\section{EDUCATION}
+    \\begin{itemize}
+${education.map(edu => `        \\item[-] ${edu.studyType} in ${edu.area}, ${edu.institution} \\hfill ${edu.startDate} - ${edu.endDate}`).join('\n')}
+    \\end{itemize}
+
+    
+
+\\end{document}`;
+}
+
+(async () => {
+  const os = await import('node:os');
+  const fs = await import('node:fs/promises');
+  const path = await import('node:path');
+  const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
+    ? true
+    : false;
+  const resumeSource =
+    process.env['VITE_RESUME_SOURCE'] ??
+    'https://neviaumi.github.io/portfolio/resume.json';
+  if (useTailoredResume) {
+    return fs
+      .readFile(path.join(os.tmpdir(), resumeSource), {
+        encoding: 'utf8',
+      })
+      .then(JSON.parse);
+  }
+  return fetch(resumeSource).then(res => res.json());
+})()
+  .then(resumeToLatex)
+  .then(async latexText => {
+    const workspace = await import('./workspace.js');
+    const fs = await import('node:fs/promises');
+    await fs.writeFile(`${workspace.PUBLIC_FOLDER}/resume.tex`, latexText);
+    return latexText;
+  });
