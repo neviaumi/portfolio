@@ -1,7 +1,8 @@
 import * as openAI from './open-ai.js';
 import { getAssetContent } from './workspace.js';
 
-const hiringManagerMessage = `Martin: Looking forward to hearing from you, don't hesitate and reach out if you're interested in finding out more!`;
+// const hiringManagerMessage = `Martin: Looking forward to hearing from you, don't hesitate and reach out if you're interested in finding out more!`;
+const hiringManagerMessage = null;
 
 const prompts = [
   openAI.jdSystem,

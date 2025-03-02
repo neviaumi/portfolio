@@ -5,6 +5,36 @@ introduction: >-
   Welcome to my FAQ section! Here, I answer some common questions about my work
   experience, problem-solving approach, and what I look for in a team.
 questions:
+  - question: >-
+      Tell me about a time when you faced a significant technical challenge in
+      your development work. How did you approach solving it, and what was the
+      outcome?
+    answer: "#### ⭐ Situation:\n\nIn a previous project, we faced a major challenge with our production release. Upper management wanted every feature to be fully complete and suitable for all users before going live. This created an endless development cycle, where requirements kept changing, and the product never reached production.\n\n#### \U0001F3AF Task:\n\nTo break this cycle, I explored ways to allow incremental releases while keeping unfinished features hidden from end users. My goal was to find a solution that would enable us to deploy continuously without delaying progress.\n\n#### \U0001F680 Action:\n\nI researched and introduced the concept of feature flags to the team. I conducted a proof of concept (PoC) demonstrating how we could toggle features on or off for specific users using a feature flag service. This would allow us to deploy features gradually, test in production, and reduce risk.\n\nHowever, the SaaS-based feature flag solution required compliance approval, which became a bottleneck, delaying implementation. While waiting for approval, I explored alternative self-hosted options, but due to organizational constraints, we couldn’t proceed with those either.\n\n#### \U0001F3C6 Result:\n\nUnfortunately, before I left the project, the compliance approval was still pending, and the feature flag solution hadn't been implemented. However, my research and PoC helped raise awareness of the problem, and discussions were ongoing to adopt an incremental release strategy. This experience reinforced the importance of balancing technical feasibility with organizational constraints.\n"
+    group: "\U0001F6E0 Problem-Solving & Challenges"
+  - question: How do you handle disagreements with co-workers?
+    answer: >
+      In a sprint planning session, my co-worker and I had different ideas on
+      how to handle user onboarding for an internal SSO system. They suggested a
+      manual process where new employees had to log in first before
+      administrators could assign permissions. While this worked, it created
+      inefficiencies since administrators couldn’t pre-configure user access in
+      advance.
+
+
+      I believed we could automate this, so I researched Google Workspace’s
+      capabilities and found that we could use webhooks to sync user accounts
+      instantly. Instead of just rejecting my co-worker’s idea, I presented my
+      findings during planning, showing how automation would reduce manual work
+      and improve efficiency. Our Product Owner approved the idea, and I worked
+      with QA and DevOps to implement it.
+
+
+      In the end, we successfully integrated the webhook, eliminating
+      unnecessary manual steps and streamlining onboarding. This experience
+      reinforced the importance of constructive discussions—by listening to
+      different ideas, researching alternatives, and working together, we
+      arrived at a solution that benefited everyone.
+    group: "\U0001F6E0 Problem-Solving & Challenges"
   - question: What is the most challenging aspect of your current project?
     answer: >
       The most challenging aspect of developing my portfolio has been writing
