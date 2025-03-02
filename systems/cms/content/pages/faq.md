@@ -6,6 +6,105 @@ introduction: >-
   experience, problem-solving approach, and what I look for in a team.
 questions:
   - question: >-
+      Tell me about a time when you had to develop a new skill. How did you
+      approach the learning process?
+    answer: >
+      #### Situation
+
+
+      In one of my projects, the lack of automated tests caused inefficiencies,
+      with tickets frequently bouncing between Development and QA as new bugs
+      were discovered during testing.
+
+
+      #### Task
+
+
+      Recognizing the need for a more efficient solution, I decided to develop a
+      new skill in automated testing frameworks. Though I had limited experience
+      in this area, I wanted to learn how to effectively implement automated
+      tests to improve the development process.
+
+
+      #### Action
+
+
+      I began by researching automated testing frameworks, studying
+      documentation, and taking relevant courses. After gaining foundational
+      knowledge, I created proof-of-concept (POC) tests for components, APIs,
+      and integration. I documented my findings in an Architectural Decision
+      Record (ADR) and presented the POC to the team to gather feedback and
+      refine the approach. This allowed me to learn not only from my own work
+      but also from the collective insights of the team.
+
+
+      #### Result
+
+
+      My efforts led to successfully integrating automated tests into the
+      project. This significantly reduced the back-and-forth between Development
+      and QA, speeding up our release cycle and improving the overall quality.
+      Through this process, I gained confidence in automated testing and learned
+      how to apply new skills in a practical setting.
+    group: "\U0001F6E0 Problem-Solving & Challenges"
+  - question: Please tell me about some of your strengths and weaknesses.
+    answer: >
+      #### Strengths
+
+
+      My greatest strengths are my commitment to continuous improvement and my
+      reliability as a team player. I actively seek ways to optimize
+      processes—whether by introducing automated formatting tools or
+      implementing robust defensive testing practices—and I'm always ready to
+      support my colleagues whenever needed.
+
+
+      #### Weaknesses
+
+
+      One area I’m working to improve is communicating complex technical
+      concepts during video calls. I sometimes find it challenging to analyze
+      and explain intricate features virtually, as I rely on visual aids and
+      diagrams to ensure clarity. To address this, I'm exploring additional
+      collaborative tools such as screen sharing and interactive whiteboards,
+      and I'm making an effort to schedule smaller, more focused meetings when
+      needed.
+    group: "\U0001F4CC Work Preferences & Ideal Role"
+  - question: What are your career goals for the next five years?
+    answer: >
+      In the next five years, I aim to become a more accountable and impactful
+      software engineer by taking full ownership of key platform
+      components—ensuring their stability, scalability, and continuous
+      improvement. I also plan to develop my leadership skills by gradually
+      taking on project management responsibilities, collaborating across teams,
+      and learning from experienced mentors. Ultimately, I hope to lead small
+      feature teams and contribute to strategic decision-making.
+
+
+      To achieve this, I will:
+
+
+      * Develop leadership skills: Gain hands-on experience in project
+      management and cross-functional collaboration to guide teams in creating
+      innovative, efficient solutions.
+
+      * Deepen my expertise in cloud infrastructure and DevOps: Enhance system
+      scalability, reliability, and deployment efficiency through focused
+      learning and practical application.
+
+      * Commit to continuous learning: Pursue professional certifications—such
+      as the Google UX Design Professional Certificate or DevOps Professional
+      Certificate—to stay current with industry best practices.
+
+      * Mentor junior developers: Foster a collaborative environment that
+      emphasizes knowledge sharing and professional growth.
+
+
+      In the long term, I aspire to be part of a dynamic team that values
+      agility, innovation, and user-centric development, contributing to
+      meaningful advancements in technology.
+    group: "\U0001F4CC Work Preferences & Ideal Role"
+  - question: >-
       Tell me about a time when you faced a significant technical challenge in
       your development work. How did you approach solving it, and what was the
       outcome?
