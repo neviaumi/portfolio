@@ -6,6 +6,52 @@ introduction: >-
   experience, problem-solving approach, and what I look for in a team.
 questions:
   - question: >-
+      Tell me about a time you made a mistake. How did you communicate that
+      mistake?
+    answer: >
+      In a previous project, I had the opportunity to build a custom in-app
+      notification system to replace an existing SaaS solution. We needed to
+      decide on the technical stack and approach to integrate business logic and
+      tooling effectively.
+
+
+      Without conducting deep research or strategic evaluation, I proposed using
+      ActivityPub for message transfer and InversifyJS for dependency injection,
+      assuming they would be a good fit. However, as development progressed, we
+      encountered significant challenges.
+
+
+      * ActivityPub was overly complex for our use case, making implementation
+      difficult.
+
+      * InversifyJS had an unfriendly developer experience, which slowed down
+      our progress.
+
+
+      As a result, our team of four developers spent two weeks solely on backend
+      configuration, barely managing to get a working prototype—with no frontend
+      demo ready by the deadline. We realized these technology choices were a
+      mistake only after development was well underway.
+
+
+      When we missed the development timeline, I acknowledged my mistake during
+      the retrospective meeting. I took full responsibility, apologized to the
+      team, and committed to refactoring the complex codebase in the future.
+      However, before we got the chance to revisit it, the business requirements
+      changed, and the project was ultimately deprecated.
+
+
+      This experience taught me the importance of validating technical decisions
+      upfront. Had I conducted a proof of concept (PoC) or gathered more
+      feedback before committing, we could have avoided wasted effort and
+      delays.
+
+
+      Now, before introducing new technologies into a project, I thoroughly
+      evaluate feasibility, conduct PoCs, and seek input from colleagues to
+      ensure alignment with the project’s needs.
+    group: "\U0001F6E0 Problem-Solving & Challenges"
+  - question: >-
       Tell me about a time when you had to develop a new skill. How did you
       approach the learning process?
     answer: >
@@ -30,12 +76,12 @@ questions:
 
 
       I began by researching automated testing frameworks, studying
-      documentation, and taking relevant courses. After gaining foundational
-      knowledge, I created proof-of-concept (POC) tests for components, APIs,
-      and integration. I documented my findings in an Architectural Decision
-      Record (ADR) and presented the POC to the team to gather feedback and
-      refine the approach. This allowed me to learn not only from my own work
-      but also from the collective insights of the team.
+      documentation. After gaining foundational knowledge, I created
+      proof-of-concept (POC) tests for components and APIs. I documented my
+      findings in an Architectural Decision Record (ADR) and presented the POC
+      to the team to gather feedback and refine the approach. This allowed me to
+      learn not only from my own work but also from the collective insights of
+      the team.
 
 
       #### Result
