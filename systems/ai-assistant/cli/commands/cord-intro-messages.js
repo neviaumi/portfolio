@@ -1,7 +1,7 @@
 import * as openAI from './open-ai.js';
 import { getAssetContent } from './workspace.js';
 
-// const hiringManagerMessage = `Martin: Looking forward to hearing from you, don't hesitate and reach out if you're interested in finding out more!`;
+// const hiringManagerMessage = `Lisa Hsieh: Let us know a bit about your full stack experience: how your frontend skills compare to your backend skills, and which are your primary coding languages for both.`;
 const hiringManagerMessage = null;
 
 const prompts = [

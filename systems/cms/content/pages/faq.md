@@ -5,6 +5,30 @@ introduction: >-
   Welcome to my FAQ section! Here, I answer some common questions about my work
   experience, problem-solving approach, and what I look for in a team.
 questions:
+  - question: How would you describe your working style?
+    answer: >
+      My working style is best described as collaborative, adaptive, and focused
+      on continuous improvement.
+
+
+      * I thrive in team environments where open discussions and knowledge
+      sharing are encouraged. I actively engage with teammates, provide
+      feedback, and adapt based on input to ensure we build the best solutions
+      together.
+
+      * I follow an iterative and adaptive approach, continuously refining my
+      work based on feedback and changing requirements. Instead of rigid
+      planning, I adjust as needed to align with project goals and team needs.
+
+      * I’m also committed to continuous improvement—whether through automation,
+      adopting better tools, or learning from past experiences. I actively seek
+      ways to optimize workflows and improve efficiency.
+
+
+      Overall, I approach work with a growth mindset, prioritize team
+      collaboration, and tackle challenges with a solution-driven attitude to
+      drive better outcomes.
+    group: "\U0001F4CC Work Preferences & Ideal Role"
   - question: >-
       Tell me about a time you made a mistake. How did you communicate that
       mistake?
