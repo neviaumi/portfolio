@@ -2,3 +2,4 @@ commands/chat.js
 commands/chat.*.js
 assets/jd.txt
 assets/*.json
+assets/*.pdf

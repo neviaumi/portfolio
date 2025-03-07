@@ -1,3 +1,22 @@
+export async function fetchResumeJson() {
+  const os = await import('node:os');
+  const fs = await import('node:fs/promises');
+  const path = await import('node:path');
+  const useTailoredResume =
+    process.env['VITE_IS_TAILORED_RESUME'] === 'true' ? true : false;
+  const resumeSource =
+    process.env['VITE_RESUME_SOURCE'] ||
+    'https://neviaumi.github.io/portfolio/resume.json';
+  if (useTailoredResume) {
+    return fs
+      .readFile(path.join(os.tmpdir(), resumeSource), {
+        encoding: 'utf8',
+      })
+      .then(JSON.parse);
+  }
+  return fetch(resumeSource).then(res => res.json());
+}
+
 export function resumeToLatex(resume) {
   function escapes(source) {
     return source.replaceAll('&', '\\&');
@@ -121,37 +140,23 @@ ${education.map(edu => `        \\item[-] ${edu.studyType} in ${edu.area}, ${edu
 \\end{document}`;
 }
 
-async function fetchResumeJson() {
-  const os = await import('node:os');
-  const fs = await import('node:fs/promises');
-  const path = await import('node:path');
-  const useTailoredResume =
-    process.env['VITE_IS_TAILORED_RESUME'] === 'true' ? true : false;
-  const resumeSource =
-    process.env['VITE_RESUME_SOURCE'] ||
-    'https://neviaumi.github.io/portfolio/resume.json';
-  if (useTailoredResume) {
-    return fs
-      .readFile(path.join(os.tmpdir(), resumeSource), {
-        encoding: 'utf8',
-      })
-      .then(JSON.parse);
-  }
-  return fetch(resumeSource).then(res => res.json());
+const isMainExecution =
+  import.meta.url === new URL(process.argv[1], 'file://').toString();
+if (isMainExecution) {
+  fetchResumeJson()
+    .then(resumeToLatex)
+    .then(async latexText => {
+      const workspace = await import('./workspace.js');
+      const fs = await import('node:fs/promises');
+      const fileName = await (async () => {
+        const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
+          ? true
+          : false;
+        if (!useTailoredResume) return 'resume.tex';
+        const resumeJson = await fetchResumeJson();
+        return resumeJson.meta.id + '.tex';
+      })();
+      await fs.writeFile(`${workspace.PUBLIC_FOLDER}/${fileName}`, latexText);
+      return latexText;
+    });
 }
-fetchResumeJson()
-  .then(resumeToLatex)
-  .then(async latexText => {
-    const workspace = await import('./workspace.js');
-    const fs = await import('node:fs/promises');
-    const fileName = await (async () => {
-      const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
-        ? true
-        : false;
-      if (!useTailoredResume) return 'resume.tex';
-      const resumeJson = await fetchResumeJson();
-      return resumeJson.meta.id + '.tex';
-    })();
-    await fs.writeFile(`${workspace.PUBLIC_FOLDER}/${fileName}`, latexText);
-    return latexText;
-  });

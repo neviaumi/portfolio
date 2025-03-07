@@ -1,11 +1,18 @@
+import _fs from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { pipeline } from 'node:stream/promises';
 import { scheduler } from 'node:timers/promises';
 
 import * as cms from './cms.js';
 import * as openAI from './open-ai.js';
+import {
+  generateTailoredATSResumePdf,
+  generateTailoredResumePdf,
+} from './resume.js';
 import * as web from './web.js';
 import {
+  ASSETS_FOLDER,
   getAssetContent,
   getTempDirectory,
   resolveAssetPath,
@@ -337,14 +344,19 @@ await generateTailoredProject().then(projects =>
 await scheduler.wait(5000);
 
 await fs.writeFile(
-  resolveAssetPath(`${jdJson.id}.json`),
-  JSON.stringify(defaultResume, null, 2),
-);
-await fs.writeFile(
   path.join(getTempDirectory(), `${jdJson.id}.json`),
   JSON.stringify(defaultResume, null, 2),
 );
 
-console.log(
-  `Use VITE_IS_TAILORED_RESUME=true VITE_RESUME_SOURCE=${jdJson.id}.json to use the tailored resume in resume`,
+await generateTailoredATSResumePdf(jdJson.id).then(data =>
+  pipeline(
+    data,
+    _fs.createWriteStream(resolveAssetPath(`ats-${jdJson.id}.pdf`)),
+  ),
 );
+
+await generateTailoredResumePdf(jdJson.id).then(data =>
+  pipeline(data, _fs.createWriteStream(resolveAssetPath(`${jdJson.id}.pdf`))),
+);
+
+console.log(`Check file named with ${jdJson.id} on ${ASSETS_FOLDER}`);
