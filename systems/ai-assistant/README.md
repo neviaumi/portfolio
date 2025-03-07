@@ -139,9 +139,9 @@ You can utilize the `ai-assistant` system for various purposes, including runnin
       ```bash
       node cli/commands/resume-summary.js
       ```
-    - To manage a CMS:
+    - To generate cord intro messages:
       ```bash
-      node cli/commands/cms.js
+      op run --env-file="./.env" -- node ./commands/cord-intro-messages.js
       ```
 
 Refer to specific command scripts in the `cli/commands` directory for more examples.

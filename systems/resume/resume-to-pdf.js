@@ -4,13 +4,12 @@ import path from 'node:path';
 import playwright from 'playwright';
 import { createServer } from 'vite';
 
-const WORKSPACE_ROOT = path.resolve(import.meta.dirname);
+import { WORKSPACE_ROOT } from './workspace.js';
 
-async function generateResumeToPDF(pdfPath) {
+export async function generateResumeToPDF(pdfPath) {
   const server = await createServer({
     server: {
-      host: '0.0.0.0',
-      port: 8080,
+      port: 8081,
     },
   });
   await server.listen();
@@ -37,7 +36,7 @@ async function generateResumeToPDF(pdfPath) {
   });
 
   await page.emulateMedia({ media: 'print' });
-  await page.goto(`http://localhost:8080/`, {
+  await page.goto(`http://localhost:8081/`, {
     waitUntil: 'networkidle',
   });
   // await page.waitForSelector('json-resume'); // Update selector as needed
@@ -53,21 +52,26 @@ async function generateResumeToPDF(pdfPath) {
   await server.close();
 }
 
-const resumePdfFileName = await (async () => {
-  const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
-    ? true
-    : false;
-  const resumeSource = process.env['VITE_RESUME_SOURCE'];
-  if (!useTailoredResume) return 'resume.pdf';
-  return fs
-    .readFile(path.join(os.tmpdir(), resumeSource), { encoding: 'utf8' })
-    .then(JSON.parse)
-    .then(({ meta: { id } }) => `${id}.pdf`);
-})();
+const isMainExecution =
+  import.meta.url === new URL(process.argv[1], 'file://').toString();
 
-await generateResumeToPDF(
-  path.join(WORKSPACE_ROOT, 'public', resumePdfFileName),
-);
-console.log(
-  `Resume PDF generated at ${path.join('public', resumePdfFileName)}`,
-);
+if (isMainExecution) {
+  const resumePdfFileName = await (async () => {
+    const useTailoredResume = process.env['VITE_IS_TAILORED_RESUME']
+      ? true
+      : false;
+    const resumeSource = process.env['VITE_RESUME_SOURCE'];
+    if (!useTailoredResume) return 'resume.pdf';
+    return fs
+      .readFile(path.join(os.tmpdir(), resumeSource), { encoding: 'utf8' })
+      .then(JSON.parse)
+      .then(({ meta: { id } }) => `${id}.pdf`);
+  })();
+
+  await generateResumeToPDF(
+    path.join(WORKSPACE_ROOT, 'public', resumePdfFileName),
+  );
+  console.log(
+    `Resume PDF generated at ${path.join('public', resumePdfFileName)}`,
+  );
+}
