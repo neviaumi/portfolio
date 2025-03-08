@@ -2,6 +2,7 @@ import { exec as _exec } from 'node:child_process';
 import fs from 'node:fs/promises';
 // Import the built-in http module
 import { createServer } from 'node:http';
+import os from 'node:os';
 import path from 'node:path';
 import { promisify } from 'node:util';
 
@@ -69,6 +70,33 @@ async function handleResumeToPDF(req, res) {
     });
 }
 
+async function handleUploadResume(req, res) {
+  const resume = await (() => {
+    const chunks = [];
+    req.on('data', chunk => {
+      chunks.push(chunk);
+    });
+    return new Promise(resolve => {
+      req.on('end', () => {
+        resolve(JSON.parse(Buffer.concat(chunks).toString()));
+      });
+    });
+  })();
+  const resumeId = decodeURIComponent(
+    req.url.match(/^\/api\/resume\/([^/]+)$/)[1],
+  );
+  if (resumeId !== resume.meta.id) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Invalid resume ID' }));
+    return;
+  }
+  const resumeJson = JSON.stringify(resume);
+  const dest = path.join(os.tmpdir(), `${resumeId}.json`);
+  await fs.writeFile(dest, resumeJson);
+  res.writeHead(202, { 'Content-Type': 'application/json' });
+  res.end();
+}
+
 // Create the HTTP server
 const server = createServer(async (req, res) => {
   const { headers, method, url } = req;
@@ -77,9 +105,11 @@ const server = createServer(async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
 
   const routeExists =
-    ['/api/resume/ats-resume-to-pdf', '/api/resume/resume-to-pdf'].includes(
+    (['/api/resume/ats-resume-to-pdf', '/api/resume/resume-to-pdf'].includes(
       requestUrl.pathname,
-    ) && method === 'GET';
+    ) &&
+      method === 'GET') ||
+    (method === 'POST' && /^\/api\/resume\/([^/]+)$/.test(requestUrl.pathname));
 
   if (!routeExists) {
     // Handle 404 for unhandled routes
@@ -89,9 +119,15 @@ const server = createServer(async (req, res) => {
   }
   if (requestUrl.pathname === '/api/resume/resume-to-pdf') {
     await handleResumeToPDF(req, res);
+    return;
   }
   if (requestUrl.pathname === '/api/resume/ats-resume-to-pdf') {
     await handleATSResumeToPDF(req, res);
+    return;
+  }
+  if (/^\/api\/resume\/([^/]+)$/.test(requestUrl.pathname)) {
+    await handleUploadResume(req, res);
+    return;
   }
 });
 
