@@ -1,6 +1,5 @@
 import _fs from 'node:fs';
 import fs from 'node:fs/promises';
-import path from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import { scheduler } from 'node:timers/promises';
 
@@ -9,12 +8,12 @@ import * as openAI from './open-ai.js';
 import {
   generateTailoredATSResumePdf,
   generateTailoredResumePdf,
+  uploadResumeJson,
 } from './resume.js';
 import * as web from './web.js';
 import {
   ASSETS_FOLDER,
   getAssetContent,
-  getTempDirectory,
   resolveAssetPath,
 } from './workspace.js';
 
@@ -343,10 +342,7 @@ await generateTailoredProject().then(projects =>
 );
 await scheduler.wait(5000);
 
-await fs.writeFile(
-  path.join(getTempDirectory(), `${jdJson.id}.json`),
-  JSON.stringify(defaultResume, null, 2),
-);
+await uploadResumeJson(jdJson.id, defaultResume);
 
 await generateTailoredATSResumePdf(jdJson.id).then(data =>
   pipeline(
