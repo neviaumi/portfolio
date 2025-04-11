@@ -1,0 +1,19 @@
+[project]
+name = "@portfolio/ai-assistant-cli"
+version = "0.1.0"
+description = "AI assisted CLI for job hunting"
+authors = [
+    {name = "David Ng", email = "david.ng.dev@gmail.com"},
+]
+dependencies = ["mcp[cli]>=1.6.0", "httpx>=0.28.1", "openai-agents>=0.0.8"]
+requires-python = "==3.12.4"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+save_exact = true
+[dependency-groups]
+dev = [
+    "black==25.1.0",
+]
