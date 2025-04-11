@@ -45,6 +45,7 @@ ${timelineSectionData
       `- article "Work Details":
 ${workDetailsSectionData
   .slice(0, 4)
+  .filter((work: any) => work.detailedDescription)
   .map((work: any) =>
     !work.workReferences
       ? `  - heading "${work.role} at ${work.name}" [level=2]

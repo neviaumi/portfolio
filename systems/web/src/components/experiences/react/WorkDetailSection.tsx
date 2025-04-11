@@ -59,46 +59,49 @@ export default function WorkDetailsSection({ works }: { works: Array<Work> }) {
       }}
       title={'Work Details'}
     >
-      {works.slice(0, 4).map((work: Work) => {
-        return (
-          <Card
-            aria-description={work.detailedDescription}
-            component={'section'}
-            id={work.name}
-            key={work.name}
-            title={work.name}
-          >
-            <CardHeader
-              slotProps={{
-                subheader: {
-                  component: 'h3',
-                  variant: 'body2',
-                },
-                title: {
-                  component: 'h2',
-                  variant: 'h5',
-                },
-              }}
-              slots={{
-                subheader: Typography,
-                title: Typography,
-              }}
-              subheader={`${work.period}, ${work.location}`}
-              title={`${work.role} at ${work.name}`}
-            />
-            <CardContent>
-              <Typography variant={'body1'}>
-                {work.detailedDescription}
-              </Typography>
-            </CardContent>
-            {work.workReferences && (
-              <WorkReference
-                references={work.workReferences.map(ref => ref.references)}
+      {works
+        .slice(0, 4)
+        .filter(work => work.detailedDescription)
+        .map((work: Work) => {
+          return (
+            <Card
+              aria-description={work.detailedDescription}
+              component={'section'}
+              id={work.name}
+              key={work.name}
+              title={work.name}
+            >
+              <CardHeader
+                slotProps={{
+                  subheader: {
+                    component: 'h3',
+                    variant: 'body2',
+                  },
+                  title: {
+                    component: 'h2',
+                    variant: 'h5',
+                  },
+                }}
+                slots={{
+                  subheader: Typography,
+                  title: Typography,
+                }}
+                subheader={`${work.period}, ${work.location}`}
+                title={`${work.role} at ${work.name}`}
               />
-            )}
-          </Card>
-        );
-      })}
+              <CardContent>
+                <Typography variant={'body1'}>
+                  {work.detailedDescription}
+                </Typography>
+              </CardContent>
+              {work.workReferences && (
+                <WorkReference
+                  references={work.workReferences.map(ref => ref.references)}
+                />
+              )}
+            </Card>
+          );
+        })}
     </Box>
   );
 }
