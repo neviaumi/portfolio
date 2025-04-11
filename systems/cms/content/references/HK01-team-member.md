@@ -1,7 +1,6 @@
 ---
 name: Alex Yeung
-profilePicture: >-
-  https://media.licdn.com/dms/image/v2/C5603AQEA3StRPKX9vQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1636115228873?e=1741219200&v=beta&t=EbPfh0smErG-ib-tL4fHcuB8p_fBOgsMv0dKL7MoeW8
+profilePicture: 'https://static.licdn.com/aero-v1/sc/h/1c5u578iilxfi4m4dvc4q810q'
 relationship: HK01 Senior Software Engineer
 comments: >-
   I worked with David for the past two years, He is an innovative team player

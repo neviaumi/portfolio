@@ -86,6 +86,7 @@ ${cms.covertRichTextFieldToAriaYml(summarySectionData.careerOverview, 0)}`);
 - list:
 ${experiencesSectionData.works
   .slice(0, 4)
+  .filter((work: any) => work.portfolioIntro)
   .map((work: any) => {
     return `  - listitem "${work.name}":
     - link "${[work.name, work.role, work.portfolioIntro].join(' ')}":
