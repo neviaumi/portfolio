@@ -4,7 +4,7 @@ import { getAssetContent } from './workspace.js';
 const jd = await getAssetContent('jd.txt');
 
 // Define the specific job/title of the person conducting the interview
-const interviewerPosition = 'Talent Lead'; // Examples: 'Engineering Team', 'CTO', 'HR Manager', etc.
+const [, interviewerPosition = 'Talent Lead'] = process.argv; // Examples: 'Engineering Team', 'CTO', 'HR Manager', etc.
 
 const prompts = [
   openAi.jdSystem,

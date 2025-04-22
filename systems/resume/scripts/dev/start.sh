@@ -2,4 +2,4 @@
 
 set -ex
 
-npx vite dev
+node ./server.js
