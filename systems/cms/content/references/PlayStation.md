@@ -1,7 +1,6 @@
 ---
 name: Henrique Gabriel Rodrigues Cordeiro
-profilePicture: >-
-  https://media.licdn.com/dms/image/v2/C4E03AQHD2naWzqU6Ew/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1653468506377?e=1740009600&v=beta&t=dQiD6aCdT0aSzfaZO9o62hcdPLwtzyOPo7oz9yj3UoE
+profilePicture: 'https://static.licdn.com/aero-v1/sc/h/1c5u578iilxfi4m4dvc4q810q'
 relationship: PlayStation Software Engineer
 comments: >-
   I had the pleasure of working alongside Kong Chor at PlayStation, and I can

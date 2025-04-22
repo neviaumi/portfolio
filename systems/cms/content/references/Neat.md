@@ -1,7 +1,6 @@
 ---
 name: Rutger Huijsmans
-profilePicture: >-
-  https://media.licdn.com/dms/image/v2/C5603AQHG0DGILwvN2w/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1635254895654?e=1740009600&v=beta&t=qbnSH9amhvJLrwWK_A8vj5MLZr10uHGZCJ4fPU5pd6g
+profilePicture: 'https://static.licdn.com/aero-v1/sc/h/1c5u578iilxfi4m4dvc4q810q'
 relationship: Neat Lead Engineer
 comments: >-
   When I joined Neat I had limited experience with web development and
