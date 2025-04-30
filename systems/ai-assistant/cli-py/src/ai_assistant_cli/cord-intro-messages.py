@@ -1,36 +1,38 @@
 from agents.mcp import MCPServerStdio
 from agents import Agent, Runner
-from lib.read_lines import read_lines
+from utils.read_lines import read_lines
 import asyncio
+import sys
 
 
 async def main():
+    role_id = sys.argv[1]
     hiring_manager_message = read_lines("Message prompt from hiring manager: ")
     async with MCPServerStdio(
         params={
             "command": "pdm",
-            "args": ["run", "src/lib/mcp-servers/portfolio.py"],
+            "args": ["run", "src/ai_assistant_cli/mcp-servers/portfolio.py"],
         }
     ) as portfolio_mcp_server, MCPServerStdio(
         params={
             "command": "pdm",
-            "args": ["run", "src/lib/mcp-servers/jd.py"],
+            "args": ["run", "src/ai_assistant_cli/mcp-servers/jd.py"],
         }
     ) as jd_mcp_server, MCPServerStdio(
         params={
             "command": "pdm",
-            "args": ["run", "src/lib/mcp-servers/cord.py"],
+            "args": ["run", "src/ai_assistant_cli/mcp-servers/cord.py"],
         }
     ) as cord_mcp_server:
         agent = Agent(
             model="gpt-4.1-nano",
             name="Core Intro Message Assistant",
-            instructions="""You are assisting in crafting a professional introduction message for a job application listed on Cord. 
+            instructions=f"""You are assisting in crafting a professional introduction message for a job application listed on Cord. 
 
 **Objective**:
 Write a concise yet impactful message tailored for the hiring manager, leveraging information from:
 - The portfolio website.
-- The job description provided by the hiring manager.
+- The job description (role id: {role_id}) provided by the hiring manager.
 
 **Key points to include**:
 1. Briefly highlight the portfolio, available at: [https://neviaumi.github.io/portfolio?utm_source=cord]. Explain what can be explored, such as key projects or relevant experiences.

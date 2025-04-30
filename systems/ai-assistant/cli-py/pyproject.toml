@@ -1,17 +1,29 @@
 [project]
-name = "@portfolio/ai-assistant-cli"
+name = "ai-assistant-cli"
 version = "0.1.0"
 description = "AI assisted CLI for job hunting"
 authors = [
     {name = "David Ng", email = "david.ng.dev@gmail.com"},
 ]
-dependencies = ["mcp[cli]==1.6.0", "httpx==0.28.1", "openai-agents==0.0.8", "beautifulsoup4==4.13.4"]
+dependencies = ["mcp[cli]==1.6.0", "httpx==0.28.1", "openai-agents==0.0.8", "beautifulsoup4==4.13.4", "boto3==1.38.4", "ai-assistant-cli @ file:///${PROJECT_ROOT}/"]
 requires-python = "==3.12.4"
 readme = "README.md"
 license = {text = "MIT"}
 
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
 [tool.pdm]
 distribution = false
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "-e file:///${PROJECT_ROOT}/#egg=ai-assistant-cli",
+]
+
 [dependency-groups]
 dev = [
     "black==25.1.0",
