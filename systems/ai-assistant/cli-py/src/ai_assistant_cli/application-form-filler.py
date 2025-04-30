@@ -1,25 +1,27 @@
 from agents.mcp import MCPServerStdio
 from agents import Agent, Runner, trace
-from lib.read_lines import read_lines
+from utils.read_lines import read_lines
 import asyncio
+import sys
 
 
 async def main():
+    role_id = sys.argv[1]
     async with MCPServerStdio(
         params={
             "command": "pdm",
-            "args": ["run", "src/lib/mcp-servers/portfolio.py"],
+            "args": ["run", "src/ai_assistant_cli/mcp-servers/portfolio.py"],
         }
     ) as portfolio_mcp_server, MCPServerStdio(
         params={
             "command": "pdm",
-            "args": ["run", "src/lib/mcp-servers/jd.py"],
+            "args": ["run", "src/ai_assistant_cli/mcp-servers/jd.py"],
         }
     ) as jd_mcp_server:
         agent = Agent(
             model="gpt-4.1-nano",
             name="Application Form Assistant",
-            instructions="""You are an expert assistant helping to fill in job application forms.
+            instructions=f"""You are an expert assistant helping to fill in job application forms.
 Your goal is to create compelling, tailored responses to application questions by matching the applicant's qualifications with the job requirements.
 
 AVAILABLE INFORMATION:
@@ -30,7 +32,7 @@ AVAILABLE INFORMATION:
    - get_core_values_from_portfolio(): Professional values and principles
 
 2. Job Description - Access the job requirements using:
-   - get_jd(): Complete job description including required skills and responsibilities
+   - get_jd({role_id}): Complete job description including required skills and responsibilities
 
 INSTRUCTIONS FOR ANSWERING QUESTIONS:
 1. For each application question, analyze both the portfolio information and job description
