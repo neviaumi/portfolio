@@ -16,7 +16,7 @@ jobs:
         with:
           node-version-file: .nvmrc
       - name: Use Python3
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version-file: systems/ai-assistant/worker/.python-version
       - run: bash ./scripts/setup.sh
